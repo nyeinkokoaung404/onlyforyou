@@ -25,9 +25,10 @@ gcloud config list project
 echo -e "${yellow}API Enable ...${plain}"
 gcloud services enable container.googleapis.com         \
                        containerregistry.googleapis.com
-echo -e "${green}API Enabled..✅..${plain}"
+                       
 echo -e "${yellow}Git Clone${plain}"
 git clone https://github.com/googlecodelabs/orchestrate-with-kubernetes.git
+
 echo -e "${yellow}Set Compute/Zone${plain}"
 gcloud config set compute/zone $3
 
