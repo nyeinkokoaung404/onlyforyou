@@ -131,14 +131,14 @@
                 <li><small class="dropdown-item-text" style="color: primary;background-color: #CCE5FF;">For 4:30 lab</small></li>
                 
                 <li><a target="_blank" class="dropdown-item"
-                       href="https://nyeinkokoaung404.github.io/gcp-qwiklab/v1/" style="color: #fff;background-color: #5cb85c;">
+                       href="https://nyeinkokoaung404.github.io/onlyforyou/v1/" style="color: #fff;background-color: #5cb85c;">
                     🔶 Version > 1.0
                 </a></li>
                 
                 <li><small class="dropdown-item-text" style="color: primary;background-color: #CCE5FF;">7:00 lab</small></li>
 
                 <li><a target="_blank" class="dropdown-item"
-                       href="https://nyeinkokoaung404.github.io/gcp-qwiklab/v3/" style="color: #fff;background-color: #5cb85c;">
+                       href="https://nyeinkokoaung404.github.io/onlyforyou/v3/" style="color: #fff;background-color: #5cb85c;">
                     🔶 Version > 3.0
                 </a></li>
                 <li>
@@ -183,7 +183,7 @@
     
     <div class="text-nowrap">
         
-        <a style="color: #fff;background-color: #5cb85c;" href="http://nyeinkokoaung404.github.io/gcp-qwiklab/ssh" class="btn btn-primary">SSH</a>
+        <a style="color: #fff;background-color: #5cb85c;" href="http://nyeinkokoaung404.github.io/onlyforyou/ssh" class="btn btn-primary">SSH</a>
          </div>
     </div>
 
@@ -198,7 +198,7 @@
                     data-bs-toggle="tooltip" data-bs-placement="top" title="Copy">
                 <i class="bi bi-clipboard"></i>
             </button>
-            <code class="text-dark pe-3">bash <(curl -Ls https://raw.githubusercontent.com/nyeinkokoaung404/gcp-qwiklab/main/5%3A15-API.sh)</code>
+            <code class="text-dark pe-3">bash <(curl -Ls https://raw.githubusercontent.com/nyeinkokoaung404/onlyforyou/main/5%3A15-API.sh)</code>
         </div>
     <div class="mt-3 alert alert-primary">
         <h4>လုပ်ဆောင်ရန် (ပထမ အဆင့်)</h4>
@@ -222,7 +222,7 @@
                     data-bs-toggle="tooltip" data-bs-placement="top" title="Copy">
                 <i class="bi bi-clipboard"></i>
             </button>
-            <code class="text-dark pe-3">bash <(curl -Ls https://raw.githubusercontent.com/nyeinkokoaung404/gcp-qwiklab/main/firewall.sh)</code>
+            <code class="text-dark pe-3">bash <(curl -Ls https://raw.githubusercontent.com/nyeinkokoaung404/onlyforyou/main/firewall.sh)</code>
         </div>
         <div class="mt-3 alert alert-primary">
             <h6>Outline Manger (English Version)</h6>
@@ -240,7 +240,7 @@
     </div>
         
         <div class="col-6 col-sm-6 col-md-3 col-lg-2">
-            <label for="edtInstanceName" class="form-label">💠Instance name</label>
+            <label for="edtInstanceName" class="form-label">💠Instance Name</label>
             <div class="input-group">
                 <input spellcheck="false" value="cluster-1" type="text" class="form-control" id="edtInstanceName"
                        placeholder="cluster-1">
@@ -248,7 +248,7 @@
         </div>
 
         <div class="col-6 col-sm-6 col-md-6 col-lg-2">
-            <label for="machineType" class="form-label">💠Machine type</label>
+            <label for="machineType" class="form-label">💠Machine Type</label>
             <select id="machineType" class="form-select" aria-label="Machine type">
                 <optgroup label="Shared-core">
                     <option selected value="e2-medium">E2-Medium (2/4)</option>
@@ -381,7 +381,7 @@
     }
 
     function generateInstanceCodes(instanceName, machineType, regionZone, firewallName) {
-        return "bash <(curl -Ls https://raw.githubusercontent.com/nyeinkokoaung404/gcp-qwiklab/main/v2/create_instance.sh) \"{instanceName}\" \"{machineType}\" \"{regionZone}\" \"{firewallName}\" \"{token}\""
+        return "bash <(curl -Ls https://raw.githubusercontent.com/nyeinkokoaung404/onlyforyou/main/v2/create_instance.sh) \"{instanceName}\" \"{machineType}\" \"{regionZone}\" \"{firewallName}\" \"{token}\""
             .formatUnicorn({
                 instanceName: instanceName,
                 machineType: machineType,
