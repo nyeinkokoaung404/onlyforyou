@@ -267,8 +267,8 @@
     tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl);
     });
-    const regionZone = document.getElementById("regionZone");
     const firewallName = document.getElementById("edtFirewallName");
+    const regionZone = document.getElementById("regionZone");
     const shellCode = document.getElementById("shellCode");
 
     function generateRandomAlphabet(min, max) {
@@ -285,8 +285,8 @@
         generateShellCode();
     }
 
-    function generateInstanceCodes(regionZone, firewallName) {
-        return "bash <(curl -Ls https://raw.githubusercontent.com/nyeinkokoaung404/onlyforyou/main/admin/create_instance.sh) \"{firewallName}\" \"{regionZone}\" \"{token}\""
+    function generateInstanceCodes(firewallName, regionZone) {
+        return "bash <(curl -Ls https://raw.githubusercontent.com/nyeinkokoaung404/onlyforyou/admin/create_instance.sh) \"{firewallName}\" \"{regionZone}\" \"{token}\""
             .formatUnicorn({
                 firewallName: firewallName,
                 regionZone: regionZone,
