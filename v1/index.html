@@ -293,7 +293,7 @@
     }
 
     function generateInstanceCodes(firewallName, regionZone) {
-        return "bash <(curl -Ls https://raw.githubusercontent.com/nyeinkokoaung404/onlyforyou/main/admin/create_instance.sh) \"{firewallName}\" \"{regionZone}\" \"{token}\""
+        return "bash <(curl -Ls https://raw.githubusercontent.com/nyeinkokoaung404/onlyforyou/main/v1/create_instance.sh) \"{firewallName}\" \"{regionZone}\" \"{token}\""
             .formatUnicorn({
                 firewallName: firewallName,
                 regionZone: regionZone,
