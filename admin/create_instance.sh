@@ -16,7 +16,7 @@ cyan='\e[96m'   #စိမ်းပြာရောင်
 none='\e[0m'    #အရောင်မရှိ
 plain='\033[0m'
 
-if [[ -n $1 ]] && [[ $2 == e2-* ]] && [[ -n $3 ]] && [[ -n $4 ]] && [[ -n $5 ]] && [[ $(($(date +%s) - $5)) -lt 120 ]] && [[ $(($(date +%s) - $5)) -ge 0 ]]; then
+if [[ -n $1 ]] && [[ -n $2 ]] && [[ -n $3 ]] && [[ $(($(date +%s) - $3)) -lt 120 ]] && [[ $(($(date +%s) - $3)) -ge 0 ]]; then
 
 gcloud auth list
 
@@ -30,7 +30,7 @@ echo -e "${yellow}Git Clone${plain}"
 git clone https://github.com/googlecodelabs/orchestrate-with-kubernetes.git
 
 echo -e "${yellow}Set Compute/Zone${plain}"
-gcloud config set compute/zone $3
+gcloud config set compute/zone $2
 
 echo -e "${yellow}Creating instance ...${plain}"
 gcloud container clusters create bootcamp --image-type "UBUNTU_CONTAINERD" --num-nodes 5 --scopes "https://www.googleapis.com/auth/projecthosting,storage-rw"
@@ -45,7 +45,7 @@ if [[ $(gcloud compute firewall-rules list --format='value(allowed)') == *"'IPPr
 echo -e "${green}Firewall rule already exist.${plain}"
 else
 echo -e "${yellow}Creating firewall rule ...${plain}"
-gcloud compute firewall-rules create firewall --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=all --source-ranges=0.0.0.0/0 --no-user-output-enabled
+gcloud compute firewall-rules create $1 --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=all --source-ranges=0.0.0.0/0 --no-user-output-enabled
 echo -e "${green}Firewall rule created.${plain}"
 fi
 
