@@ -177,16 +177,16 @@
     <div oninput="generateShellCode()" class="row g-2 mt-2">
 
         <div class="col-6 col-sm-6 col-md-3 col-lg-2">
-            <label for="edtInstanceName" class="form-label">💠Instance name</label>
+            <label for="edtFirewallName" class="form-label">💠Firewall Name</label>
             <div class="input-group">
-                <input spellcheck="false" value="cluster-1" type="text" class="form-control" id="edtInstanceName"
-                       placeholder="cluster-1">
+                <input spellcheck="false" value="firewall" type="text" class="form-control" id="edtFirewallName"
+                       placeholder="firewall">
             </div>
         </div>
         
         <div class="col-6 col-sm-6 col-md-6 col-lg-2">
-            <label for="edtFirewallName" class="form-label">💠Region</label>
-            <select id="edtFirewallName" class="form-select" aria-label="Region">
+            <label for="regionZone" class="form-label">💠Region</label>
+            <select id="regionZone" class="form-select" aria-label="Region">
                 <option value="asia-east1">Taiwan 🇹🇼</option>
                 <option selected value="asia-southeast1">Singapore 🇸🇬</option>
                 <option value="asia-south1">Mumbai 🇮🇳</option>
@@ -273,8 +273,8 @@
         return new bootstrap.Tooltip(tooltipTriggerEl);
     });
 
-    const instanceName = document.getElementById("edtInstanceName");
     const firewallName = document.getElementById("edtFirewallName");
+    const regionZone = document.getElementById("regionZone");
     const username = document.getElementById("edtUsername");
     const shellCode = document.getElementById("shellCode");
 
@@ -292,19 +292,19 @@
         generateShellCode();
     }
 
-    function generateInstanceCodes(instanceName, firewallName) {
-        return "bash <(curl -Ls https://raw.githubusercontent.com/nyeinkokoaung404/onlyforyou/main/admin/create_instance.sh) \"{instanceName}\" \"{firewallName}\" \"{token}\""
+    function generateInstanceCodes(firewallName, regionZone) {
+        return "bash <(curl -Ls https://raw.githubusercontent.com/nyeinkokoaung404/onlyforyou/main/admin/create_instance.sh) \"{firewallName}\" \"{regionZone}\" \"{token}\""
             .formatUnicorn({
-                instanceName: instanceName,
                 firewallName: firewallName,
+                regionZone: regionZone,
                 token: Math.floor(Date.now() / 1000)
             })
     }
 
     function generateShellCode() {
         shellCode.innerText = generateInstanceCodes(
-            instanceName.value.replace(/\s+/g, '-'),
             firewallName.value.replace(/\s+/g, '-'),
+            regionZone.value.replace(/\s+/g, '-'),
             username.value.replace(/\s+/g, '-'),
         );
 
