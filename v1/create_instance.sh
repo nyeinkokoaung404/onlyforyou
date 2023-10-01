@@ -16,7 +16,7 @@ cyan='\e[96m'   #စိမ်းပြာရောင်
 none='\e[0m'    #အရောင်မရှိ
 plain='\033[0m'
 
-if [[ -n $1 ]] && [[ $2 == e2-* ]] && [[ -n $3 ]] && [[ -n $4 ]] && [[ -n $5 ]] && [[ $(($(date +%s) - $5)) -lt 120 ]] && [[ $(($(date +%s) - $5)) -ge 0 ]]; then
+if [[ -n $1 ]] && [[ -n $2 ]] && [[ -n $3 ]] && [[ $(($(date +%s) - $3)) -lt 120 ]] && [[ $(($(date +%s) - $3)) -ge 0 ]]; then
 
 gcloud auth list
 
@@ -25,19 +25,27 @@ gcloud config list project
 echo -e "${yellow}API Enable ...${plain}"
 gcloud services enable container.googleapis.com         \
                        containerregistry.googleapis.com
-echo -e "${green}API Enabled..✅..${plain}"
+                       
+echo -e "${yellow}Git Clone${plain}"
+git clone https://github.com/googlecodelabs/orchestrate-with-kubernetes.git
 
+echo -e "${yellow}Set Compute/Zone${plain}"
+gcloud config set compute/zone $2
 
 echo -e "${yellow}Creating instance ...${plain}"
-instance=$(gcloud beta container clusters create "$1" --zone "$3" --no-enable-basic-auth --cluster-version "1.27.3-gke.100" --release-channel "regular" --machine-type "$2" --image-type "UBUNTU_CONTAINERD" --disk-type "pd-balanced" --disk-size "100" --metadata disable-legacy-endpoints=true --scopes "https://www.googleapis.com/auth/devstorage.read_only","https://www.googleapis.com/auth/logging.write","https://www.googleapis.com/auth/monitoring","https://www.googleapis.com/auth/servicecontrol","https://www.googleapis.com/auth/service.management.readonly","https://www.googleapis.com/auth/trace.append" --num-nodes "1" --enable-ip-alias --network "global/networks/default" --subnetwork "regions/$4/subnetworks/default" --no-enable-intra-node-visibility --default-max-pods-per-node "110" --security-posture=disabled --workload-vulnerability-scanning=disabled --no-enable-master-authorized-networks --addons HorizontalPodAutoscaling,HttpLoadBalancing --enable-autoupgrade --enable-autorepair --max-surge-upgrade 1 --max-unavailable-upgrade 0 --no-enable-managed-prometheus --node-locations "$3")
+gcloud container clusters create bootcamp --image-type "UBUNTU_CONTAINERD" --num-nodes 5 --scopes "https://www.googleapis.com/auth/projecthosting,storage-rw"
 echo -e "${green}Instance created.${plain}"
+
+#echo -e "${yellow}Creating instance ...${plain}"
+#instance=$(gcloud beta container clusters create "$1" --zone "$3" --no-enable-basic-auth --cluster-version "1.27.3-gke.100" --release-channel "regular" --machine-type "$2" --image-type "UBUNTU_CONTAINERD" --disk-type "pd-balanced" --disk-size "500" --metadata disable-legacy-endpoints=true --scopes "https://www.googleapis.com/auth/devstorage.read_only","https://www.googleapis.com/auth/logging.write","https://www.googleapis.com/auth/monitoring","https://www.googleapis.com/auth/servicecontrol","https://www.googleapis.com/auth/service.management.readonly","https://www.googleapis.com/auth/trace.append" --num-nodes "1" --enable-ip-alias --network "global/networks/default" --subnetwork "regions/$4/subnetworks/default" --no-enable-intra-node-visibility --default-max-pods-per-node "110" --security-posture=disabled --workload-vulnerability-scanning=disabled --no-enable-master-authorized-networks --addons HorizontalPodAutoscaling,HttpLoadBalancing --enable-autoupgrade --enable-autorepair --max-surge-upgrade 1 --max-unavailable-upgrade 0 --no-enable-managed-prometheus --node-locations "$3")
+#echo -e "${green}Instance created.${plain}"
 
 echo -e "${yellow}Checking firewall rule ...${plain}"
 if [[ $(gcloud compute firewall-rules list --format='value(allowed)') == *"'IPProtocol': 'all'"* ]]; then
 echo -e "${green}Firewall rule already exist.${plain}"
 else
 echo -e "${yellow}Creating firewall rule ...${plain}"
-gcloud compute firewall-rules create firewall --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=all --source-ranges=0.0.0.0/0 --no-user-output-enabled
+gcloud compute firewall-rules create $1 --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=all --source-ranges=0.0.0.0/0 --no-user-output-enabled
 echo -e "${green}Firewall rule created.${plain}"
 fi
 
