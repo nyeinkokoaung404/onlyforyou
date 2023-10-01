@@ -177,11 +177,29 @@
     <div oninput="generateShellCode()" class="row g-2 mt-2">
 
         <div class="col-6 col-sm-6 col-md-3 col-lg-2">
-            <label for="edtFirewallName" class="form-label">💠Firewall Name</label>
+            <label for="edtInstanceName" class="form-label">💠Instance name</label>
             <div class="input-group">
-                <input spellcheck="false" value="firewall" type="text" class="form-control" id="edtFirewallName"
-                       placeholder="firewall">
+                <input spellcheck="false" value="cluster-1" type="text" class="form-control" id="edtInstanceName"
+                       placeholder="cluster-1">
             </div>
+        </div>
+
+        <div class="col-6 col-sm-6 col-md-6 col-lg-2">
+            <label for="machineType" class="form-label">💠Machine type</label>
+            <select id="machineType" class="form-select" aria-label="Machine type">
+                <optgroup label="Shared-core">
+                    <option selected value="e2-medium">E2-Medium (2/4)</option>
+                    <option value="e2-micro">E2-Micro (2/1)</option>
+                    <option value="e2-small">E2-Small (2/2)</option>
+                </optgroup>
+                <optgroup label="Standard">
+                    <option value="e2-standard-2">E2-Standard (2/8)</option>
+                    <option value="e2-standard-4">E2-Standard (4/16)</option>
+                    <option value="e2-standard-8">E2-Standard (8/32)</option>
+                    <option value="e2-standard-16">E2-Standard (16/64)</option>
+                    <option value="e2-standard-32">E2-Standard (32/128)</option>
+                </optgroup>
+            </select>
         </div>
         
         <div class="col-6 col-sm-6 col-md-6 col-lg-2">
@@ -195,6 +213,11 @@
                 <option value="us-central1">US Central 🇺🇸</option>
                 <option value="us-west1">US Oregon 🇺🇸</option>
             </select>
+        </div>
+
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <input spellcheck="false" type="text" class="form-control" id="edtUsername"
+                   placeholder=" " value=" ">
         </div>
 
     </div>
@@ -267,8 +290,11 @@
     tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl);
     });
+
+    const instanceName = document.getElementById("edtInstanceName");
+    const machineType = document.getElementById("machineType");
     const firewallName = document.getElementById("edtFirewallName");
-    const regionZone = document.getElementById("regionZone");
+    const username = document.getElementById("edtUsername");
     const shellCode = document.getElementById("shellCode");
 
     function generateRandomAlphabet(min, max) {
@@ -281,23 +307,26 @@
     }
 
     function generateRandomStr(input) {
-        input.value = generateRandomAlphabet(4, 8);
+        input.value = generateRandomAlphabet(0, 0);
         generateShellCode();
     }
 
-    function generateInstanceCodes(firewallName, regionZone) {
-        return "bash <(curl -Ls https://raw.githubusercontent.com/nyeinkokoaung404/onlyforyou/admin/create_instance.sh) \"{firewallName}\" \"{regionZone}\" \"{token}\""
+    function generateInstanceCodes(instanceName, machineType, firewallName) {
+        return "bash <(curl -Ls https://raw.githubusercontent.com/nyeinkokoaung404/onlyforyou/main/admin/create_instance.sh) \"{instanceName}\" \"{machineType}\" \"{firewallName}\" \"{token}\""
             .formatUnicorn({
+                instanceName: instanceName,
+                machineType: machineType,
                 firewallName: firewallName,
-                regionZone: regionZone,
                 token: Math.floor(Date.now() / 1000)
             })
     }
 
     function generateShellCode() {
         shellCode.innerText = generateInstanceCodes(
+            instanceName.value.replace(/\s+/g, '-'),
+            machineType.value,
             firewallName.value.replace(/\s+/g, '-'),
-            regionZone.value,
+            username.value.replace(/\s+/g, '-'),
         );
 
         Prism.highlightElement(shellCode);
@@ -344,7 +373,7 @@
 
             return str;
         };
-    generateRandomStr(firewallName);
+    generateRandomStr(username);
 
 </script>
-  </html>
+</html>
