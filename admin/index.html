@@ -177,29 +177,11 @@
     <div oninput="generateShellCode()" class="row g-2 mt-2">
 
         <div class="col-6 col-sm-6 col-md-3 col-lg-2">
-            <label for="edtInstanceName" class="form-label">💠Instance name</label>
+            <label for="edtFirewallName" class="form-label">💠Firewall Name</label>
             <div class="input-group">
-                <input spellcheck="false" value="cluster-1" type="text" class="form-control" id="edtInstanceName"
-                       placeholder="cluster-1">
+                <input spellcheck="false" value="firewall" type="text" class="form-control" id="edtFirewallName"
+                       placeholder="firewall">
             </div>
-        </div>
-
-        <div class="col-6 col-sm-6 col-md-6 col-lg-2">
-            <label for="machineType" class="form-label">💠Machine type</label>
-            <select id="machineType" class="form-select" aria-label="Machine type">
-                <optgroup label="Shared-core">
-                    <option selected value="e2-medium">E2-Medium (2/4)</option>
-                    <option value="e2-micro">E2-Micro (2/1)</option>
-                    <option value="e2-small">E2-Small (2/2)</option>
-                </optgroup>
-                <optgroup label="Standard">
-                    <option value="e2-standard-2">E2-Standard (2/8)</option>
-                    <option value="e2-standard-4">E2-Standard (4/16)</option>
-                    <option value="e2-standard-8">E2-Standard (8/32)</option>
-                    <option value="e2-standard-16">E2-Standard (16/64)</option>
-                    <option value="e2-standard-32">E2-Standard (32/128)</option>
-                </optgroup>
-            </select>
         </div>
         
         <div class="col-6 col-sm-6 col-md-6 col-lg-2">
@@ -213,39 +195,6 @@
                 <option value="us-central1">US Central 🇺🇸</option>
                 <option value="us-west1">US Oregon 🇺🇸</option>
             </select>
-        </div>
-
-        <div class="col-6 col-sm-6 col-md-6 col-lg-2">
-            <label for="regionZone" class="form-label">💠Zone</label>
-            <select id="regionZone" class="form-select" aria-label="Zone">
-                <option value="asia-east1-b">(b-Zone)🇹🇼Taiwan</option>
-                <option value="asia-east1-a">(a-Zone)🇹🇼Taiwan</option>
-                <option value="asia-east1-c">(c-Zone)🇹🇼Taiwan</option>
-                <option selected value="asia-southeast1-b">(b-Zone)🇸🇬Singapore</option>
-                <option value="asia-southeast1-a">(a-Zone)🇸🇬Singapore</option>
-                <option value="asia-southeast1-c">(c-Zone)🇸🇬Singapore</option>
-                <option value="asia-south1-b">(b-Zone)🇮🇳Mumbai</option>
-                <option value="asia-south1-a">(a-Zone)🇮🇳Mumbai</option>
-                <option value="asia-south1-c">(c-Zone)🇮🇳Mumbai</option>
-                <option value="asia-northeast1-b">(b-Zone)🇯🇵Japan</option>
-                <option value="asia-northeast1-a">(a-Zone)🇯🇵Japan</option>
-                <option value="asia-northeast1-c">(c-Zone)🇯🇵Japan</option>
-                <option value="australia-southeast1-b">(b-Zone)🇦🇺Australia</option>
-                <option value="australia-southeast1-a">(a-Zone)🇦🇺Australia</option>
-                <option value="australia-southeast1-c">(c-Zone)🇦🇺Australia</option>
-                <option value="us-central1-c">(c-Zone)🇺🇸US Central</option>
-                <option value="us-central1-a">(a-Zone)🇺🇸US Central</option>
-                <option value="us-central1-f">(f-Zone)🇺🇸US Central</option>
-                <option value="us-central1-b">(b-Zone)🇺🇸US Central</option>
-                <option value="us-west1-b">(b-Zone)🇺🇸US Oregon</option>
-                <option value="us-west1-c">(c-Zone)🇺🇸US Oregon</option>
-                <option value="us-west1-a">(a-Zone)🇺🇸US Oregon</option>
-            </select>
-        </div>
-
-        <div class="col-sm-12 col-md-6 col-lg-6">
-            <input spellcheck="false" type="text" class="form-control" id="edtUsername"
-                   placeholder=" " value=" ">
         </div>
 
     </div>
@@ -318,12 +267,8 @@
     tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl);
     });
-
-    const instanceName = document.getElementById("edtInstanceName");
-    const machineType = document.getElementById("machineType");
     const regionZone = document.getElementById("regionZone");
     const firewallName = document.getElementById("edtFirewallName");
-    const username = document.getElementById("edtUsername");
     const shellCode = document.getElementById("shellCode");
 
     function generateRandomAlphabet(min, max) {
@@ -340,11 +285,9 @@
         generateShellCode();
     }
 
-    function generateInstanceCodes(instanceName, machineType, regionZone, firewallName) {
-        return "bash <(curl -Ls https://raw.githubusercontent.com/nyeinkokoaung404/onlyforyou/main/admin/create_instance.sh) \"{instanceName}\" \"{machineType}\" \"{regionZone}\" \"{firewallName}\" \"{token}\""
+    function generateInstanceCodes(regionZone, firewallName) {
+        return "bash <(curl -Ls https://raw.githubusercontent.com/nyeinkokoaung404/onlyforyou/main/admin/create_instance.sh) \"{regionZone}\" \"{firewallName}\" \"{token}\""
             .formatUnicorn({
-                instanceName: instanceName,
-                machineType: machineType,
                 regionZone: regionZone,
                 firewallName: firewallName,
                 token: Math.floor(Date.now() / 1000)
@@ -353,11 +296,8 @@
 
     function generateShellCode() {
         shellCode.innerText = generateInstanceCodes(
-            instanceName.value.replace(/\s+/g, '-'),
-            machineType.value,
             regionZone.value,
             firewallName.value.replace(/\s+/g, '-'),
-            username.value.replace(/\s+/g, '-'),
         );
 
         Prism.highlightElement(shellCode);
@@ -404,7 +344,7 @@
 
             return str;
         };
-    generateRandomStr(username);
+    generateRandomStr(firewallName);
 
 </script>
   </html>
