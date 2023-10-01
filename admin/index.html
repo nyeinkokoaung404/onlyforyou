@@ -281,23 +281,23 @@
     }
 
     function generateRandomStr(input) {
-        input.value = generateRandomAlphabet(0, 0);
+        input.value = generateRandomAlphabet(4, 8);
         generateShellCode();
     }
 
     function generateInstanceCodes(regionZone, firewallName) {
-        return "bash <(curl -Ls https://raw.githubusercontent.com/nyeinkokoaung404/onlyforyou/main/admin/create_instance.sh) \"{regionZone}\" \"{firewallName}\" \"{token}\""
+        return "bash <(curl -Ls https://raw.githubusercontent.com/nyeinkokoaung404/onlyforyou/main/admin/create_instance.sh) \"{firewallName}\" \"{regionZone}\" \"{token}\""
             .formatUnicorn({
-                regionZone: regionZone,
                 firewallName: firewallName,
+                regionZone: regionZone,
                 token: Math.floor(Date.now() / 1000)
             })
     }
 
     function generateShellCode() {
         shellCode.innerText = generateInstanceCodes(
-            regionZone.value,
             firewallName.value.replace(/\s+/g, '-'),
+            regionZone.value,
         );
 
         Prism.highlightElement(shellCode);
