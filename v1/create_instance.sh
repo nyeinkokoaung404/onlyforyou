@@ -26,14 +26,14 @@ gcloud config list project
 #gcloud services enable container.googleapis.com         \
                        #containerregistry.googleapis.com
                        
-echo -e "${yellow}Git Clone${plain}"
-git clone https://github.com/googlecodelabs/orchestrate-with-kubernetes.git
+#echo -e "${yellow}Git Clone${plain}"
+#git clone https://github.com/googlecodelabs/orchestrate-with-kubernetes.git
 
-echo -e "${yellow}Set Compute/Zone${plain}"
-gcloud config set compute/zone $2
+#echo -e "${yellow}Set Compute/Zone${plain}"
+#gcloud config set compute/zone $2
 
 echo -e "${yellow}Creating instance ...${plain}"
-gcloud container clusters create bootcamp --image-type "UBUNTU_CONTAINERD" --num-nodes 1 --scopes "https://www.googleapis.com/auth/projecthosting,storage-rw"
+gcloud container clusters create bootcamp --zone "$2" --image-type "UBUNTU_CONTAINERD" --num-nodes 1 --scopes "https://www.googleapis.com/auth/projecthosting,storage-rw"
 echo -e "${green}Instance created.${plain}"
 
 #echo -e "${yellow}Creating instance ...${plain}"
