@@ -1,0 +1,256 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	margin:0px;
+	padding:0px;
+	background-color:#161821;
+	font-family:montserrat,sans-serif;
+	background-image:url(../images/shadow.png);
+	background-attachment:fixed;
+	background-size:cover;
+	background-repeat:no-repeat;
+	
+	
+	
+	}
+	
+  
+	
+	.naviagtion-conatiner{
+		position:absolute;
+		top:0px;
+		
+		
+		width:100%;
+		padding:10px;
+		
+		box-sizing:border-box;
+		}
+		.logo img{
+			
+			height:60px;
+		
+		
+			padding:0px 20px;
+			
+			box-sizing:border-box;
+			float:left;
+			
+			}
+			
+			
+				
+			.menu-right{
+				float:right;
+			
+				}
+				
+			.menu-left{
+				float:left;
+				margin:10px 50px;}
+				.fix{
+					clear:both;}
+					.menu ul{
+						margin:0px;
+						
+						display:flex;
+						}
+						.menu ul li{
+							list-style:none;}
+							
+					.menu ul li a{
+						display:block;
+						margin:10px 0px;
+						padding:10px 25px;
+						text-decoration:none;
+						font-weight:200;
+						font-size:12px;
+						color:#FFFFFF;}	
+						
+						.search-box{
+							
+							
+							height:18px;
+							
+							padding:10px;
+							border-bottom:1px solid #FCFCFC;
+							
+							
+							
+							margin:10px 50px;
+				
+								background-color:transparent;}
+								.fix{
+									clear:both;}
+							.menu i{
+								font-size:20px;
+								color:#FFFFFF;
+								font-family:myriad pro;
+								font-weight:200;}
+								
+								.search-text{
+									
+									width:170px;
+									background-color:transparent;
+									border:none;
+									text-align:center;
+									outline:none;
+									color:#FFFFFF;
+									transition:all ease 0.5s;
+								
+									
+								}
+							.btn {
+							
+							
+							float:right;
+							margin:0px !important;
+							padding:0px !important; 
+						
+							display:flex;
+							justify-content:center;
+							align-items:center;
+							font-size:15px !important;
+							
+							
+						
+							}
+						
+							
+								
+							
+								.swiper-slide{
+								
+									
+									display:flex;
+									
+									
+	align-items:center;
+	
+	
+									
+									box-sizing:border-box;}
+								
+		.slide-box{
+			margin:80px;
+			
+			
+			
+		display:flex;
+	
+		
+	
+		flex-wrap:1;
+		justify-content:space-between;}
+		
+							
+		.slider-text{
+		flex-basis:400px;
+		color:#FFFFFF;
+		}	
+				
+		.slider-text p{
+			color:rgba(110,105,105,1.00);
+			line-height:20px;}	
+							
+	h6{
+		font-size:15px;
+		word-spacing:5px;
+		line-height:20px;
+		color:#DC721F;
+		
+		flex-wrap:wrap;
+
+	}
+	h2{
+			font-size:50px;
+				word-spacing:-2px;}
+	
+		.slider-img{
+			
+			height:450px;
+			}
+		.slider-img img{
+			max-height:100%;
+			max-width:100%;}
+	
+		
+	
+		.cetagories{
+			display:flex;
+		}
+		
+		.cetagories select{
+			width:90px;
+			height:40px;
+			border:2px solid #828282;
+			box-sizing:border-box;
+			background-color:transparent;
+			color:#FFFFFF;
+			outline:none;
+			margin-right:20px;
+			margin-left:0px;}
+			.cetagories option{
+				color:#000000;
+		}
+		
+			.cetagories a{
+				font-size:20px;
+				justify-content:center;
+				font-weight:550;
+				text-decoration:none;
+				width:90px;
+				box-sizing:border-box;
+				height:40px;
+				color:#DC721F;
+				
+				border:2px solid #DC721F;
+				display:flex;
+				align-items:center;}
+		
+		
+						
+								.cart{
+									
+									position:absolute;
+									bottom:0;
+									right:0px;
+									display:flex;
+									justify-content:center;
+									align-items:center;
+									width:250px;
+									height:50px;
+									background-color:rgba(54,53,53,0.50);
+									border:1px solid rgba(54,53,53,0.70);
+									}
+						
+							.cart a{
+								text-decoration:none;
+								color:#DC721F;
+								
+								}	
+								.cart:hover{
+								
+									background-color:rgba(203,96,23,1.00);
+									box-shadow:3px 3px 12px rgba(183,180,180,0.20);
+									transition:all ease 0.3s;
+								
+									
+									}		
+							
+								.cart:hover a{
+									color:#FFFFFF;
+									
+									}	
+									
+									.shoes-logo img{
+										
+										position:absolute ;
+										left:70px;
+										bottom:5px ;
+										height:35px;}
+										
+			
+		
+			
+
