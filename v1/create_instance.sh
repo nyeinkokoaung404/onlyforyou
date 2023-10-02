@@ -22,9 +22,9 @@ gcloud auth list
 
 gcloud config list project
 
-echo -e "${yellow}API Enable ...${plain}"
-gcloud services enable container.googleapis.com         \
-                       containerregistry.googleapis.com
+#echo -e "${yellow}API Enable ...${plain}"
+#gcloud services enable container.googleapis.com         \
+                       #containerregistry.googleapis.com
                        
 echo -e "${yellow}Git Clone${plain}"
 git clone https://github.com/googlecodelabs/orchestrate-with-kubernetes.git
