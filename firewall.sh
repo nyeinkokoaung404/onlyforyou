@@ -18,8 +18,8 @@ plain='\033[0m'
 #echo -e "${yellow}Checking firewall rule ...${plain}"
 #if [[ $(gcloud compute firewall-rules list --format='value(allowed)') == *"'IPProtocol': 'all'"* ]]; then
 #echo -e "${green}Firewall rule already exist.${plain}"
-else
+#else
 echo -e "${yellow}Creating firewall rule ...${plain}"
 gcloud compute firewall-rules create allow-monolith-nodeport --allow=tcp:31000,tcp:443
 echo -e "${green}Firewall rule created.${plain}"
-fi
+#fi
