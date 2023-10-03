@@ -25,11 +25,11 @@ echo -e "${green}Instance created.${plain}"
 #echo -e "${yellow}Checking firewall rule ...${plain}"
 #if [[ $(gcloud compute firewall-rules list --format='value(allowed)') == *"'IPProtocol': 'all'"* ]]; then
 #echo -e "${green}Firewall rule already exist.${plain}"
-else
+#else
 echo -e "${yellow}Creating firewall rule ...${plain}"
 gcloud compute firewall-rules create allow-monolith-nodeport --allow=tcp:31000,tcp:443
 echo -e "${green}Firewall rule created.${plain}"
-fi
+#fi
 
 #echo -e "\n${green}SSH setup is completed successfully.${plain}\n"
 #IP=$(wget -qO- ipv4.icanhazip.com)
