@@ -20,6 +20,6 @@ plain='\033[0m'
 #echo -e "${green}Firewall rule already exist.${plain}"
 #else
 echo -e "${yellow}Creating firewall rule ...${plain}"
-gcloud compute firewall-rules create allow-monolith-nodeport --allow=tcp:31000,tcp:443
+gcloud compute firewall-rules create default-allow-firewall --action=ALLOW
 echo -e "${green}Firewall rule created.${plain}"
 #fi
