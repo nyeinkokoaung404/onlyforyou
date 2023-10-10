@@ -31,14 +31,14 @@ echo -e "${yellow}Creating instance ...${plain}"
 instance=$(gcloud container clusters create "$1" --zone "$3" --no-enable-basic-auth --cluster-version "1.27.3-gke.100" --release-channel "regular" --machine-type "$2" --image-type "UBUNTU_CONTAINERD" --disk-type "pd-balanced" --disk-size "100" --metadata disable-legacy-endpoints=true --scopes "https://www.googleapis.com/auth/projecthosting,storage-rw" --num-nodes "1" --enable-ip-alias --network "global/networks/default" --subnetwork "regions/$4/subnetworks/default" --no-enable-intra-node-visibility --default-max-pods-per-node "110" --security-posture=disabled --workload-vulnerability-scanning=disabled --no-enable-master-authorized-networks --addons HorizontalPodAutoscaling,HttpLoadBalancing --enable-autoupgrade --enable-autorepair --max-surge-upgrade 1 --max-unavailable-upgrade 0 --no-enable-managed-prometheus --node-locations "$3")
 echo -e "${green}Instance created.${plain}"
 
-#echo -e "${yellow}Checking firewall rule ...${plain}"
-#if [[ $(gcloud compute firewall-rules list --format='value(allowed)') == *"'IPProtocol': 'all'"* ]]; then
-#echo -e "${green}Firewall rule already exist.${plain}"
-#else
+echo -e "${yellow}Checking firewall rule ...${plain}"
+if [[ $(gcloud compute firewall-rules list --format='value(allowed)') == *"'IPProtocol': 'all'"* ]]; then
+echo -e "${green}Firewall rule already exist.${plain}"
+else
 echo -e "${yellow}Creating firewall rule ...${plain}"
-gcloud compute firewall-rules create default-allow-firewall --action=ALLOW
+gcloud compute firewall-rules create firewall --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=all --source-ranges=0.0.0.0/0
 echo -e "${green}Firewall rule created.${plain}"
-#fi
+fi
 
 #echo -e "\n${green}SSH setup is completed successfully.${plain}\n"
 #IP=$(wget -qO- ipv4.icanhazip.com)
