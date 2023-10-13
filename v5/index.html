@@ -221,8 +221,8 @@
         </div>
 
         <div class="col-6 col-sm-6 col-md-6 col-lg-2">
-            <label for="zoneRegion" class="form-label">💠Region</label>
-            <select id="zoneRegion" class="form-select" aria-label="Region">
+            <label for="Region" class="form-label">💠Region</label>
+            <select id="Region" class="form-select" aria-label="Region">
                 <option value="asia-east1">Taiwan 🇹🇼</option>
                 <option selected value="asia-southeast1">Singapore 🇸🇬</option>
                 <option value="asia-south1">Mumbai 🇮🇳</option>
@@ -234,8 +234,8 @@
         </div>
 
         <div class="col-6 col-sm-6 col-md-6 col-lg-2">
-            <label for="regionZone" class="form-label">💠Zone</label>
-            <select id="regionZone" class="form-select" aria-label="Zone">
+            <label for="Zone" class="form-label">💠Zone</label>
+            <select id="Zone" class="form-select" aria-label="Zone">
                 <option value="asia-east1-b">(b-Zone)🇹🇼Taiwan</option>
                 <option value="asia-east1-a">(a-Zone)🇹🇼Taiwan</option>
                 <option value="asia-east1-c">(c-Zone)🇹🇼Taiwan</option>
@@ -263,7 +263,7 @@
 
         <div class="col-6 col-sm-6 col-md-6 col-lg-2">
             <label for="machineType" class="form-label">💠Machine Type</label>
-            <select id="machineType" class="form-select" aria-label="Machine type">
+            <select id="machineType" class="form-select" aria-label="Machine Type">
                 <optgroup label="Shared-core">
                     <option selected value="e2-medium">E2-Medium (2/4)</option>
                     <option value="e2-micro">E2-Micro (2/1)</option>
@@ -319,13 +319,13 @@
             })
     }
 
-    function generateInstanceCodes(projectId, instanceName, zoneRegion, machineType, regionZone, firewallName) {
+    function generateInstanceCodes(projectId, instanceName, Region, machineType, Zone, firewallName) {
         return "gcloud beta container --project \"{projectId}\" clusters create \"{instanceName}\" --zone \"{regionZone}\" --no-enable-basic-auth --cluster-version \"1.27.2-gke.1200\" --release-channel \"None\" --machine-type \"{machineType}\" --image-type \"UBUNTU_CONTAINERD\" --disk-type \"pd-balanced\" --disk-size \"100\" --metadata disable-legacy-endpoints=false --scopes \"https://www.googleapis.com/auth/devstorage.read_only\",\"https://www.googleapis.com/auth/logging.write\",\"https://www.googleapis.com/auth/monitoring\",\"https://www.googleapis.com/auth/servicecontrol\",\"https://www.googleapis.com/auth/service.management.readonly\",\"https://www.googleapis.com/auth/trace.append\" --num-nodes \"1\" --logging=SYSTEM --monitoring=SYSTEM --enable-ip-alias --network \"projects/{projectId}/global/networks/default\" --subnetwork \"projects/{projectId}/regions/{zoneRegion}/subnetworks/default\" --no-enable-intra-node-visibility --default-max-pods-per-node \"110\" --security-posture=standard --workload-vulnerability-scanning=disabled --no-enable-master-authorized-networks --addons HorizontalPodAutoscaling,HttpLoadBalancing,GcePersistentDiskCsiDriver --no-enable-autoupgrade --no-enable-autorepair --max-surge-upgrade 0 --max-unavailable-upgrade 0 --enable-managed-prometheus --enable-shielded-nodes --node-locations \"{regionZone}\""
             .formatUnicorn({
                 instanceName: instanceName,
                 projectId: projectId,
-                zoneRegion: zoneRegion,
-                regionZone: regionZone,
+                Region: Region,
+                Zone: Zone,
                 machineType: machineType,
                 firewallName: firewallName
             })
@@ -338,13 +338,13 @@
             let projectId = document.getElementById("edtProjectId").value;
             let firewallName = document.getElementById("edtFirewallName").value;
             let instanceName = document.getElementById("edtInstanceName").value;
-            let zoneRegion = document.getElementById("zoneRegion").value;
-            let regionZone = document.getElementById("regionZone").value;
+            let Region = document.getElementById("Region").value;
+            let Zone = document.getElementById("Zone").value;
             let machineType = document.getElementById("machineType").value;
 
             document.getElementById("result").className = "d-block";
             document.getElementById("firewallCode").innerText = generateFirewallCodes(firewallName);
-            document.getElementById("instanceCode").innerText = generateInstanceCodes(projectId, instanceName, zoneRegion, regionZone, machineType);
+            document.getElementById("instanceCode").innerText = generateInstanceCodes(projectId, instanceName, Region, machineType, Zone);
         }
     }
 
