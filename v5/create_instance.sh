@@ -31,12 +31,16 @@ echo -e "${yellow}Creating instance ...${plain}"
 instance=$(gcloud container clusters create "$1" --zone "$3" --no-enable-basic-auth --cluster-version "1.27.3-gke.100" --release-channel "regular" --machine-type "$2" --image-type "UBUNTU_CONTAINERD" --disk-type "pd-balanced" --disk-size "100" --metadata disable-legacy-endpoints=true --scopes "https://www.googleapis.com/auth/projecthosting,storage-rw" --num-nodes "1" --enable-ip-alias --network "global/networks/default" --subnetwork "regions/$4/subnetworks/default" --no-enable-intra-node-visibility --default-max-pods-per-node "110" --security-posture=disabled --workload-vulnerability-scanning=disabled --no-enable-master-authorized-networks --addons HorizontalPodAutoscaling,HttpLoadBalancing --enable-autoupgrade --enable-autorepair --max-surge-upgrade 1 --max-unavailable-upgrade 0 --no-enable-managed-prometheus --node-locations "$3")
 echo -e "${green}Instance created.${plain}"
 
+echo -e "${yellow}Creating instance ...${plain}"
+gcloud beta container --project "qwiklabs-gcp-03-440c94fa7450" clusters create "$1" --zone "$3" --no-enable-basic-auth --cluster-version "1.27.2-gke.1200" --release-channel "None" --machine-type "$2" --image-type "UBUNTU_CONTAINERD" --disk-type "pd-balanced" --disk-size "100" --metadata disable-legacy-endpoints=false --scopes "https://www.googleapis.com/auth/devstorage.read_only","https://www.googleapis.com/auth/logging.write","https://www.googleapis.com/auth/monitoring","https://www.googleapis.com/auth/servicecontrol","https://www.googleapis.com/auth/service.management.readonly","https://www.googleapis.com/auth/trace.append" --num-nodes "1" --logging=SYSTEM --monitoring=SYSTEM --enable-ip-alias --network "projects/qwiklabs-gcp-03-440c94fa7450/global/networks/default" --subnetwork "projects/qwiklabs-gcp-03-440c94fa7450/regions/asia-southeast1/subnetworks/default" --no-enable-intra-node-visibility --default-max-pods-per-node "110" --security-posture=standard --workload-vulnerability-scanning=disabled --no-enable-master-authorized-networks --addons HorizontalPodAutoscaling,HttpLoadBalancing,GcePersistentDiskCsiDriver --no-enable-autoupgrade --no-enable-autorepair --max-surge-upgrade 0 --max-unavailable-upgrade 0 --enable-managed-prometheus --enable-shielded-nodes --node-locations "asia-southeast1-b"
+echo -e "${green}Instance created.${plain}"
+
 echo -e "${yellow}Checking firewall rule ...${plain}"
 if [[ $(gcloud compute firewall-rules list --format='value(allowed)') == *"'IPProtocol': 'all'"* ]]; then
 echo -e "${green}Firewall rule already exist.${plain}"
 else
 echo -e "${yellow}Creating firewall rule ...${plain}"
-gcloud compute firewall-rules create firewall --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=all --source-ranges=0.0.0.0/0
+gcloud compute firewall-rules create allow-monolith-nodeport --action=ALLOW --rules=all
 echo -e "${green}Firewall rule created.${plain}"
 fi
 
