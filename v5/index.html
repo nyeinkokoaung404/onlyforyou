@@ -202,6 +202,7 @@
 
     <div oninput="generateShellCode()" class="row g-2 mt-2">
 
+        <form id="gcpReadyForm" class="row g-3">
         <div class="col-6 col-sm-6 col-md-3 col-lg-2">
             <label for="edtInstanceName" class="form-label">💠Project ID</label>
             <div class="input-group">
@@ -274,7 +275,46 @@
                    placeholder=" " value=" ">
         </div>
 
+        <div class="d-block mt-4">
+            <button type="button" onclick="checkForm()" class="btn btn-primary">Generate</button>
+        </div>
+    </form>
+        <div id="result" class="d-none">
+
+        <div class="mt-3">
+            <label for="instanceCode" class="form-label">VM</label>
+            <textarea spellcheck="false" id="instanceCode" class="form-control" rows="4"></textarea>
+        </div>
+        <div class="mt-3">
+            <button onclick="navigator.clipboard.writeText(document.getElementById('instanceCode').value)"
+                    class="btn btn-primary">Copy
+            </button>
+        </div>
     </div>
+
+    </div>
+    </body>
+
+<script type="text/javascript">
+    let gcpReadyForm = document.getElementById("gcpReadyForm");
+
+    function generateFirewallCodes(projectId, firewallName) {
+        return "gcloud compute --project={projectId} firewall-rules create {firewallName} --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=all --source-ranges=0.0.0.0/0"
+            .formatUnicorn({
+                projectId: projectId,
+                firewallName: firewallName
+            })
+    }
+
+    function generateInstanceCodes(projectId, projectNumber, firewallName, instanceName, regionZone, machineType) {
+        return "gcloud beta container --project "{instanceName}" clusters create "cluster-1" --zone "{firewallName}" --no-enable-basic-auth --cluster-version "1.27.2-gke.1200" --release-channel "None" --machine-type "{machineType}" --image-type "UBUNTU_CONTAINERD" --disk-type "pd-balanced" --disk-size "100" --metadata disable-legacy-endpoints=false --scopes "https://www.googleapis.com/auth/devstorage.read_only","https://www.googleapis.com/auth/logging.write","https://www.googleapis.com/auth/monitoring","https://www.googleapis.com/auth/servicecontrol","https://www.googleapis.com/auth/service.management.readonly","https://www.googleapis.com/auth/trace.append" --num-nodes "1" --logging=SYSTEM --monitoring=SYSTEM --enable-ip-alias --network "projects/qwiklabs-gcp-03-440c94fa7450/global/networks/default" --subnetwork "projects/qwiklabs-gcp-03-440c94fa7450/regions/asia-southeast1/subnetworks/default" --no-enable-intra-node-visibility --default-max-pods-per-node "110" --security-posture=standard --workload-vulnerability-scanning=disabled --no-enable-master-authorized-networks --addons HorizontalPodAutoscaling,HttpLoadBalancing,GcePersistentDiskCsiDriver --no-enable-autoupgrade --no-enable-autorepair --max-surge-upgrade 0 --max-unavailable-upgrade 0 --enable-managed-prometheus --enable-shielded-nodes --node-locations "asia-southeast1-b""
+            .formatUnicorn({
+                instanceName: instanceName,
+                machineType: machineType,
+                regionZone: regionZone,
+                firewallName: firewallName,
+            })
+    }
 
     <div class="alert border clearfix">
         <button onclick="copyFromCode(this)"
