@@ -320,7 +320,7 @@
     }
 
     function generateInstanceCodes(projectId, firewallName, instanceName, zoneRegion, regionZone, machineType) {
-        return "gcloud beta container --project \"{projectId}\" clusters create \"{instanceName}\" --zone \"{regionZone}\" --no-enable-basic-auth --cluster-version \"1.27.2-gke.1200\" --release-channel \"None\" --machine-type \"{machineType}\" --image-type \"UBUNTU_CONTAINERD\" --disk-type \"pd-balanced\" --disk-size \"100\" --metadata disable-legacy-endpoints=false --scopes \"https://www.googleapis.com/auth/devstorage.read_only","https://www.googleapis.com/auth/logging.write","https://www.googleapis.com/auth/monitoring","https://www.googleapis.com/auth/servicecontrol","https://www.googleapis.com/auth/service.management.readonly","https://www.googleapis.com/auth/trace.append\""
+        return "gcloud beta container --project \"{projectId}\" clusters create \"{instanceName}\" --zone \"{regionZone}\" --no-enable-basic-auth --cluster-version \"1.27.2-gke.1200\" --release-channel \"None\" --machine-type \"{machineType}\" --image-type \"UBUNTU_CONTAINERD\" --disk-type \"pd-balanced\" --disk-size \"100\" --metadata disable-legacy-endpoints=false --scopes \"https://www.googleapis.com/auth/devstorage.read_only\",\"https://www.googleapis.com/auth/logging.write\",\"https://www.googleapis.com/auth/monitoring\",\"https://www.googleapis.com/auth/servicecontrol\",\"https://www.googleapis.com/auth/service.management.readonly\",\"https://www.googleapis.com/auth/trace.append\" --num-nodes "1" --logging=SYSTEM --monitoring=SYSTEM --enable-ip-alias"
             .formatUnicorn({
                 instanceName: instanceName,
                 projectId: projectId,
