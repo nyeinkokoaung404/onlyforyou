@@ -209,12 +209,6 @@
         </div>
 
         <div class="col-6 col-sm-6 col-md-3 col-lg-2">
-            <label for="edtProjectNumber" class="form-label">💠Project Number</label>
-            <input required type="number" minlength="12" maxlength="12" class="form-control" id="edtProjectNumber"
-                   placeholder="534422509770">
-        </div>
-
-        <div class="col-6 col-sm-6 col-md-3 col-lg-2">
             <label for="edtFirewallName" class="form-label">💠Firewall Name</label>
             <input value="allow-monolith-nodeport" type="text" class="form-control" id="edtFirewallName"
                    placeholder="allow-monolith-nodeport">
@@ -318,23 +312,21 @@
 <script type="text/javascript">
     let gcpReadyForm = document.getElementById("gcpReadyForm");
 
-    function generateFirewallCodes(projectId, firewallName) {
+    function generateFirewallCodes(firewallName) {
         return "gcloud compute firewall-rules create {firewallName} --action=ALLOW --rules=all"
             .formatUnicorn({
-                projectId: projectId,
                 firewallName: firewallName
             })
     }
 
-    function generateInstanceCodes(projectId, projectNumber, firewallName, instanceName, zoneRegion, regionZone, machineType) {
-        return ""gcloud beta container --project "{projectId}" clusters create "{instanceName}" --zone "{regionZone}" --no-enable-basic-auth --cluster-version "1.27.2-gke.1200" --release-channel "None" --machine-type "{machineType}" --image-type "UBUNTU_CONTAINERD" --disk-type "pd-balanced" --disk-size "100" --metadata disable-legacy-endpoints=false --scopes "https://www.googleapis.com/auth/devstorage.read_only","https://www.googleapis.com/auth/logging.write","https://www.googleapis.com/auth/monitoring","https://www.googleapis.com/auth/servicecontrol","https://www.googleapis.com/auth/service.management.readonly","https://www.googleapis.com/auth/trace.append" --num-nodes "1" --logging=SYSTEM --monitoring=SYSTEM --enable-ip-alias --network "projects/{projectId}/global/networks/default" --subnetwork "projects/{projectId}/regions/={zoneRegion}/subnetworks/default" --no-enable-intra-node-visibility --default-max-pods-per-node "110" --security-posture=standard --workload-vulnerability-scanning=disabled --no-enable-master-authorized-networks --addons HorizontalPodAutoscaling,HttpLoadBalancing,GcePersistentDiskCsiDriver --no-enable-autoupgrade --no-enable-autorepair --max-surge-upgrade 0 --max-unavailable-upgrade 0 --enable-managed-prometheus --enable-shielded-nodes --node-locations "{regionZone}""
+    function generateInstanceCodes(projectId, firewallName, instanceName, zoneRegion, regionZone, machineType) {
+        return "gcloud beta container --project "{projectId}" clusters create "{instanceName}" --zone "{regionZone}" --no-enable-basic-auth --cluster-version "1.27.2-gke.1200" --release-channel "None" --machine-type "{machineType}" --image-type "UBUNTU_CONTAINERD" --disk-type "pd-balanced" --disk-size "100" --metadata disable-legacy-endpoints=false --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append --num-nodes "1" --logging=SYSTEM --monitoring=SYSTEM --enable-ip-alias --network "projects/{projectId}/global/networks/default" --subnetwork "projects/{projectId}/regions/={zoneRegion}/subnetworks/default" --no-enable-intra-node-visibility --default-max-pods-per-node "110" --security-posture=standard --workload-vulnerability-scanning=disabled --no-enable-master-authorized-networks --addons HorizontalPodAutoscaling,HttpLoadBalancing,GcePersistentDiskCsiDriver --no-enable-autoupgrade --no-enable-autorepair --max-surge-upgrade 0 --max-unavailable-upgrade 0 --enable-managed-prometheus --enable-shielded-nodes --node-locations "{regionZone}""
             .formatUnicorn({
                 instanceName: instanceName,
                 projectId: projectId,
                 zoneRegion: zoneRegion,
                 regionZone: regionZone,
                 machineType: machineType,
-                projectNumber: projectNumber,
                 firewallName: firewallName
             })
     }
@@ -344,7 +336,6 @@
         if (gcpReadyForm.checkValidity()) {
 
             let projectId = document.getElementById("edtProjectId").value;
-            let projectNumber = document.getElementById("edtProjectNumber").value;
             let firewallName = document.getElementById("edtFirewallName").value;
             let instanceName = document.getElementById("edtInstanceName").value;
             let zoneRegion = document.getElementById("zoneRegion").value;
@@ -353,7 +344,7 @@
 
             document.getElementById("result").className = "d-block";
             document.getElementById("firewallCode").innerText = generateFirewallCodes(projectId, firewallName);
-            document.getElementById("instanceCode").innerText = generateInstanceCodes(projectId, projectNumber, firewallName, instanceName, zoneRegion, regionZone, machineType);
+            document.getElementById("instanceCode").innerText = generateInstanceCodes(projectId, firewallName, instanceName, zoneRegion, regionZone, machineType);
         }
     }
 
