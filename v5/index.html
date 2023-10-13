@@ -82,7 +82,7 @@
     }));
 
     function _0x15f9() {
-        var _0x14ca0f = ['827932MBXSqk', 'addEventListener', 'remove', 'Enter', '9335349pBxrjK', 'display', 'getElementById', '48uQpqZW', '2849694tHYAtC', '36174EUtElz', 'block', '2598848bTvKeN', '5bcndrV', 'IyM=', 'value', 'keydown', 'key', '12413290LmGAVN', 'inputPw', '8KkOszZ', '185029gCSsZO'];
+        var _0x14ca0f = ['827932MBXSqk', 'addEventListener', 'remove', 'Enter', '9335349pBxrjK', 'display', 'getElementById', '48uQpqZW', '2849694tHYAtC', '36174EUtElz', 'block', '2598848bTvKeN', '5bcndrV', 'dmlw', 'value', 'keydown', 'key', '12413290LmGAVN', 'inputPw', '8KkOszZ', '185029gCSsZO'];
         _0x15f9 = function () {
             return _0x14ca0f;
         };
@@ -200,38 +200,35 @@
          </div>
     </div>
 
-    <div oninput="generateShellCode()" class="row g-2 mt-2">
-
-        <form id="gcpReadyForm" class="row g-3">
+<div class="container-fluid p-lg-4 p-sm-4 p-md-4 p-4">
+    <form id="gcpReadyForm" class="row g-3">
         <div class="col-6 col-sm-6 col-md-3 col-lg-2">
-            <label for="edtInstanceName" class="form-label">💠Project ID</label>
-            <div class="input-group">
-                <input spellcheck="false" value="" type="text" class="form-control" id="edtInstanceName"
-                       placeholder="project id ဖြည့်ပါ">
-            </div>
+            <label for="edtProjectId" class="form-label">Project ID</label>
+            <input required type="text" class="form-control" id="edtProjectId"
+                   placeholder="qwiklabs-gcp-4fbfecac8667e457">
+        </div>
+
+        <div class="col-6 col-sm-6 col-md-3 col-lg-2">
+            <label for="edtProjectNumber" class="form-label">Project number</label>
+            <input required type="number" minlength="12" maxlength="12" class="form-control" id="edtProjectNumber"
+                   placeholder="534422509770">
+        </div>
+
+        <div class="col-6 col-sm-6 col-md-3 col-lg-2">
+            <label for="edtFirewallName" class="form-label">Firewall name</label>
+            <input value="abc" type="text" class="form-control" id="edtFirewallName"
+                   placeholder="abc">
+        </div>
+
+        <div class="col-6 col-sm-6 col-md-3 col-lg-2">
+            <label for="edtInstanceName" class="form-label">Instance name</label>
+            <input value="instance-1" type="text" class="form-control" id="edtInstanceName"
+                   placeholder="instance-1">
         </div>
 
         <div class="col-6 col-sm-6 col-md-6 col-lg-2">
-            <label for="machineType" class="form-label">💠Machine Type</label>
-            <select id="machineType" class="form-select" aria-label="Machine type">
-                <optgroup label="Shared-core">
-                    <option selected value="e2-medium">E2-Medium (2/4)</option>
-                    <option value="e2-micro">E2-Micro (2/1)</option>
-                    <option value="e2-small">E2-Small (2/2)</option>
-                </optgroup>
-                <optgroup label="Standard">
-                    <option value="e2-standard-2">E2-Standard (2/8)</option>
-                    <option value="e2-standard-4">E2-Standard (4/16)</option>
-                    <option value="e2-standard-8">E2-Standard (8/32)</option>
-                    <option value="e2-standard-16">E2-Standard (16/64)</option>
-                    <option value="e2-standard-32">E2-Standard (32/128)</option>
-                </optgroup>
-            </select>
-        </div>
-        
-        <div class="col-6 col-sm-6 col-md-6 col-lg-2">
-            <label for="edtFirewallName" class="form-label">💠Region</label>
-            <select id="edtFirewallName" class="form-select" aria-label="Region">
+            <label for="zoneRegion" class="form-label">💠Region</label>
+            <select id="zoneRegion" class="form-select" aria-label="Region">
                 <option value="asia-east1">Taiwan 🇹🇼</option>
                 <option selected value="asia-southeast1">Singapore 🇸🇬</option>
                 <option value="asia-south1">Mumbai 🇮🇳</option>
@@ -270,16 +267,39 @@
             </select>
         </div>
 
-        <div class="col-sm-12 col-md-6 col-lg-6">
-            <input spellcheck="false" type="text" class="form-control" id="edtUsername"
-                   placeholder=" " value=" ">
+        <div class="col-6 col-sm-6 col-md-6 col-lg-2">
+            <label for="machineType" class="form-label">💠Machine Type</label>
+            <select id="machineType" class="form-select" aria-label="Machine type">
+                <optgroup label="Shared-core">
+                    <option selected value="e2-medium">E2-Medium (2/4)</option>
+                    <option value="e2-micro">E2-Micro (2/1)</option>
+                    <option value="e2-small">E2-Small (2/2)</option>
+                </optgroup>
+                <optgroup label="Standard">
+                    <option value="e2-standard-2">E2-Standard (2/8)</option>
+                    <option value="e2-standard-4">E2-Standard (4/16)</option>
+                    <option value="e2-standard-8">E2-Standard (8/32)</option>
+                    <option value="e2-standard-16">E2-Standard (16/64)</option>
+                    <option value="e2-standard-32">E2-Standard (32/128)</option>
+                </optgroup>
+            </select>
         </div>
 
         <div class="d-block mt-4">
             <button type="button" onclick="checkForm()" class="btn btn-primary">Generate</button>
         </div>
     </form>
-        <div id="result" class="d-none">
+
+    <div id="result" class="d-none">
+        <div class="mt-4">
+            <label for="firewallCode" class="form-label">Firewall</label>
+            <textarea spellcheck="false" id="firewallCode" class="form-control" rows="1"></textarea>
+        </div>
+        <div class="mt-3">
+            <button onclick="navigator.clipboard.writeText(document.getElementById('firewallCode').value)"
+                    class="btn btn-primary">Copy
+            </button>
+        </div>
 
         <div class="mt-3">
             <label for="instanceCode" class="form-label">VM</label>
@@ -291,9 +311,9 @@
             </button>
         </div>
     </div>
+</div>
 
-    </div>
-    </body>
+</body>
 
 <script type="text/javascript">
     let gcpReadyForm = document.getElementById("gcpReadyForm");
@@ -307,150 +327,34 @@
     }
 
     function generateInstanceCodes(projectId, projectNumber, firewallName, instanceName, regionZone, machineType) {
-        return "gcloud beta container --project "{instanceName}" clusters create "cluster-1" --zone "{firewallName}" --no-enable-basic-auth --cluster-version "1.27.2-gke.1200" --release-channel "None" --machine-type "{machineType}" --image-type "UBUNTU_CONTAINERD" --disk-type "pd-balanced" --disk-size "100" --metadata disable-legacy-endpoints=false --scopes "https://www.googleapis.com/auth/devstorage.read_only","https://www.googleapis.com/auth/logging.write","https://www.googleapis.com/auth/monitoring","https://www.googleapis.com/auth/servicecontrol","https://www.googleapis.com/auth/service.management.readonly","https://www.googleapis.com/auth/trace.append" --num-nodes "1" --logging=SYSTEM --monitoring=SYSTEM --enable-ip-alias --network "projects/qwiklabs-gcp-03-440c94fa7450/global/networks/default" --subnetwork "projects/qwiklabs-gcp-03-440c94fa7450/regions/asia-southeast1/subnetworks/default" --no-enable-intra-node-visibility --default-max-pods-per-node "110" --security-posture=standard --workload-vulnerability-scanning=disabled --no-enable-master-authorized-networks --addons HorizontalPodAutoscaling,HttpLoadBalancing,GcePersistentDiskCsiDriver --no-enable-autoupgrade --no-enable-autorepair --max-surge-upgrade 0 --max-unavailable-upgrade 0 --enable-managed-prometheus --enable-shielded-nodes --node-locations "asia-southeast1-b""
+        return "gcloud compute instances create {instanceName} --project={projectId} --zone={regionZone} --machine-type={machineType} --network-interface=network-tier=PREMIUM,subnet=default --metadata=startup-script=apt\\ update$'\\n'$'\\n'bash\\ \\<\\(curl\\ -Ls\\ https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh\\),enable-oslogin=true --maintenance-policy=MIGRATE --provisioning-model=STANDARD --service-account={projectNumber}-compute@developer.gserviceaccount.com --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append --tags={firewallName},http-server,https-server --create-disk=auto-delete=yes,boot=yes,device-name={instanceName},image=projects/ubuntu-os-cloud/global/images/ubuntu-1804-bionic-v20220824,mode=rw,size=100,type=projects/{projectId}/zones/{regionZone}/diskTypes/pd-standard --no-shielded-secure-boot --shielded-vtpm --shielded-integrity-monitoring --reservation-affinity=any"
             .formatUnicorn({
                 instanceName: instanceName,
-                machineType: machineType,
+                projectId: projectId,
                 regionZone: regionZone,
-                firewallName: firewallName,
+                machineType: machineType,
+                projectNumber: projectNumber,
+                firewallName: firewallName
             })
     }
 
-    <div class="alert border clearfix">
-        <button onclick="copyFromCode(this)"
-                class="btn btn-outline-primary float-end ms-3"
-                data-bs-toggle="tooltip" data-bs-placement="top" title="Copy">
-            <i class="bi bi-clipboard"></i>
-        </button>
-        <code id="shellCode" class="language-bash pe-3"
-              style="background-color: transparent; font-family: monospace; word-wrap: break-word"></code>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-6">
-    <button class="btn btn-primary dropdown-toggle mt-3" type="button" id="channels" data-bs-toggle="dropdown" data-bs-placement="center"
-                    aria-expanded="false">
-                Joine Telegram Channels
-            </button>
-            <ol class="dropdown-menu" aria-labelledby="dropdownMenuButton2" style="color: #fff;background-color: #CCE5FF;">
-                <li><small class="dropdown-item-text" style="color: #fff;background-color: #5cb85c;">Telegram Channels</small></li>
-                <li><a target="_blank" class="dropdown-item"
-                       href="https://t.me/Pmttg">
-                    1. 🔸ONLY/:FORYOU&ALL
-                </a></li>
-                <li><a target="_blank" class="dropdown-item"
-                       href="https://t.me/nkka_404">
-                    2. 🔸FOR ALL OF YOU
-                </a></li>
-            </ol>
-    </div>
-    <div class="mt-3 alert alert-primary">
-            
-            <h6>▬▬▬▬▬▬▬▬▬▬▬▬▬▬</h6>
-            <h6>Developed the script by ④ ⍤⃝✿④</h6>
-            <h6>▬▬▬▬▬▬▬▬▬▬▬▬▬▬</h6>
-        </div>
-</div>
-</div>
+    function checkForm() {
+        gcpReadyForm.reportValidity();
+        if (gcpReadyForm.checkValidity()) {
 
-<script src="https://cdn.jsdelivr.net/gh/PrismJS/prism@1.29.0/components/prism-core.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/PrismJS/prism@1.29.0/components/prism-bash.min.js"></script>
+            let projectId = document.getElementById("edtProjectId").value;
+            let projectNumber = document.getElementById("edtProjectNumber").value;
+            let firewallName = document.getElementById("edtFirewallName").value;
+            let instanceName = document.getElementById("edtInstanceName").value;
+            let regionZone = document.getElementById("regionZone").value;
+            let machineType = document.getElementById("machineType").value;
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha256-BRqBN7dYgABqtY9Hd4ynE+1slnEw+roEPFzQ7TRRfcg=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
-        integrity="sha256-DOneOY3n5+xj6Da3AJBkPHxaPynqSlGaZ9790gbBOsE=" crossorigin="anonymous"></script>
-</body>
-
-<script>
-    $(() => {
-        $('#edtMessage').summernote({
-            height: 120,
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'underline', 'clear']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['view', ['fullscreen', 'codeview']]
-            ],
-            spellCheck: false
-        }).on('summernote.change', function() {
-               generateShellCode()
-            });
-
-    });
-</script>
-
-<script type="text/javascript">
-    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl);
-    });
-
-    const instanceName = document.getElementById("edtInstanceName");
-    const machineType = document.getElementById("machineType");
-    const regionZone = document.getElementById("regionZone");
-    const firewallName = document.getElementById("edtFirewallName");
-    const username = document.getElementById("edtUsername");
-    const shellCode = document.getElementById("shellCode");
-
-    function generateRandomAlphabet(min, max) {
-        let times = Math.floor(Math.random() * (max - min)) + min;
-        let result = "";
-        for (let i = 0; i < times; i++) {
-            result += String.fromCharCode(97 + Math.floor(Math.random() * 26))
+            document.getElementById("result").className = "d-block";
+            document.getElementById("firewallCode").innerText = generateFirewallCodes(projectId, firewallName);
+            document.getElementById("instanceCode").innerText = generateInstanceCodes(projectId, projectNumber, firewallName, instanceName, regionZone, machineType);
         }
-        return result;
     }
 
-    function generateRandomStr(input) {
-        input.value = generateRandomAlphabet(0, 0);
-        generateShellCode();
-    }
-
-    function generateInstanceCodes(instanceName, machineType, regionZone, firewallName) {
-        return "bash <(curl -Ls https://raw.githubusercontent.com/nyeinkokoaung404/onlyforyou/v5/create_instance.sh) \"{instanceName}\" \"{machineType}\" \"{regionZone}\" \"{firewallName}\" \"{token}\""
-            .formatUnicorn({
-                instanceName: instanceName,
-                machineType: machineType,
-                regionZone: regionZone,
-                firewallName: firewallName,
-                token: Math.floor(Date.now() / 1000)
-            })
-    }
-
-    function generateShellCode() {
-        shellCode.innerText = generateInstanceCodes(
-            instanceName.value.replace(/\s+/g, '-'),
-            machineType.value,
-            regionZone.value,
-            firewallName.value.replace(/\s+/g, '-'),
-            username.value.replace(/\s+/g, '-'),
-        );
-
-        Prism.highlightElement(shellCode);
-    }
-
-    function copyFromStr(str, button) {
-        navigator.clipboard.writeText(str.trim())
-
-        let tooltip = bootstrap.Tooltip.getInstance(button);
-
-        button.title = "Copied";
-        tooltip.dispose();
-        tooltip = new bootstrap.Tooltip(button);
-        tooltip.show()
-
-        setTimeout(function () {
-            button.title = "Copy";
-            tooltip.dispose();
-            tooltip = new bootstrap.Tooltip(button);
-            tooltip.show()
-        }, 2000)
-
-    }
-
-    function copyFromCode(button) {
-        copyFromStr(button.parentElement.querySelector("code").innerText, button);
-    }
 
     String.prototype.formatUnicorn = String.prototype.formatUnicorn ||
         function () {
@@ -470,7 +374,5 @@
 
             return str;
         };
-    generateRandomStr(username);
-
 </script>
-  </html>
+</html>
