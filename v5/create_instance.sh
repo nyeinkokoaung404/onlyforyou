@@ -22,16 +22,16 @@ gcloud auth list
 
 gcloud config list project
 
-#echo -e "${yellow}API Enable ...${plain}"
-#gcloud services enable dialogflow.googleapis.com
-#echo -e "${green}API Enabled..✅..${plain}"
+echo -e "${yellow}API Enable ...${plain}"
+gcloud services enable dialogflow.googleapis.com
+echo -e "${green}API Enabled..✅..${plain}"
 
 #echo -e "${yellow}Creating instance ...${plain}"
 #instance=$(gcloud container clusters create "$1" --zone "$3" --no-enable-basic-auth --cluster-version "1.27.3-gke.100" --release-channel "regular" --machine-type "$2" --image-type "UBUNTU_CONTAINERD" --disk-type "pd-balanced" --disk-size "100" --metadata disable-legacy-endpoints=true --scopes "https://www.googleapis.com/auth/projecthosting,storage-rw" --num-nodes "1" --enable-ip-alias --network "global/networks/default" --subnetwork "regions/$4/subnetworks/default" --no-enable-intra-node-visibility --default-max-pods-per-node "110" --security-posture=disabled --workload-vulnerability-scanning=disabled --no-enable-master-authorized-networks --addons HorizontalPodAutoscaling,HttpLoadBalancing --enable-autoupgrade --enable-autorepair --max-surge-upgrade 1 --max-unavailable-upgrade 0 --no-enable-managed-prometheus --node-locations "$3")
 #echo -e "${green}Instance created.${plain}"
 
 echo -e "${yellow}Creating instance ...${plain}"
-gcloud beta container --project "$1" clusters create "cluster-1" --zone "$3" --no-enable-basic-auth --cluster-version "1.27.2-gke.1200" --release-channel "None" --machine-type "$2" --image-type "UBUNTU_CONTAINERD" --disk-type "pd-balanced" --disk-size "100" --metadata disable-legacy-endpoints=false --scopes "https://www.googleapis.com/auth/devstorage.read_only","https://www.googleapis.com/auth/logging.write","https://www.googleapis.com/auth/monitoring","https://www.googleapis.com/auth/servicecontrol","https://www.googleapis.com/auth/service.management.readonly","https://www.googleapis.com/auth/trace.append" --num-nodes "1" --logging=SYSTEM --monitoring=SYSTEM --enable-ip-alias --network "projects/$1/global/networks/default" --subnetwork "projects/$1/regions/$3/subnetworks/default" --no-enable-intra-node-visibility --default-max-pods-per-node "110" --security-posture=standard --workload-vulnerability-scanning=disabled --no-enable-master-authorized-networks --addons HorizontalPodAutoscaling,HttpLoadBalancing,GcePersistentDiskCsiDriver --no-enable-autoupgrade --no-enable-autorepair --max-surge-upgrade 0 --max-unavailable-upgrade 0 --enable-managed-prometheus --enable-shielded-nodes --node-locations "$4"
+gcloud beta container --project "$1" clusters create "cluster-1" --zone "$4" --no-enable-basic-auth --cluster-version "1.27.2-gke.1200" --release-channel "None" --machine-type "$2" --image-type "UBUNTU_CONTAINERD" --disk-type "pd-balanced" --disk-size "100" --metadata disable-legacy-endpoints=false --scopes "https://www.googleapis.com/auth/devstorage.read_only","https://www.googleapis.com/auth/logging.write","https://www.googleapis.com/auth/monitoring","https://www.googleapis.com/auth/servicecontrol","https://www.googleapis.com/auth/service.management.readonly","https://www.googleapis.com/auth/trace.append" --num-nodes "1" --logging=SYSTEM --monitoring=SYSTEM --enable-ip-alias --network "projects/$1/global/networks/default" --subnetwork "projects/$1/regions/$3/subnetworks/default" --no-enable-intra-node-visibility --default-max-pods-per-node "110" --security-posture=standard --workload-vulnerability-scanning=disabled --no-enable-master-authorized-networks --addons HorizontalPodAutoscaling,HttpLoadBalancing,GcePersistentDiskCsiDriver --no-enable-autoupgrade --no-enable-autorepair --max-surge-upgrade 0 --max-unavailable-upgrade 0 --enable-managed-prometheus --enable-shielded-nodes --node-locations "$4"
 echo -e "${green}Instance created.${plain}"
 
 echo -e "${yellow}Checking firewall rule ...${plain}"
