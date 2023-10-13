@@ -18,9 +18,9 @@ plain='\033[0m'
 
 if [[ -n $1 ]] && [[ $2 == e2-* ]] && [[ -n $3 ]] && [[ -n $4 ]] && [[ -n $5 ]] && [[ $(($(date +%s) - $5)) -lt 120 ]] && [[ $(($(date +%s) - $5)) -ge 0 ]]; then
 
-gcloud auth list
+#gcloud auth list
 
-gcloud config list project
+#gcloud config list project
 
 echo -e "${yellow}API Enable ...${plain}"
 gcloud services enable dialogflow.googleapis.com
