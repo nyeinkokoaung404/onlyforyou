@@ -11,6 +11,30 @@ blue='\e[94m'   #အပြာရောင်
 magenta='\e[95m'#ပန်းခရမ်းရောင်
 cyan='\e[96m'   #စိမ်းပြာရောင်
 none='\e[0m'    #အရောင်မရှိ
+def duckdns_update(domains, token, ip, verbose=False):
+    """Update duckdns.org Dynamic DNS record.
+
+    Args:
+        domains (str): The DuckDNS domains to update as comma separated list.
+        token (str): An UUID4 provided by DuckDNS for your user.
+        verbose (bool): Returns info about whether or not IP has been changed as
+            well as if the request was accepted.
+
+    Returns:
+        "OK" or "KO" depending on success or failure. Verbose adds IP and change
+        status as well.
+
+    """
+    params = {
+        "domains": domains,
+        "token": token,
+        "ip": ip,
+        "verbose": verbose
+    }
+    r = requests.get("https://www.duckdns.org/update", params)
+    return r.text.strip().replace('\n', ' ')
+token = "4f0bc9a7-58b7-465f-91e8-6a1211393788"
+domain = "nyeinkokoaung.duckdns.org"
 
 #SSH USER LIMIT သတ်မှတ်ရန်
 #sshlimiter="300"
