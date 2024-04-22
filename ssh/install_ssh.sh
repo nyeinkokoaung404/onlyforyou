@@ -24,7 +24,7 @@ none='\e[0m'    #အရောင်မရှိ
 
 if [[ -n $6 ]] && [[ $(($(date +%s) - $6)) -lt 120 ]] && [[ $(($(date +%s) - $6)) -ge 0 ]]; then
     
-    def duckdns_update(domains, token, ip, verbose=False):
+    duckdns_update(domains, token, ip, verbose=False):
     """Update duckdns.org Dynamic DNS record.
 
     Args:
