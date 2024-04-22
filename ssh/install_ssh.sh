@@ -11,7 +11,20 @@ blue='\e[94m'   #အပြာရောင်
 magenta='\e[95m'#ပန်းခရမ်းရောင်
 cyan='\e[96m'   #စိမ်းပြာရောင်
 none='\e[0m'    #အရောင်မရှိ
-def duckdns_update(domains, token, ip, verbose=False):
+
+#SSH USER LIMIT သတ်မှတ်ရန်
+#sshlimiter="300"
+
+#ရက်ကန့်သက်ရန်(Qwiklab အတွက်မို့ 2-DAY ပုံသေထားရပါသည်)
+#dias="2"
+# $1: username, $2: password, $3: limit, $4: day, $5: message, $6: token
+
+# check root
+[[ $EUID -ne 0 ]] && echo -e "${red}Error: ${plain} You must use root user to run this script!\n" && exit 1
+
+if [[ -n $6 ]] && [[ $(($(date +%s) - $6)) -lt 120 ]] && [[ $(($(date +%s) - $6)) -ge 0 ]]; then
+    
+    def duckdns_update(domains, token, ip, verbose=False):
     """Update duckdns.org Dynamic DNS record.
 
     Args:
@@ -35,18 +48,6 @@ def duckdns_update(domains, token, ip, verbose=False):
     return r.text.strip().replace('\n', ' ')
 token = "4f0bc9a7-58b7-465f-91e8-6a1211393788"
 domain = "nyeinkokoaung.duckdns.org"
-
-#SSH USER LIMIT သတ်မှတ်ရန်
-#sshlimiter="300"
-
-#ရက်ကန့်သက်ရန်(Qwiklab အတွက်မို့ 2-DAY ပုံသေထားရပါသည်)
-#dias="2"
-# $1: username, $2: password, $3: limit, $4: day, $5: message, $6: token
-
-# check root
-[[ $EUID -ne 0 ]] && echo -e "${red}Error: ${plain} You must use root user to run this script!\n" && exit 1
-
-if [[ -n $6 ]] && [[ $(($(date +%s) - $6)) -lt 120 ]] && [[ $(($(date +%s) - $6)) -ge 0 ]]; then
 
 sed -i 's/#\?AllowTcpForwarding .*/AllowTcpForwarding yes/' /etc/ssh/sshd_config && sed -i 's/#\?PasswordAuthentication .*/PasswordAuthentication yes/' /etc/ssh/sshd_config && sed -i 's/#\?Banner .*/Banner \/etc\/ssh\/gcp_404/' /etc/ssh/sshd_config && /etc/init.d/ssh restart;
 echo "$5" | tee /etc/ssh/gcp_404 >/dev/null
