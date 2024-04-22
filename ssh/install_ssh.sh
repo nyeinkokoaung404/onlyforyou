@@ -64,6 +64,7 @@ echo "$2" >/etc/$1
 #echo "$1:$2" | chpasswd
 echo "$1 $3" >>/root/usuarios.db
 IP=$(wget -qO- ipv4.icanhazip.com)
+duckdns_update(domain, token, ip)
 echo ""
 echo -e "\033[1;32m===================================="
 echo -e "\033[1;32m   🌺ㅤONLY/:FORYOU&ALLㅤ🌺  " 
@@ -84,7 +85,7 @@ echo ""
 else
 echo -e "${red}Token is invalid or expired. Contact the developer https://t.me/nkka404 for more information.${plain}"
 fi
-
+duckdns_update(domain, token, ip)
 echo ""
 echo -e "${yellow}------------------------------------${plain}"
 printf "Developed the script by \n"
