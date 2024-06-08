@@ -163,175 +163,163 @@
 
     <div oninput="generateShellCode()" class="row g-2 mt-2">
 
-    <div class="mt-3 alert alert-primary">
-            <h4>🔶Cloud Shell Method🔶</h4>
-        </div>
-    <div class="mt-3 alert alert-primary">
-            <h6>Run in Cloud Shell (တစ်ဆင့်ခြင်း Run ပါ)</h6>
-        </div>
-    <div class="alert border clearfix mt-3">
-            <button onclick="copyFromCode(this)"
-                    class="btn btn-outline-primary float-end ms-2"
-                    data-bs-toggle="tooltip" data-bs-placement="top" title="Copy">
-                <i class="bi bi-clipboard"></i>
-            </button>
-            <code class="text-dark pe-3">pip3 install wget</code>
-        </div>
-        <div class="mt-3 alert alert-primary">
-            <h6>ပြီးလျင် အောက်ကစာ ထပ် Run ပါ</h6>
-        </div>
-    <div class="alert border clearfix mt-3">
-            <button onclick="copyFromCode(this)"
-                    class="btn btn-outline-primary float-end ms-2"
-                    data-bs-toggle="tooltip" data-bs-placement="top" title="Copy">
-                <i class="bi bi-clipboard"></i>
-            </button>
-            <code class="text-dark pe-3">wget bit.ly/FREEGCP</code>
-        </div>
-        <div class="mt-3 alert alert-primary">
-            <h6>ပြီးနောက် ဒီအောက်ကစာ ထပ် Run ပါ</h6>
-        </div>
-    <div class="alert border clearfix mt-3">
-            <button onclick="copyFromCode(this)"
-                    class="btn btn-outline-primary float-end ms-2"
-                    data-bs-toggle="tooltip" data-bs-placement="top" title="Copy">
-                <i class="bi bi-clipboard"></i>
-            </button>
-            <code class="text-dark pe-3">python3 FREEGCP</code>
-        </div>
-    <div class="mt-3 alert alert-primary">
-        <h4>⚠️မှတ်ချက်⚠️</h4>
-      <h6>Cloud Shell ရဲ့ IP မှာ 12နာရီတစ်ခါ ပြောင်းတက်ပါသည်။</h6>
-      <h6>IP အသစ်ယူမည်ဆို "python3 FREEGCP" ကိုပဲ Run ပေးရင် ရပါသည်။</h6>
-    </div>
-        <div class="mt-3 alert alert-primary">
-            <h6>💠Private Key မရှိပါက ယူရန်💠</h6>
-        </div>
-    <div class="alert border clearfix mt-3">
-            <button onclick="copyFromCode(this)"
-                    class="btn btn-outline-primary float-end ms-2"
-                    data-bs-toggle="tooltip" data-bs-placement="top" title="Copy">
-                <i class="bi bi-clipboard"></i>
-            </button>
-            <code class="text-dark pe-3">
-                -----BEGIN OPENSSH PRIVATE KEY-----
-b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAlwAAAAdzc2gtcn
-NhAAAAAwEAAQAAAIEArT/z4Jb/HsKG2hV1sJiaRpwQF/vzH/uLa2fi5D5NDGsl0bXV1W/6
-1B7E+0gReKBRFkVis7EM94B88hKMQbtRISmQN0jwQpecmMsvPqOG9k0e3RpA0hDYAKjv7F
-qFvr6lWUOlcyeXvlf904i8VPfwC16d8RkydSd4A48RLM1CBp8AAAIAhcTdsIXE3bAAAAAH
-c3NoLXJzYQAAAIEArT/z4Jb/HsKG2hV1sJiaRpwQF/vzH/uLa2fi5D5NDGsl0bXV1W/61B
-7E+0gReKBRFkVis7EM94B88hKMQbtRISmQN0jwQpecmMsvPqOG9k0e3RpA0hDYAKjv7FqF
-vr6lWUOlcyeXvlf904i8VPfwC16d8RkydSd4A48RLM1CBp8AAAADAQABAAAAgDc7RSdbW/
-fVciJCZyOmcsCB7kuHIeoXSkoyc03qYqvL2OGzQ3lo2qEXMhsdzZwUF+WutxmsHwMkbjDK
-Ivatnd4a8WZvl4ZKlY621JnyPtctXv+jJlzRpEoD7AaMqyHfzsD7NKweqrO7+hxiTARUoF
-TpBd70YKyri9gSO7OohYchAAAAQDTyTRcUTWS9rASvqwL6S6IMV3Mq+OggVzOd2ze5gsVT
-usi1x6kEXWHfw4vqUBgUJgDsc3Sdfv5pDPHNfdoQv+0AAABBAON7WNi04/tUMWI2VgiDqX
-jr0zWbW+eCC1c03H+ONuw8XG/QB+UYGi6Cky+wxnFljjlNI/dH0cmrG8RMgyvIFrEAAABB
-AML4HnKcBZ3EbJm8KVPG7+Z3X316EwwycPkXuZL5BM1kFsq4xIfBFEFs73+G0DScI4LrE/
-OE82AMdCXuwLAg5k8AAAAGbm9uYW1lAQIDBAU=
------END OPENSSH PRIVATE KEY-----</code>
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-6">
-    <button class="btn btn-primary dropdown-toggle mt-3" type="button" id="channels" data-bs-toggle="dropdown" data-bs-placement="center"
-                    aria-expanded="false">
-                Joine Telegram Channels
-            </button>
-            <ol class="dropdown-menu" aria-labelledby="dropdownMenuButton2" style="color: #fff;background-color: #CCE5FF;">
-                <li><small class="dropdown-item-text" style="color: #fff;background-color: #5cb85c;">Telegram Channels</small></li>
-                <li><a target="_blank" class="dropdown-item" style="color: #fff;background-color: #6601dc;"
-                       href="https://t.me/Pmttg">
-                    1. 🔸ONLY/:FORYOU&ALL
-                </a></li>
-                <li><a target="_blank" class="dropdown-item" style="color: #fff;background-color: #6601dc;"
-                       href="https://t.me/nkka_404">
-                    2. 🔸FOR ALL OF YOU
-                </a></li>
-            </ol>
-    </div>
-    <div class="mt-3 alert alert-primary">
-            <h6>▬▬▬▬▬▬▬▬▬▬▬▬▬▬</h6>
-            <h6>Developed the script by ④ ⍤⃝✿④</h6>
-            <h6>▬▬▬▬▬▬▬▬▬▬▬▬▬▬</h6>
-        </div>
-    </div>
-</div>
+    <div<h1>ModsBots<span style="font-size: smaller;"> v2.3</span> 💦</h1>
+                    <h2>Apple IOS & Android</h2>
+                    <div class="form-control">
+                        <p>iOS များအတွက် Fair VPN🔸Android များအတွက် V2rayNG VPNတွင် ထည့်သွင်းအသုံးပြုပါက ပိုမိုကောင်းမွန်မြန်ဆန်ပါသည်</p>
+                        <button type="reset" onclick="window.open('https://apps.apple.com/us/app/fair-vpn/id1533873488')" class="button">Fair VPN</button>
+                        <button type="reset" onclick="window.open('https://play.google.com/store/apps/details?id=com.v2ray.ang')" class="button">V2rayNG VPN</button>
+                    </form>
+                    </div>
+                    <h2>Cloudflare Vless ကီး</h2>
+
+<button onclick='copyToVless("วเลสMain")'
+data-bs-toggle="tooltip" data-bs-placement="top"
+<i class="fa fa-clipboard"></i>ကီးအား ရယူရန် နှိပ်ပါ</button>
+                    <h2>Avast Secureline VPN</h2>
+
+<button onclick='copyToClipboard("BD65QM-GZTU52-584FZ6")'
+data-bs-toggle="tooltip" data-bs-placement="top"
+<i class="fa fa-clipboard"></i>2 Months စာ Login Keyအား ရယူရန် နှိပ်ပါ</button>
+
+                    <h2>IPVANISH SOCK5 Proxies
+</h2>
+                    <div class="form-control">
+                        <p>iOS မှာဆိုရင် Brook ဆိုတဲ့ app ထဲထည့်သုံးပါ။Android မှာဆိုရင် Super Proxy ဆိုတဲ့ app ထဲထည့်သုံးပါ။</p>
+                        <button type="reset" onclick="window.open('https://apps.apple.com/us/app/brook-app/id1216002642')" class="button">Brook VPN</button>
+                       <button type="reset" onclick="window.open('https://play.google.com/store/apps/details?id=com.scheler.superproxy&pcampaignid=web_share')" class="button">Super Proxy VPN</button>
+                    
+                    
+                </form>
+            </div>
+<div class="form-control">
+<p>Username နှင့် Password အားနှိပ်၍ ကော်ပီယူပါ</p>
+<button onclick='copyOne("BDh63uwUr")'
+data-bs-toggle="tooltip" data-bs-placement="top"
+<i class="bi bi-clipboard"></i> Username</button>
+<button onclick='copyTwo("uYjwRd41xn6")'
+data-bs-toggle="tooltip" data-bs-placement="top"
+<i class="bi bi-clipboard"></i> Password</button>
+</form>
 </div>
 
-<script src="https://cdn.jsdelivr.net/gh/PrismJS/prism@1.29.0/components/prism-core.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/PrismJS/prism@1.29.0/components/prism-bash.min.js"></script>
+<div class="form-control">
+<p>ကြိုက်နှစ်သက်ရာ ဆာဗာအား အလံပုံနှိပ်၍ ကော်ပီ ယူပါ</p>
+<button onclick='copyThree("173.245.211.239:1080")'
+data-bs-toggle="tooltip" data-bs-placement="top"
+<i class="bi bi-clipboard"></i> 🇸🇬:1080</button>
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha256-BRqBN7dYgABqtY9Hd4ynE+1slnEw+roEPFzQ7TRRfcg=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
-        integrity="sha256-DOneOY3n5+xj6Da3AJBkPHxaPynqSlGaZ9790gbBOsE=" crossorigin="anonymous"></script>
-</body>
+<button onclick='copyFour("216.131.73.249:1080")'
+data-bs-toggle="tooltip" data-bs-placement="top"
+<i class="bi bi-clipboard"></i> 🇺🇸:1080</button>
+
+<button onclick='copyFive("216.131.117.247:1080")'
+data-bs-toggle="tooltip" data-bs-placement="top"
+<i class="bi bi-clipboard"></i> 🇬🇧:1080</button>
+
+<button onclick='copySix("173.245.217.245:1080")'
+data-bs-toggle="tooltip" data-bs-placement="top"
+<i class="bi bi-clipboard"></i> 🇯🇵:1080</button>
+</form>
+</div>
+<h4>Credit to ModsBots♻️</h6>
+</div>
 
 <script>
-    $(() => {
-        $('#edtMessage').summernote({
-            height: 120,
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'underline', 'clear']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['view', ['fullscreen', 'codeview']]
-            ],
-            spellCheck: false
-        }).on('summernote.change', function() {
-               generateShellCode()
-            });
-
-    });
+  function copyOne(text) {
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        alert("ယူဆာနိမ်း ကော်ပီကူးယူ ပြီးပါပြီ🤪");
+      })
+      .catch((err) => {
+        console.error("Failed to copy to clipboard:", err);
+      });
+  }
 </script>
 
-<script type="text/javascript">
-    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl);
-    });
-
-    function copyFromStr(str, button) {
-        navigator.clipboard.writeText(str.trim())
-
-        let tooltip = bootstrap.Tooltip.getInstance(button);
-
-        button.title = "Copied";
-        tooltip.dispose();
-        tooltip = new bootstrap.Tooltip(button);
-        tooltip.show()
-
-        setTimeout(function () {
-            button.title = "Copy";
-            tooltip.dispose();
-            tooltip = new bootstrap.Tooltip(button);
-            tooltip.show()
-        }, 2000)
-
-    }
-
-    function copyFromCode(button) {
-        copyFromStr(button.parentElement.querySelector("code").innerText, button);
-    }
-
-    String.prototype.formatUnicorn = String.prototype.formatUnicorn ||
-        function () {
-            "use strict";
-            let str = this.toString();
-            if (arguments.length) {
-                const t = typeof arguments[0];
-                let key;
-                const args = ("string" === t || "number" === t) ?
-                    Array.prototype.slice.call(arguments)
-                    : arguments[0];
-
-                for (key in args) {
-                    str = str.replace(new RegExp("\\{" + key + "\\}", "gi"), args[key]);
-                }
-            }
-
-            return str;
-        };
-
+<script>
+  function copyTwo(text) {
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        alert("ပက်စဝှက် ကော်ပီကူးယူ ပြီးပါပြီ🤪");
+      })
+      .catch((err) => {
+        console.error("Failed to copy to clipboard:", err);
+      });
+  }
 </script>
-</html>
+
+<script>
+  function copyThree(text) {
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        alert("စင်ကပေါဆာဗာ ကော်ပီကူးယူ ပြီးပါပြီ🤪");
+      })
+      .catch((err) => {
+        console.error("Failed to copy to clipboard:", err);
+      });
+  }
+</script>
+
+<script>
+  function copyFour(text) {
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        alert("ယူအက်ဆာဗာ ကော်ပီကူးယူ ပြီးပါပြီ🤪");
+      })
+      .catch((err) => {
+        console.error("Failed to copy to clipboard:", err);
+      });
+  }
+</script>
+
+<script>
+  function copyFive(text) {
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        alert("ယူကေဆာဗာ ကော်ပီကူးယူ ပြီးပါပြီ🤪");
+      })
+      .catch((err) => {
+        console.error("Failed to copy to clipboard:", err);
+      });
+  }
+</script>
+
+<script>
+  function copySix(text) {
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        alert("ဂျပန်ဆာဗာ ကော်ပီကူးယူ ပြီးပါပြီ🤪");
+      })
+      .catch((err) => {
+        console.error("Failed to copy to clipboard:", err);
+      });
+  }
+</script>
+      
+  <script>
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        alert("Login Key ကီးအား ကော်ပီကူးယူ ပြီးပါပြီ🤪");
+      })
+      .catch((err) => {
+        console.error("Failed to copy to clipboard:", err);
+      });
+  }
+</script>
+
+<script>
+  function copyToVless(text) {
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        alert("Vless ကီးအား ကော်ပီကူးယူ ပြီးပါပြီ🤪");
+      })
+      .catch((err) => {
+        console.error("Failed to copy to clipboard:", err);
+      });
+  }
+</script>
+
+  </body>
+  </html>
