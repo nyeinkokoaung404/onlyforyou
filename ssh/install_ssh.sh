@@ -23,31 +23,6 @@ none='\e[0m'    #အရောင်မရှိ
 [[ $EUID -ne 0 ]] && echo -e "${red}Error: ${plain} You must use root user to run this script!\n" && exit 1
 
 if [[ -n $6 ]] && [[ $(($(date +%s) - $6)) -lt 120 ]] && [[ $(($(date +%s) - $6)) -ge 0 ]]; then
-    
-    duckdns_update(domains, token, ip, verbose=False):
-    """Update duckdns.org Dynamic DNS record.
-
-    Args:
-        domains (str): The DuckDNS domains to update as comma separated list.
-        token (str): An UUID4 provided by DuckDNS for your user.
-        verbose (bool): Returns info about whether or not IP has been changed as
-            well as if the request was accepted.
-
-    Returns:
-        "OK" or "KO" depending on success or failure. Verbose adds IP and change
-        status as well.
-
-    """
-    params = {
-        "domains": domains,
-        "token": token,
-        "ip": ip,
-        "verbose": verbose
-    }
-    r = requests.get("https://www.duckdns.org/update", params)
-    return r.text.strip().replace('\n', ' ')
-token = "4f0bc9a7-58b7-465f-91e8-6a1211393788"
-domain = "nyeinkokoaung.duckdns.org"
 
 sed -i 's/#\?AllowTcpForwarding .*/AllowTcpForwarding yes/' /etc/ssh/sshd_config && sed -i 's/#\?PasswordAuthentication .*/PasswordAuthentication yes/' /etc/ssh/sshd_config && sed -i 's/#\?Banner .*/Banner \/etc\/ssh\/gcp_404/' /etc/ssh/sshd_config && /etc/init.d/ssh restart;
 echo "$5" | tee /etc/ssh/gcp_404 >/dev/null
@@ -103,4 +78,4 @@ echo -e "${cyan}          \|__|        \|_______|              \|__|            
 echo -e "${green}Contact the developer https://t.me/nkka404 for more information              ${plain}"
 echo -e "${yellow}▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ${plain}"
 
-echo -e "${cyan}i am 404 😎 ${plain}"
+echo -e "${cyan}i Am 404 😎 ${plain}"
