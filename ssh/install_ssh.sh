@@ -34,7 +34,7 @@ sizepass=$(echo ${#2})
 final=$(date "+%Y-%m-%d" -d "+$4 days")
 gui=$(date "+%d/%m/%Y" -d "+$4 days")
 pass=$(perl -e 'print crypt($ARGV[0], "password")' $2)
-#useradd -e $final -M -s /bin/false -p $pass $1 >/dev/null
+useradd -e $final -M -s /bin/false -p $pass $1 >/dev/null
 echo "$2" >/etc/$1
 echo "$1:$2" | chpasswd
 echo "$1 $3" >>/root/usuarios.db
