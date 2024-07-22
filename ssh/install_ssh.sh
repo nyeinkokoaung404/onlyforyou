@@ -36,8 +36,8 @@ gui=$(date "+%d/%m/%Y" -d "+$4 days")
 pass=$(perl -e 'print crypt($ARGV[0], "password")' $2)
 useradd -e $final -M -s /bin/false -p $pass $1 >/dev/null
 echo "$2" >/etc/$1
-#echo "$1:$2" | chpasswd
-echo "$1 $3" >>/root/usuarios.db
+echo "$1:$2" | chpasswd
+#echo "$1 $3" >>/root/usuarios.db
 IP=$(wget -qO- ipv4.icanhazip.com)
 echo ""
 echo -e "\033[1;32m===================================="
