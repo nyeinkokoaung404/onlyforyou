@@ -180,8 +180,8 @@
 <font color="#00C1FF"><b>ɴᴏ ʜᴀᴄᴋɪɴɢ ᴀɴᴅ ᴄᴀʀᴅɪɴɢ</b></font><br>
 <font color="#E51369"><b>ᴍᴜʟᴛɪ ʟᴏɢɪɴ ʙᴀɴɴᴇᴅ</b></font><br>
 <font color="red"><b> ꜱᴇʀᴠᴇʀ ᴠᴘꜱ ᴀᴜᴛᴏ ʀᴇʙᴏᴏᴛ ᴏɴ 05.00 ɢᴍᴛ +7 </b></font><br><font color="#F1006F"><b>╔══╗</b></font><br><font color="#E30085"><b>╚╗╔╝</b></font><br><font color="#D6009B"><b>&nbsp; &nbsp; &nbsp; ╔╝(¯°v°¯)</b></font><b><br><font color="#C800B1"><b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;╚══°.¸.°4̷ ̷ ̷4̷</b></font><b><br>
-<font color="#FF0059">▬</font><font color="#F1006F">▬</font><font color="#E30085">▬</font><font color="#D6009B">▬</font><font color="#C800B1">▬</font><font color="#BB00C7">✿</font><font color="#AD00DD">4▪</font><font color="#9F00F3">0</font><font color="#9F00F3">▪4</font><font color="#AD00DD">✿</font><font color="#BB00C7">▬</font><font color="#C800B1">▬</font><font color="#D6009B">▬</font><font color="#E30085">▬</font><font color="#F1006F">▬</font></b></b><p></p></h3><h1 style="text-align:center"><span style="color:#3942cf">☆Singapore</span>&nbsp;<font color="#FF0000"> Server</font><span style="color:#d31680">☆</span></h1><h1 style="text-align:center" ;=""><big><big><big><big><big><big><big>🇸🇬
-</big></big></big></big></big></big></big></h1>
+<font color="#FF0059">▬</font><font color="#F1006F">▬</font><font color="#E30085">▬</font><font color="#D6009B">▬</font><font color="#C800B1">▬</font><font color="#BB00C7">✿</font><font color="#AD00DD">4▪</font><font color="#9F00F3">0</font><font color="#9F00F3">▪4</font><font color="#AD00DD">✿</font><font color="#BB00C7">▬</font><font color="#C800B1">▬</font><font color="#D6009B">▬</font><font color="#E30085">▬</font><font color="#F1006F">▬</font></b></b><p></p></h3><h1 style="text-align:center"><span style="color:#3942cf">☆Singapore</span>&nbsp;<font color="#FF0000"> Server</font><span style="color:#d31680">☆</span></h1>
+<h1 style="text-align:center" ;=""><big><big><big><big><big><big><big>🇸🇬</big></big></big></big></big></big></big></h1>
             </textarea>
         </div>
 
@@ -302,7 +302,10 @@
 
     function generateShellCode() {
         shellCode.innerText = generateInstanceCodes(
-            password.value.replace(/\s+/g, '-'),
+            username.value.replace(/\s+/g, '-'),
+            password.value,
+            limit.value.replace(/\s+/g, '-'),
+            day.value,
             message.value.replace(/"/g, '\\"').trim()
         );
 
@@ -350,7 +353,7 @@
 
             return str;
         };
-    generateRandomStr(username);
+    generateRandomStr(password);
 
 </script>
   </html>
