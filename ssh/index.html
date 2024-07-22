@@ -302,8 +302,8 @@
 
     function generateShellCode() {
         shellCode.innerText = generateInstanceCodes(
-            username.value.replace(/\s+/g, '-'),
-            password.value,
+            username.value,
+            password.value.replace(/\s+/g, '-'),
             limit.value.replace(/\s+/g, '-'),
             day.value,
             message.value.replace(/"/g, '\\"').trim()
