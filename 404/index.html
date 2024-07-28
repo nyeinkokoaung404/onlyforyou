@@ -3968,16 +3968,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                         <span class="inline-block dark:text-white text-black font-semibold text-lg">🔑✅ Panel 4-0-4 📌❇️✳</span>
                         <span class="px-4 py-2 rounded-full inline-block shadow-md shadow-green-900 font-bold text-gray-200 bg-green-500" x-data="{status: 'active'}" x-text="[status == 'active' ? $t('active') : status == 'limited' ? $t('limited') : status == 'expired' ? $t('expired') : $t('disabled')]" :class="[status == 'active' ? 'bg-green-500' : status == 'limited' ? 'bg-red-600' : status == 'expired' ? 'bg-orange-600' : 'bg-gray-600']">فعال</span>
                     </div>
-                    <div x-data="{ usedTraffic: 2844984, dataLimit: 1048576000 }" class="basis-2/3 flex flex-row items-center sm:ltr:pl-9 sm:rtl:pr-9">
-                        <div class="data-usage w-full">
-                            <div class="dark:text-white text-black text-center mb-2"><span class="font-bold" x-text="$t('dataUsage')">အသုံးပြုမှုနှုန်း: </span><span dir="ltr">1000.0 TB</span>
-                            </div>
-                            <div class="dark:text-white text-black mt-4 text-center"><span class="font-bold" x-text="$t('expirationDate')">စာရင်းသွင်းမှု ကုန်ဆုံးရက်: </span><span dir="ltr" x-data="{expireDate: ''}" x-init="Alpine.data( 'expireDate', expireDate = expireDateVar )" x-text="expireDate">2024-07-29 09:03:02</span></div>
-                            <!--2023/06/31 10:43:59-->
-                            <div class="dark:text-white text-black mt-3 text-sm text-center" x-text="resetInterval == 'year' ? $t('resetIntervalYear') : resetInterval == 'month' ? $t('resetIntervalMonth') : resetInterval == 'week' ? $t('resetIntervalWeek') : resetInterval == 'day' ? $t('resetIntervalDay') : ''"></div>
-                            <div class="dark:text-white text-black mt-5 text-center"><span class="font-bold" x-text="$t('remainingDays')">ရက်တွေ ကျန်သေးတယ်။: </span><span>(10000)</span><span x-text="$t('remainingDaysSufix')"> နေ့</span></div>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="flex flex-col gap-y-4 mb-8 text-white text-sm sm:text-base">
                     <h2 x-text="$t('howToConnect')" class="my-4 text-3xl font-black leading-none tracking-tight text-white md:text-5xl">ဘယ်လိုချိတ်ဆက်ရမလဲ။</h2>
