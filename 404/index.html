@@ -1,7 +1,7 @@
 <html><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1273841502_c0c7 - Sub Info</title>
+    <title>Only For You</title>
     <style>
         .asli {
             background: url('https://4kwallpapers.com/images/wallpapers/windows-server-2025-3840x2400-15386.jpg') no-repeat center;
@@ -3829,15 +3829,15 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
             },
         };
         let settings = {
-            language: "en",
+            language: "fa",
         };
 
         function checkLang() {
-            window.AlpineI18n.fallbackLocale = "en";
+            window.AlpineI18n.fallbackLocale = "fa";
             let locale = localStorage.getItem("lang") ?? settings.language;
             window.AlpineI18n.create(locale, langJson);
             AlpineI18n.locale = locale;
-            document.body.setAttribute("dir", locale == "en" ? "rtl" : "ltr");
+            document.body.setAttribute("dir", locale == "fa" ? "rtl" : "ltr");
         }
 
         document.addEventListener("alpine-i18n:ready", () => {
@@ -5105,8 +5105,8 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                         <select style="
                text-indent:15px;
                height:50px;" id="countries" class="border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-2.5 py-3.5 bg-gray-100 border-gray-200 placeholder-gray-800 text-black dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
-                            <option value="fa">فارسی</option>
                             <option value="en">English</option>
+                            <option value="fa">فارسی</option>
                             <option value="ru">Русский</option>
                         </select>
                     </div>
