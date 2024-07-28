@@ -3953,7 +3953,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         <div class="modal-box">
             <h3 class="text-lg font-bold" id="modalTitle">Dynamic Title</h3>
             <div class="flex items-center justify-center mt-8 mb-4 bg-white py-4 rounded-3xl" id="qrcode"></div>
-            <p x-text="$t('clickOutClose')" class="text-center" id="modalContent">برای بسته شدن بیرون از باکس کلیک کنید</p>
+            <p x-text="$t('clickOutClose')" class="text-center" id="modalContent">ပိတ်ရန် အကွက်အပြင်ဘက်တွင် နှိပ်ပါ။</p>
         </div>
         <label class="modal-backdrop" for="QrModal">Close</label>
     </div>
@@ -3963,25 +3963,25 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
             <div class="mx-auto max-w-xl">
                 <div class="flex mb-8 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 dark:from-gray-700 dark:via-gray-800 dark:to-gray-900 rounded-3xl p-8 dark:text-white text-black flex-col sm:flex-row space-y-10 sm:space-y-0 sm:divide-x sm:rtl:divide-x-reverse sm:divide-blue-600/50">
                     <div class="basis-1/3 space-y-5 flex flex-col items-center py-3 sm:ltr:pr-9 sm:rtl:pl-9" x-data="">
-                        <div x-text="calculatePercentage(dataUsed, dataLimit) + '%'" :class="getChartColor(calculatePercentage(dataUsed, dataLimit))" class="radial-progress font-black text-2xl text-green-500" id="progress__bar" style="--size:9rem; --thickness: 1.2rem;"
-                            
+                        <div x-text="calculatePercentage(dataUsed, dataLimit) + '%'" :class="getChartColor(calculatePercentage(dataUsed, dataLimit))" class="radial-progress font-black text-2xl text-green-500" id="progress__bar" style="--size:9rem;
+                            --thickness: 1.2rem;">0.3%</div>
                         <span class="inline-block dark:text-white text-black font-semibold text-lg">🔑✅ Panel 4-0-4 📌❇️✳</span>
                         <span class="px-4 py-2 rounded-full inline-block shadow-md shadow-green-900 font-bold text-gray-200 bg-green-500" x-data="{status: 'active'}" x-text="[status == 'active' ? $t('active') : status == 'limited' ? $t('limited') : status == 'expired' ? $t('expired') : $t('disabled')]" :class="[status == 'active' ? 'bg-green-500' : status == 'limited' ? 'bg-red-600' : status == 'expired' ? 'bg-orange-600' : 'bg-gray-600']">فعال</span>
                     </div>
                     <div x-data="{ usedTraffic: 2844984, dataLimit: 1048576000 }" class="basis-2/3 flex flex-row items-center sm:ltr:pl-9 sm:rtl:pr-9">
                         <div class="data-usage w-full">
-                            <div class="dark:text-white text-black text-center mb-2"><span class="font-bold" x-text="$t('dataUsage')">အသုံးပြုမှုနှုန်း: </span>
+                            <div class="dark:text-white text-black text-center mb-2"><span class="font-bold" x-text="$t('dataUsage')">အသုံးပြုမှုနှုန်း: </span><span dir="ltr">1000.0 TB</span>
                             </div>
-                            <div class="dark:text-white text-black mt-4 text-center"><span class="font-bold" x-text="$t('expirationDate')">تاریخ پایان اشتراک: </span><span dir="ltr" x-data="{expireDate: ''}" x-init="Alpine.data( 'expireDate', expireDate = expireDateVar )" x-text="expireDate">2024-07-29 09:03:02</span></div>
+                            <div class="dark:text-white text-black mt-4 text-center"><span class="font-bold" x-text="$t('expirationDate')">စာရင်းသွင်းမှု ကုန်ဆုံးရက်: </span><span dir="ltr" x-data="{expireDate: ''}" x-init="Alpine.data( 'expireDate', expireDate = expireDateVar )" x-text="expireDate">2024-07-29 09:03:02</span></div>
                             <!--2023/06/31 10:43:59-->
                             <div class="dark:text-white text-black mt-3 text-sm text-center" x-text="resetInterval == 'year' ? $t('resetIntervalYear') : resetInterval == 'month' ? $t('resetIntervalMonth') : resetInterval == 'week' ? $t('resetIntervalWeek') : resetInterval == 'day' ? $t('resetIntervalDay') : ''"></div>
-                            <div class="dark:text-white text-black mt-5 text-center"><span class="font-bold" x-text="$t('remainingDays')">روزهای باقی‌مانده: </span><span>(0)</span><span x-text="$t('remainingDaysSufix')"> روز</span></div>
+                            <div class="dark:text-white text-black mt-5 text-center"><span class="font-bold" x-text="$t('remainingDays')">ရက်တွေ ကျန်သေးတယ်။: </span><span>(10000)</span><span x-text="$t('remainingDaysSufix')"> နေ့</span></div>
                         </div>
                     </div>
                 </div>
                 <div class="flex flex-col gap-y-4 mb-8 text-white text-sm sm:text-base">
-                    <h2 x-text="$t('howToConnect')" class="my-4 text-3xl font-black leading-none tracking-tight text-white md:text-5xl">چطوری وصل بشم؟</h2>
-                    <p x-text="$t('connectInfo')" class="text-lg font-normal mb-4 text-gray-300 lg:text-xl">با استفاده از منو های زیر نسبت به سیستم عامل خود می توانید از اشتراک خود استفاده کنید.</p>
+                    <h2 x-text="$t('howToConnect')" class="my-4 text-3xl font-black leading-none tracking-tight text-white md:text-5xl">ဘယ်လိုချိတ်ဆက်ရမလဲ။</h2>
+                    <p x-text="$t('connectInfo')" class="text-lg font-normal mb-4 text-gray-300 lg:text-xl">သင်၏လည်ပတ်မှုစနစ်အရ အောက်ပါမီနူးများကို အသုံးပြု၍ သင်၏စာရင်းသွင်းမှုကို သင်အသုံးပြုနိုင်ပါသည်။</p>
                     <div id="OsContainer" class="flex flex-col gap-y-4 text-white text-sm sm:text-base"><div id="iOSContainer" class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 transition-all duration-300 font-medium rounded-2xl">
                             <!-- Accordion item -->
                             <div x-data="{ expanded: true }">
@@ -3991,7 +3991,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                                             <svg class="w-6 h-6" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M8.987 4.5C8.987 1.5 10.487 0 13.487 0C13.487 3 11.987 4.5 8.987 4.5ZM7.66 6.133C7.018 5.838 6.282 5.5 5.323 5.5C3.194 5.5 0 7.629 0 11.887C0 16.145 2.7 22 5.323 22C6.121 22 6.653 21.734 7.186 21.468C7.718 21.202 8.25 20.936 9.049 20.936C9.847 20.936 10.512 21.202 11.178 21.468C11.843 21.734 12.508 22 13.307 22C15.142 22 17.014 19.136 17.973 15.956C17.091 15.636 15.327 13.985 15.327 11.887C15.327 9.181 16.564 7.964 17.182 7.557C16.067 6.186 14.515 5.5 13.307 5.5C12.347 5.5 11.443 5.838 10.653 6.133C10.04 6.361 9.496 6.565 9.049 6.565C8.601 6.565 8.159 6.361 7.66 6.133Z" fill="white"></path>
                                             </svg>
-                                            <span x-text="$t('iOS')">آی او اِس</span>
+                                            <span x-text="$t('iOS')">iOS ပါ။</span>
                                         </div>
 
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" :class="{'!rotate-180': expanded}" class="w-6 h-6 mx-6 transform origin-center transition duration-200 ease-out !rotate-180">
