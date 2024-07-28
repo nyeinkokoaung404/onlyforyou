@@ -3422,7 +3422,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         }
 
         function renderConfigs() {
-            const subLinks = "['vless://36195430-ed6a-494c-a1c2-3b3d26700cd7@store.5bb.com.mm:443?type=ws&host=bpb-404-22.iam404-bpb.dynv6.net&path=/?ed%3D2048&security=tls&fp=randomized&sni=bpb-404-22.iam404-bpb.dynv6.net&alpn=h3,h2,http/1.1#us.kg']"
+            const subLinks = "['vmess://ewogICJ2IjogIjIiLAogICJwcyI6ICJOb25UTFMtVm1lc3MtMTg4LUlQLTEwMEdCLTQwNCIsCiAgImFkZCI6ICIxODguMTY2LjIyMy4xODciLAogICJwb3J0IjogMzAwNjcsCiAgImlkIjogIjIxMzZhNmUxLWQ2MGYtNDQ5OC1hY2RmLWZmYzgxNTExNTRmMSIsCiAgIm5ldCI6ICJ0Y3AiLAogICJ0eXBlIjogImh0dHAiLAogICJ0bHMiOiAibm9uZSIsCiAgInBhdGgiOiAiLyIKfQ==']"
             const configsElement = document.querySelector("#configs_section")
             const cleanedString = subLinks.replace(/[\[\]']/g, '');
 
@@ -3913,7 +3913,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
             copyButton.addEventListener("click", function () {
                 console.log('clicked');
                 // Text to copy
-                const subLinks = "['vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@meow.behesht.blog:8443?security=reality&type=tcp&headerType=&path=&host=&sni=discordapp.com&fp=chrome&pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&sid=#IRANCELL%20%F0%9F%87%AB%F0%9F%87%AE%20%5BVLESS%20-%20tcp%5D', 'vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@mno.shady.blog:8443?security=reality&type=tcp&headerType=&path=&host=&sni=cdn.discordapp.com&fp=chrome&pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&sid=#MCI%20%26%20IRANCELL%20%F0%9F%87%A9%F0%9F%87%AA%20%5BVLESS%20-%20tcp%5D', 'vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@xoxo.shady.blog:8443?security=reality&type=tcp&headerType=&path=&host=&sni=discordapp.com&fp=chrome&pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&sid=#MCI%20%26%20IRANCELL%20%F0%9F%87%A9%F0%9F%87%AA%C2%B2%20%5BVLESS%20-%20tcp%5D', 'vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@meow.behesht.blog:2053?security=reality&type=grpc&headerType=&serviceName=xyz&authority=&mode=gun&sni=cdn.discordapp.com&fp=chrome&pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&sid=#IRANCELL%20%F0%9F%87%AB%F0%9F%87%AE%20%5BVLESS%20-%20grpc%5D', 'vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@mno.shady.blog:2053?security=reality&type=grpc&headerType=&serviceName=xyz&authority=&mode=gun&sni=discordapp.com&fp=chrome&pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&sid=#MCI%20%26%20IRANCELL%20%F0%9F%87%A9%F0%9F%87%AA%20%5BVLESS%20-%20grpc%5D', 'vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@xoxo.shady.blog:2053?security=reality&type=grpc&headerType=&serviceName=xyz&authority=&mode=gun&sni=cdn.discordapp.com&fp=chrome&pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&sid=#MCI%20%26%20IRANCELL%20%F0%9F%87%A9%F0%9F%87%AA%C2%B2%20%5BVLESS%20-%20grpc%5D', 'vmess://eyJhZGQiOiAiYXJlZGFkYXNoLnNoZHkuYmxvZyIsICJhaWQiOiAiMCIsICJob3N0IjogImFyZWRhZGFzaC5zaGR5LmJsb2ciLCAiaWQiOiAiMGVlY2UzOTAtNDMwMi00NDg3LWJjYzUtZmE5NmFiMzUyZWIzIiwgIm5ldCI6ICJ3cyIsICJwYXRoIjogIi8iLCAicG9ydCI6IDgwODAsICJwcyI6ICIoV0lGSSlcdWQ4M2RcdWRlZWIgeDIiLCAic2N5IjogImF1dG8iLCAidGxzIjogIm5vbmUiLCAidHlwZSI6ICIiLCAidiI6ICIyIn0=', 'vmess://eyJhZGQiOiAiT3RoZXJzaWRlLnNoZHkuYmxvZyIsICJhaWQiOiAiMCIsICJob3N0IjogIk90aGVyc2lkZS5zaGR5LmJsb2ciLCAiaWQiOiAiMGVlY2UzOTAtNDMwMi00NDg3LWJjYzUtZmE5NmFiMzUyZWIzIiwgIm5ldCI6ICJ3cyIsICJwYXRoIjogIi8iLCAicG9ydCI6IDgwODAsICJwcyI6ICIoV0lGSSlcdWQ4M2VcdWRlODQgeDIiLCAic2N5IjogImF1dG8iLCAidGxzIjogIm5vbmUiLCAidHlwZSI6ICIiLCAidiI6ICIyIn0=']"
+                const subLinks = "['vmess://ewogICJ2IjogIjIiLAogICJwcyI6ICJOb25UTFMtVm1lc3MtMTg4LUlQLTEwMEdCLTQwNCIsCiAgImFkZCI6ICIxODguMTY2LjIyMy4xODciLAogICJwb3J0IjogMzAwNjcsCiAgImlkIjogIjIxMzZhNmUxLWQ2MGYtNDQ5OC1hY2RmLWZmYzgxNTExNTRmMSIsCiAgIm5ldCI6ICJ0Y3AiLAogICJ0eXBlIjogImh0dHAiLAogICJ0bHMiOiAibm9uZSIsCiAgInBhdGgiOiAiLyIKfQ==']"
 
                 const cleanedString = subLinks.replace(/[\[\]']/g, '');
 
@@ -3964,7 +3964,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                 <div class="flex mb-8 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 dark:from-gray-700 dark:via-gray-800 dark:to-gray-900 rounded-3xl p-8 dark:text-white text-black flex-col sm:flex-row space-y-10 sm:space-y-0 sm:divide-x sm:rtl:divide-x-reverse sm:divide-blue-600/50">
                     <div class="basis-1/3 space-y-5 flex flex-col items-center py-3 sm:ltr:pr-9 sm:rtl:pl-9" x-data="">
                         <div x-text="calculatePercentage(dataUsed, dataLimit) + '%'" :class="getChartColor(calculatePercentage(dataUsed, dataLimit))" class="radial-progress font-black text-2xl text-green-500" id="progress__bar" style="--size:9rem;
-                            --thickness: 1.2rem;">10.3%</div>
+                            --thickness: 1.2rem;">0.3%</div>
                         <span class="inline-block dark:text-white text-black font-semibold text-lg">🔑✅ Panel 4-0-4 📌❇️✳</span>
                         <span class="px-4 py-2 rounded-full inline-block shadow-md shadow-green-900 font-bold text-gray-200 bg-green-500" x-data="{status: 'active'}" x-text="[status == 'active' ? $t('active') : status == 'limited' ? $t('limited') : status == 'expired' ? $t('expired') : $t('disabled')]" :class="[status == 'active' ? 'bg-green-500' : status == 'limited' ? 'bg-red-600' : status == 'expired' ? 'bg-orange-600' : 'bg-gray-600']">فعال</span>
                     </div>
@@ -5099,7 +5099,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                         </a>
                     </div>
                     <div class="flex mt-6 items-center justify-center gap-x-4 mb-4">
-                        <button id="qrIconBtn" onclick="openDynamicModal('1273841502_c0c7 Subscription' ,  window.location.href)" class="bg-gray-100 border-gray-200 dark:bg-gray-700 dark:border-gray-600 rounded-xl pt-1 px-1"><lord-icon src="https://cdn.lordicon.com/fqrjldna.json" trigger="loop" delay="2000" colors="primary:#fff,secondary:#fff" class="w-10 h-10">
+                        <button id="qrIconBtn" onclick="openDynamicModal('4-0-4 Subscription' ,  window.location.href)" class="bg-gray-100 border-gray-200 dark:bg-gray-700 dark:border-gray-600 rounded-xl pt-1 px-1"><lord-icon src="https://cdn.lordicon.com/fqrjldna.json" trigger="loop" delay="2000" colors="primary:#fff,secondary:#fff" class="w-10 h-10">
                            </lord-icon></button>
 
                         <select style="
