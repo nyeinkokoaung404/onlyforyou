@@ -3963,14 +3963,14 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
             <div class="mx-auto max-w-xl">
                 <div class="flex mb-8 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 dark:from-gray-700 dark:via-gray-800 dark:to-gray-900 rounded-3xl p-8 dark:text-white text-black flex-col sm:flex-row space-y-10 sm:space-y-0 sm:divide-x sm:rtl:divide-x-reverse sm:divide-blue-600/50">
                     <div class="basis-1/3 space-y-5 flex flex-col items-center py-3 sm:ltr:pr-9 sm:rtl:pl-9" x-data="">
-                        <div x-text="calculatePercentage(dataUsed, dataLimit) + '%'" :class="getChartColor(calculatePercentage(dataUsed, dataLimit))" class="radial-progress font-black text-2xl text-green-500" id="progress__bar" style="--size:9rem;
-                            --thickness: 1.2rem;">0.3%</div>
+                        <div x-text="calculatePercentage(dataUsed, dataLimit) + '%'" :class="getChartColor(calculatePercentage(dataUsed, dataLimit))" class="radial-progress font-black text-2xl text-green-500" id="progress__bar" style="--size:9rem; --thickness: 1.2rem;"
+                            
                         <span class="inline-block dark:text-white text-black font-semibold text-lg">🔑✅ Panel 4-0-4 📌❇️✳</span>
                         <span class="px-4 py-2 rounded-full inline-block shadow-md shadow-green-900 font-bold text-gray-200 bg-green-500" x-data="{status: 'active'}" x-text="[status == 'active' ? $t('active') : status == 'limited' ? $t('limited') : status == 'expired' ? $t('expired') : $t('disabled')]" :class="[status == 'active' ? 'bg-green-500' : status == 'limited' ? 'bg-red-600' : status == 'expired' ? 'bg-orange-600' : 'bg-gray-600']">فعال</span>
                     </div>
                     <div x-data="{ usedTraffic: 2844984, dataLimit: 1048576000 }" class="basis-2/3 flex flex-row items-center sm:ltr:pl-9 sm:rtl:pr-9">
                         <div class="data-usage w-full">
-                            <div class="dark:text-white text-black text-center mb-2"><span class="font-bold" x-text="$t('dataUsage')">میزان استفاده: </span><span dir="ltr">2.71 MB / 1000.0 MB</span>
+                            <div class="dark:text-white text-black text-center mb-2"><span class="font-bold" x-text="$t('dataUsage')">အသုံးပြုမှုနှုန်း: </span>
                             </div>
                             <div class="dark:text-white text-black mt-4 text-center"><span class="font-bold" x-text="$t('expirationDate')">تاریخ پایان اشتراک: </span><span dir="ltr" x-data="{expireDate: ''}" x-init="Alpine.data( 'expireDate', expireDate = expireDateVar )" x-text="expireDate">2024-07-29 09:03:02</span></div>
                             <!--2023/06/31 10:43:59-->
