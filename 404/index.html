@@ -3475,7 +3475,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
     <script defer="">
         const dataLimit = "1048576000";
         const dataUsed = "2844984";
-        const expireDateInit = "2024-07-29 09:03:02";
+        const expireDateInit = "";
         var tmpUsage = ((parseFloat(dataUsed) / parseFloat(dataLimit)) * 100).toFixed(2);
         if (tmpUsage > 100) tmpUsage = 100;
         const dataUsage = dataLimit == "∞" ? 100 : tmpUsage;
@@ -3963,8 +3963,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
             <div class="mx-auto max-w-xl">
                 <div class="flex mb-8 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 dark:from-gray-700 dark:via-gray-800 dark:to-gray-900 rounded-3xl p-8 dark:text-white text-black flex-col sm:flex-row space-y-10 sm:space-y-0 sm:divide-x sm:rtl:divide-x-reverse sm:divide-blue-600/50">
                     <div class="basis-1/3 space-y-5 flex flex-col items-center py-3 sm:ltr:pr-9 sm:rtl:pl-9" x-data="">
-                        <div x-text="calculatePercentage(dataUsed, dataLimit) + '%'" :class="getChartColor(calculatePercentage(dataUsed, dataLimit))" class="radial-progress font-black text-2xl text-green-500" id="progress__bar" style="--size:9rem;
-                            --thickness: 1.2rem;"></div>
+                        
                         <span class="inline-block dark:text-white text-black font-semibold text-lg">🔑✅ Panel 4-0-4 📌❇️</span>
                         <span class="px-4 py-2 rounded-full inline-block shadow-md shadow-green-900 font-bold text-gray-200 bg-green-500" x-data="{status: 'active'}" x-text="[status == 'active' ? $t('active') : status == 'limited' ? $t('limited') : status == 'expired' ? $t('expired') : $t('disabled')]" :class="[status == 'active' ? 'bg-green-500' : status == 'limited' ? 'bg-red-600' : status == 'expired' ? 'bg-orange-600' : 'bg-gray-600']">فعال</span>
                     </div>
