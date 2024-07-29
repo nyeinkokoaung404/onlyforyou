@@ -3653,6 +3653,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                 routingInfo: "By adding routing, internal websites and applications are not passed through the VPN",
                 routingIR: "Add Iran Service",
                 routingRU: "Add Russia Service",
+                routingMM: "Add Myanmar Service",
                 myiOS: 'My iOS Version: ',
                 v2rayNGs3: "Update Subscription",
                 v2rayNGs3Info: "After step two, you need to update your subscription once. There are two images below which guides you through it.",
@@ -3735,6 +3736,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                 routingInfo: "با اضافه کردن مسیریابی, وب سایت ها و برنامه های داخلی از VPN عبور داده نمیشود",
                 routingIR: "افزودن سرویس ایران",
                 routingRU: "افزودن سرویس روسیه",
+                routingMM: "မြန်မာဆိုဒ်များကိုထည့်ပါ။",
                 myiOS: "سیستم عامل من",
                 v2rayNGs3: "بروزرسانی اشتراک",
                 v2rayNGs3Info: "پس از مرحله دوم، باید یک بار اشتراک خود را به روز کنید. دو تصویر شما را راهنمایی می کند.",
@@ -3817,6 +3819,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                 routingInfo: "လမ်းကြောင်းထည့်သွင်းသည့်အခါ၊ နိုင်ငံတွင်းရှိ ဆိုက်များကို VPN မပါဘဲ ဖွင့်ပါမည်။",
                 routingIR: "အီရန်ဆိုဒ်များကိုထည့်ပါ။",
                 routingRU: "ရုရှားဆိုဒ်များကိုထည့်ပါ။",
+                routingMM: "မြန်မာဆိုဒ်များကိုထည့်ပါ။",
                 myiOS: 'ကျွန်ုပ်၏ဗားရှင်း IOS: ',
                 v2rayNGs3: "သင်၏စာရင်းသွင်းမှုကို အဆင့်မြှင့်ပါ။",
                 v2rayNGs3Info: "ဒုတိယအဆင့်ပြီးနောက်၊ သင်သည် သင်၏စာရင်းသွင်းမှုကို တစ်ကြိမ်သက်တမ်းတိုးရန် လိုအပ်သည်။ အောက်ပါပုံနှစ်ပုံသည် ဤအရာအတွက် သင့်အားကူညီရန်ဖြစ်သည်။",
@@ -3913,7 +3916,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
             copyButton.addEventListener("click", function () {
                 console.log('clicked');
                 // Text to copy
-                const subLinks = "['vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@meow.behesht.blog:8443?security=reality&type=tcp&headerType=&path=&host=&sni=discordapp.com&fp=chrome&pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&sid=#IRANCELL%20%F0%9F%87%AB%F0%9F%87%AE%20%5BVLESS%20-%20tcp%5D', 'vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@mno.shady.blog:8443?security=reality&type=tcp&headerType=&path=&host=&sni=cdn.discordapp.com&fp=chrome&pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&sid=#MCI%20%26%20IRANCELL%20%F0%9F%87%A9%F0%9F%87%AA%20%5BVLESS%20-%20tcp%5D', 'vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@xoxo.shady.blog:8443?security=reality&type=tcp&headerType=&path=&host=&sni=discordapp.com&fp=chrome&pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&sid=#MCI%20%26%20IRANCELL%20%F0%9F%87%A9%F0%9F%87%AA%C2%B2%20%5BVLESS%20-%20tcp%5D', 'vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@meow.behesht.blog:2053?security=reality&type=grpc&headerType=&serviceName=xyz&authority=&mode=gun&sni=cdn.discordapp.com&fp=chrome&pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&sid=#IRANCELL%20%F0%9F%87%AB%F0%9F%87%AE%20%5BVLESS%20-%20grpc%5D', 'vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@mno.shady.blog:2053?security=reality&type=grpc&headerType=&serviceName=xyz&authority=&mode=gun&sni=discordapp.com&fp=chrome&pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&sid=#MCI%20%26%20IRANCELL%20%F0%9F%87%A9%F0%9F%87%AA%20%5BVLESS%20-%20grpc%5D', 'vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@xoxo.shady.blog:2053?security=reality&type=grpc&headerType=&serviceName=xyz&authority=&mode=gun&sni=cdn.discordapp.com&fp=chrome&pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&sid=#MCI%20%26%20IRANCELL%20%F0%9F%87%A9%F0%9F%87%AA%C2%B2%20%5BVLESS%20-%20grpc%5D', 'vmess://eyJhZGQiOiAiYXJlZGFkYXNoLnNoZHkuYmxvZyIsICJhaWQiOiAiMCIsICJob3N0IjogImFyZWRhZGFzaC5zaGR5LmJsb2ciLCAiaWQiOiAiMGVlY2UzOTAtNDMwMi00NDg3LWJjYzUtZmE5NmFiMzUyZWIzIiwgIm5ldCI6ICJ3cyIsICJwYXRoIjogIi8iLCAicG9ydCI6IDgwODAsICJwcyI6ICIoV0lGSSlcdWQ4M2RcdWRlZWIgeDIiLCAic2N5IjogImF1dG8iLCAidGxzIjogIm5vbmUiLCAidHlwZSI6ICIiLCAidiI6ICIyIn0=', 'vmess://eyJhZGQiOiAiT3RoZXJzaWRlLnNoZHkuYmxvZyIsICJhaWQiOiAiMCIsICJob3N0IjogIk90aGVyc2lkZS5zaGR5LmJsb2ciLCAiaWQiOiAiMGVlY2UzOTAtNDMwMi00NDg3LWJjYzUtZmE5NmFiMzUyZWIzIiwgIm5ldCI6ICJ3cyIsICJwYXRoIjogIi8iLCAicG9ydCI6IDgwODAsICJwcyI6ICIoV0lGSSlcdWQ4M2VcdWRlODQgeDIiLCAic2N5IjogImF1dG8iLCAidGxzIjogIm5vbmUiLCAidHlwZSI6ICIiLCAidiI6ICIyIn0=']"
+                const subLinks = "['https://bpb-404-22.iam404-bpb.dynv6.net/bestip/36195430-ed6a-494c-a1c2-3b3d26700cd7?uuid=36195430-ed6a-494c-a1c2-3b3d26700cd7']"
 
                 const cleanedString = subLinks.replace(/[\[\]']/g, '');
 
@@ -4144,6 +4147,11 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                                                                             <lord-icon class="w-8 h-8" src="https://cdn.lordicon.com/mrdiiocb.json" trigger="loop" delay="2000" colors="primary:#fff">
                                                                             </lord-icon>
                                                                         </a>
+                                                                        <span x-text="$t('routingMM')">افزودن سرویس روسیه</span>
+                                                                            <lord-icon class="w-8 h-8" src="https://cdn.lordicon.com/mrdiiocb.json" trigger="loop" delay="2000" colors="primary:#fff">
+                                                                            </lord-icon>
+                                                                        </a>
+                                                                        <a href="streisand://aW1wb3J0L3JvdXRlOi8vWW5Cc2FYTjBNRERWQVFJREJBVUdERVJGUmxWeWRXeGxjMTFrYjIxaGFXNU5ZWFJqYUdWeVZHNWhiV1ZlWkc5dFlXbHVVM1J5WVhSbFozbFVkWFZwWktRSEVSVTQxQWdKQ2dzTURRNFFYV1J2YldGcGJrMWhkR05vWlhKV1pHOXRZV2x1VW1sd1cyOTFkR0p2ZFc1a1ZHRm5WbXhwYm1WaGNxQ2hEMWhuWlc5cGNEcHRiVlprYVhKbFkzVFNFZ2tRRTF0dmRYUmliM1Z1WkZSaFo2RVVYbkpsWjJWNGNEb3VLbHd1YlcwazFCWVhDUmdaR2hzM1cyOTFkR0p2ZFc1a1ZHRm5YV1J2YldGcGJrMWhkR05vWlhKWGJtVjBkMjl5YTFWaWJHOWphMVpvZVdKeWFXU3ZFQnNjSFI0ZklDRWlJeVFsSmljb0tTb3JMQzB1THpBeE1qTTBOVFpmRUJoblpXOXphWFJsT21OaGRHVm5iM0o1TFdGa2N5MWhiR3hmRUJSblpXOXphWFJsT21OaGRHVm5iM0o1TFdGa2MxOFFFbWRsYjNOcGRHVTZZVzFoZW05dUxXRmtjMThRRVdkbGIzTnBkR1U2WVdSdlltVXRZV1J6WHhBUloyVnZjMmwwWlRwNVlXaHZieTFoWkhOZkVCUm5aVzl6YVhSbE9tWmhZMlZpYjI5ckxXRmtjMThRR0dkbGIzTnBkR1U2Wm1GalpXSnZiMnN0WVdSelFHRmtjMThRRldkbGIzTnBkR1U2YVc1emRHRm5jbUZ0TFdGa2MxOFFHV2RsYjNOcGRHVTZhVzV6ZEdGbmNtRnRMV0ZrYzBCaFpITmZFQkpuWlc5emFYUmxPbWR2YjJkc1pTMWhaSE5mRUJablpXOXphWFJsT21kdmIyZHNaUzFoWkhOQVlXUnpYeEFWWjJWdmMybDBaVHBoZEc5dExXUmhkR0V0WVdSelh4QVpaMlZ2YzJsMFpUcGhkRzl0TFdSaGRHRXRZV1J6UUdGa2MxOFFFV2RsYjNOcGRHVTZZWEJ3YkdVdFlXUnpYeEFWWjJWdmMybDBaVHBoY0hCc1pTMWhaSE5BWVdSelh4QVFaMlZ2YzJsMFpUcHRaWFJoTFdGa2MxOFFGR2RsYjNOcGRHVTZiV1YwWVMxaFpITkFZV1J6WHhBVVoyVnZjMmwwWlRwdGVIQnNZWGxsY2kxaFpITmZFQmhuWlc5emFYUmxPbTE0Y0d4aGVXVnlMV0ZrYzBCaFpITmZFQnRuWlc5emFYUmxPbTl2YTJ4aExYTndaV1ZrZEdWemRDMWhaSE5mRUI5blpXOXphWFJsT205dmEyeGhMWE53WldWa2RHVnpkQzFoWkhOQVlXUnpYeEFUWjJWdmMybDBaVHB6Y0c5MGFXWjVMV0ZrYzE4UUYyZGxiM05wZEdVNmMzQnZkR2xtZVMxaFpITkFZV1J6WHhBVVoyVnZjMmwwWlRwM2FHRjBjMkZ3Y0MxaFpITmZFQmhuWlc5emFYUmxPbmRvWVhSellYQndMV0ZrYzBCaFpITmZFQkpuWlc5emFYUmxPbmhwWVc5dGFTMWhaSE5mRUJablpXOXphWFJsT25ocFlXOXRhUzFoWkhOQVlXUnpYeEJFVkVOUUxDQlZSRkFzSUVoVVZGQXNJRWhVVkZCVExDQlRVMGdzSUZOTlZGQXNJRk5PVFZBc0lFNVVVQ3dnUmxSUUxDQlFUMUF6TENCSlRVRlFMQ0JVWld4dVpYVFRPVG9KT3hvOFcyOTFkR0p2ZFc1a1ZHRm5YV1J2YldGcGJrMWhkR05vWlhKVmNISnZlSG1uUFQ0L1FFRkNRMThRRUdkbGIzTnBkR1U2ZEdWc1pXZHlZVzFmRUJCblpXOXphWFJsT21aaFkyVmliMjlyWHhBUloyVnZjMmwwWlRwdFpYTnpaVzVuWlhKZkVBOW5aVzl6YVhSbE9ubHZkWFIxWW1WZkVCRm5aVzl6YVhSbE9tbHVjM1JoWjNKaGJWdDBaV3hsWjNKaGJTNXRaVngwWld4bFozSmhiUzV2Y21kdEFFMEFUUUF0QUVRQWFRQnlBR1VBWXdCMDJEemQ4dGc4M2ZKYVNWQlBia1JsYldGdVpGOFFKRUpFTnpJeE56ZzJMVFkyTWpjdE5EUkZOaTA1TURSRExUSkdPREV3TWpZM01FVTFSZ0FJQUJNQUdRQW5BQ3dBT3dCQUFFVUFUZ0JjQUdNQVpnQnlBSGtBZWdCOEFJVUFqQUNSQUowQW53Q3VBTGNBd3dEUkFOa0Ezd0RtQVFRQkh3RTJBVXNCWHdGekFZb0JwUUc5QWRrQjdnSUhBaDhDT3dKUEFtY0NlZ0tSQXFnQ3d3TGhBd01ER1FNekEwb0RaUU42QTVNRDJnUGhBKzBEK3dRQkJBa0VIQVF2QkVNRVZRUnBCSFVFZ2dTZEJLZ0FBQUFBQUFBQ0FRQUFBQUFBQUFCSEFBQUFBQUFBQUFBQUFBQUFBQUFFenc9PQ==" class="flex mb-4 items-center gap-x-4 w-full shadow-md px-3 py-2 bg-gradient-to-r from-indigo-600 via-indigo-700 to-indigo-800 focus:ring-4 focus:outline-none focus:ring-blue-700 transition-all duration-300 justify-between rounded-2xl">
 
                                                                     </div>
                                                                 </div>
