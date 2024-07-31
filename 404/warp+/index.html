@@ -1,0 +1,262 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WARP+ Script</title>
+    <style>
+        /* Your existing CSS styles */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #000428 0%, #004e92 100%);
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            position: relative; /* Ensure raindrops and butterflies are positioned relative to the body */
+        }
+        .container {
+            position: relative;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+            animation: fadeIn 1s ease-out;
+            z-index: 2;
+        }
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: inherit;
+            filter: blur(10px);
+            z-index: -1;
+        }
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 24px;
+            animation: rgbAnimation 3s infinite alternate;
+        }
+        @keyframes rgbAnimation {
+            0% { color: #ff0000; } /* Red */
+            25% { color: #00ff00; } /* Green */
+            50% { color: #0000ff; } /* Blue */
+            75% { color: #ffff00; } /* Yellow */
+            100% { color: #ff00ff; } /* Magenta */
+        }
+        .logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .logo img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #ff9d2f;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            background-color: #222;
+            color: #fff;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff9d2f;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #ff6126;
+            transform: scale(1.05);
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .raindrop {
+            position: absolute;
+            width: 2px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.7);
+            opacity: 0;
+            animation: fall linear;
+        }
+        @keyframes fall {
+            from {
+                transform: translateY(-100px);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+        .butterfly {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-image: url('butterfly.png'); /* Add your butterfly image here */
+            background-size: cover;
+            background-repeat: no-repeat;
+            animation: flutter 10s infinite;
+        }
+        @keyframes flutter {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(calc(100vh + 100px)) rotate(360deg);
+            }
+            100% {
+                transform: translateY(-100px) rotate(720deg);
+            }
+        }
+        /* Add this to your existing CSS */
+        @keyframes rgbButtonAnimation {
+            0% { color: #ff0000; } /* Red */
+            25% { color: #00ff00; } /* Green */
+            50% { color: #0000ff; } /* Blue */
+            75% { color: #ffff00; } /* Yellow */
+            100% { color: #ff00ff; } /* Magenta */
+        }
+        .rgb-button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff0000;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            animation: rgbButtonAnimation 3s infinite alternate;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            margin-top: 10px; /* Add some margin to separate buttons */
+        }
+        .rgb-button:hover {
+            background-color: #ff6126;
+            transform: scale(1.05);
+        }
+        .rgb-button:active {
+            transform: scale(0.95);
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column; /* Change to column layout */
+            align-items: center; /* Center the buttons horizontally */
+            margin-top: 20px; /* Add some space above the buttons */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>1.1.1.1 VPN HACK VIP</h1>
+        
+        <div class="logo">
+            <img src="logol.png" alt="Logo"> <!-- Add your logo source here -->
+        </div>
+        <h1>ML IKBAL Official</h1>
+        <form action="server_Brake.php" method="post">
+            <label for="warp_id">Enter your WARP+ ID:</label>
+            <input type="text" id="warp_id" name="warp_id" required="">
+            <button type="submit">🟠 SUBMIT 🟠</button>
+        </form>
+        <div class="button-container">
+            <button class="rgb-button" onclick="window.location.href='https://t.me/nkka_404';">🔰 Join Telegram 🔰</button>
+        </div>
+    </div>
+
+    <script>
+        function createRaindrop() {
+            const raindrop = document.createElement('div');
+            raindrop.className = 'raindrop';
+            raindrop.style.left = `${Math.random() * window.innerWidth}px`;
+            raindrop.style.animationDuration = `${Math.random() * 2 + 2}s`;
+            raindrop.style.opacity = Math.random();
+            document.body.appendChild(raindrop);
+
+            raindrop.addEventListener('animationend', () => {
+                raindrop.remove();
+            });
+        }
+
+        function generateRaindrops() {
+            for (let i = 0; i < 100; i++) {
+                createRaindrop();
+            }
+        }
+
+        generateRaindrops();
+        setInterval(generateRaindrops, 2000);
+
+        function createButterfly() {
+            const butterfly = document.createElement('div');
+            butterfly.className = 'butterfly';
+            butterfly.style.left = `${Math.random() * window.innerWidth}px`;
+            butterfly.style.animationDuration = `${Math.random() * 10 + 10}s`;
+            document.body.appendChild(butterfly);
+
+            butterfly.addEventListener('animationend', () => {
+                butterfly.remove();
+            });
+        }
+
+        function generateButterflies() {
+            for (let i = 0; i < 20; i++) {
+                createButterfly();
+            }
+        }
+
+        generateButterflies();
+        setInterval(generateButterflies, 5000);
+
+        function thunder() {
+            const thunderFlash = Math.random() * 10 < 1;
+            if (thunderFlash) {
+                document.body.style.backgroundColor = '#ffffff';
+                setTimeout(() => {
+                    document.body.style.backgroundColor = '#000428';
+                }, 100);
+            }
+        }
+
+        setInterval(thunder, 2000);
+    </script><div class="raindrop" style="left: 46.939075px; animation-duration: 3.126441s; opacity: 0.141924;"></div><div class="raindrop" style="left: 124.347843px; animation-duration: 2.670418s; opacity: 0.3399;"></div><div class="raindrop" style="left: 108.144663px; animation-duration: 3.966874s; opacity: 0.857043;"></div><div class="raindrop" style="left: 263.15987px; animation-duration: 3.668549s; opacity: 0.491588;"></div><div class="raindrop" style="left: 221.722866px; animation-duration: 2.785641s; opacity: 0.108669;"></div><div class="raindrop" style="left: 293.857787px; animation-duration: 3.361569s; opacity: 0.192018;"></div><div class="raindrop" style="left: 65.195382px; animation-duration: 2.569525s; opacity: 0.647461;"></div><div class="raindrop" style="left: 71.567786px; animation-duration: 3.593601s; opacity: 0.323136;"></div><div class="raindrop" style="left: 140.61127px; animation-duration: 2.810582s; opacity: 0.399999;"></div><div class="raindrop" style="left: 71.894649px; animation-duration: 2.408884s; opacity: 0.07678;"></div><div class="raindrop" style="left: 359.354362px; animation-duration: 2.974203s; opacity: 0.165067;"></div><div class="raindrop" style="left: 76.89461px; animation-duration: 3.070043s; opacity: 0.149794;"></div><div class="raindrop" style="left: 39.177268px; animation-duration: 3.869233s; opacity: 0.06714;"></div><div class="raindrop" style="left: 62.050931px; animation-duration: 3.505643s; opacity: 0.089833;"></div><div class="raindrop" style="left: 169.429718px; animation-duration: 3.145346s; opacity: 0.890992;"></div><div class="raindrop" style="left: 262.155441px; animation-duration: 3.690695s; opacity: 0.342675;"></div><div class="raindrop" style="left: 169.592863px; animation-duration: 3.693188s; opacity: 0.526517;"></div><div class="raindrop" style="left: 325.249834px; animation-duration: 2.829574s; opacity: 0.175489;"></div><div class="raindrop" style="left: 171.84525px; animation-duration: 3.674636s; opacity: 0.022701;"></div><div class="raindrop" style="left: 195.632777px; animation-duration: 3.140265s; opacity: 0.934828;"></div><div class="raindrop" style="left: 167.001532px; animation-duration: 2.390192s; opacity: 0.684322;"></div><div class="raindrop" style="left: 151.224709px; animation-duration: 3.5402s; opacity: 0.794523;"></div><div class="raindrop" style="left: 299.771918px; animation-duration: 3.157498s; opacity: 0.185994;"></div><div class="raindrop" style="left: 183.219143px; animation-duration: 3.424914s; opacity: 0.517688;"></div><div class="raindrop" style="left: 353.382721px; animation-duration: 2.39963s; opacity: 0.86313;"></div><div class="raindrop" style="left: 105.365382px; animation-duration: 3.007619s; opacity: 0.733573;"></div><div class="raindrop" style="left: 265.387356px; animation-duration: 3.378602s; opacity: 0.392233;"></div><div class="raindrop" style="left: 173.106351px; animation-duration: 3.801407s; opacity: 0.531928;"></div><div class="raindrop" style="left: 197.017107px; animation-duration: 3.459497s; opacity: 0.199242;"></div><div class="raindrop" style="left: 17.600895px; animation-duration: 2.943816s; opacity: 0.56952;"></div><div class="raindrop" style="left: 259.295866px; animation-duration: 3.249629s; opacity: 0.09783;"></div><div class="raindrop" style="left: 294.50958px; animation-duration: 3.345279s; opacity: 0.922601;"></div><div class="raindrop" style="left: 193.957626px; animation-duration: 2.92463s; opacity: 0.596964;"></div><div class="raindrop" style="left: 259.032067px; animation-duration: 3.572395s; opacity: 0.88889;"></div><div class="raindrop" style="left: 13.127862px; animation-duration: 3.808347s; opacity: 0.166719;"></div><div class="raindrop" style="left: 363.098589px; animation-duration: 3.806572s; opacity: 0.864189;"></div><div class="raindrop" style="left: 307.830166px; animation-duration: 2.823373s; opacity: 0.333259;"></div><div class="raindrop" style="left: 304.548792px; animation-duration: 3.030347s; opacity: 0.859242;"></div><div class="raindrop" style="left: 10.910105px; animation-duration: 3.891597s; opacity: 0.872625;"></div><div class="raindrop" style="left: 79.460273px; animation-duration: 3.260065s; opacity: 0.870823;"></div><div class="raindrop" style="left: 115.917988px; animation-duration: 2.430351s; opacity: 0.556628;"></div><div class="raindrop" style="left: 327.010594px; animation-duration: 3.913846s; opacity: 0.133894;"></div><div class="raindrop" style="left: 343.674868px; animation-duration: 3.037292s; opacity: 0.188724;"></div><div class="raindrop" style="left: 192.275793px; animation-duration: 3.214387s; opacity: 0.008341;"></div><div class="raindrop" style="left: 274.600807px; animation-duration: 3.802561s; opacity: 0.098813;"></div><div class="raindrop" style="left: 84.615875px; animation-duration: 2.711432s; opacity: 0.402233;"></div><div class="raindrop" style="left: 332.038145px; animation-duration: 2.891712s; opacity: 0.957498;"></div><div class="raindrop" style="left: 174.456593px; animation-duration: 2.902603s; opacity: 0.155082;"></div><div class="raindrop" style="left: 207.671958px; animation-duration: 3.596708s; opacity: 0.200334;"></div><div class="raindrop" style="left: 309.965867px; animation-duration: 3.361217s; opacity: 0.802193;"></div><div class="raindrop" style="left: 167.569706px; animation-duration: 2.74396s; opacity: 0.03301;"></div><div class="raindrop" style="left: 13.721642px; animation-duration: 3.62799s; opacity: 0.960898;"></div><div class="raindrop" style="left: 309.104262px; animation-duration: 2.871262s; opacity: 0.908978;"></div><div class="raindrop" style="left: 82.378931px; animation-duration: 2.61595s; opacity: 0.577163;"></div><div class="raindrop" style="left: 85.471422px; animation-duration: 2.586724s; opacity: 0.899671;"></div><div class="raindrop" style="left: 43.327117px; animation-duration: 2.878616s; opacity: 0.2349;"></div><div class="raindrop" style="left: 233.97794px; animation-duration: 3.584021s; opacity: 0.528078;"></div><div class="raindrop" style="left: 53.927287px; animation-duration: 2.728499s; opacity: 0.545718;"></div><div class="raindrop" style="left: 121.578524px; animation-duration: 2.466196s; opacity: 0.696765;"></div><div class="raindrop" style="left: 7.77256px; animation-duration: 3.475893s; opacity: 0.074572;"></div><div class="raindrop" style="left: 35.026741px; animation-duration: 2.513462s; opacity: 0.311508;"></div><div class="raindrop" style="left: 116.415166px; animation-duration: 2.424222s; opacity: 0.224835;"></div><div class="raindrop" style="left: 304.334695px; animation-duration: 2.987661s; opacity: 0.83546;"></div><div class="raindrop" style="left: 356.05555px; animation-duration: 3.493024s; opacity: 0.449878;"></div><div class="raindrop" style="left: 360.798072px; animation-duration: 3.361824s; opacity: 0.760514;"></div><div class="raindrop" style="left: 126.126305px; animation-duration: 3.316153s; opacity: 0.180191;"></div><div class="raindrop" style="left: 274.156215px; animation-duration: 2.416983s; opacity: 0.219844;"></div><div class="raindrop" style="left: 274.241421px; animation-duration: 3.020406s; opacity: 0.524471;"></div><div class="raindrop" style="left: 47.529866px; animation-duration: 2.59807s; opacity: 0.829493;"></div><div class="raindrop" style="left: 176.760442px; animation-duration: 3.064522s; opacity: 0.273084;"></div><div class="raindrop" style="left: 126.935649px; animation-duration: 2.859549s; opacity: 0.57122;"></div><div class="raindrop" style="left: 103.798484px; animation-duration: 2.666101s; opacity: 0.388028;"></div><div class="raindrop" style="left: 183.620577px; animation-duration: 2.632861s; opacity: 0.552552;"></div><div class="raindrop" style="left: 335.702334px; animation-duration: 3.64363s; opacity: 0.017101;"></div><div class="raindrop" style="left: 125.142346px; animation-duration: 3.014685s; opacity: 0.838567;"></div><div class="raindrop" style="left: 322.397027px; animation-duration: 3.366306s; opacity: 0.163465;"></div><div class="raindrop" style="left: 354.442439px; animation-duration: 2.619149s; opacity: 0.46113;"></div><div class="raindrop" style="left: 16.517723px; animation-duration: 3.232854s; opacity: 0.241336;"></div><div class="raindrop" style="left: 258.984928px; animation-duration: 2.83006s; opacity: 0.593816;"></div><div class="raindrop" style="left: 312.423725px; animation-duration: 3.883369s; opacity: 0.652675;"></div><div class="raindrop" style="left: 24.402473px; animation-duration: 3.45699s; opacity: 0.12364;"></div><div class="butterfly" style="left: 340.827267px; animation-duration: 19.10393s;"></div><div class="butterfly" style="left: 291.494227px; animation-duration: 15.89242s;"></div><div class="butterfly" style="left: 106.461991px; animation-duration: 17.812737s;"></div><div class="butterfly" style="left: 240.492908px; animation-duration: 16.141907s;"></div><div class="butterfly" style="left: 303.770377px; animation-duration: 12.319073s;"></div><div class="butterfly" style="left: 250.432325px; animation-duration: 11.402966s;"></div><div class="butterfly" style="left: 281.278585px; animation-duration: 16.886415s;"></div><div class="butterfly" style="left: 272.434194px; animation-duration: 19.550896s;"></div><div class="butterfly" style="left: 180.766954px; animation-duration: 10.786594s;"></div><div class="butterfly" style="left: 350.515615px; animation-duration: 14.133765s;"></div><div class="butterfly" style="left: 52.711539px; animation-duration: 18.259549s;"></div><div class="butterfly" style="left: 294.539298px; animation-duration: 10.570001s;"></div><div class="butterfly" style="left: 340.276872px; animation-duration: 10.073255s;"></div><div class="butterfly" style="left: 49.468137px; animation-duration: 18.019616s;"></div><div class="butterfly" style="left: 39.943759px; animation-duration: 17.328965s;"></div><div class="butterfly" style="left: 56.238558px; animation-duration: 10.10541s;"></div><div class="butterfly" style="left: 230.031396px; animation-duration: 17.359276s;"></div><div class="butterfly" style="left: 311.260084px; animation-duration: 10.955213s;"></div><div class="butterfly" style="left: 46.115712px; animation-duration: 19.108155s;"></div><div class="butterfly" style="left: 342.229144px; animation-duration: 10.330358s;"></div>
+
+
+<div class="raindrop" style="left: 35.401254px; animation-duration: 2.011458s; opacity: 0.250005;"></div><div class="raindrop" style="left: 312.146558px; animation-duration: 3.00912s; opacity: 0.98644;"></div><div class="raindrop" style="left: 271.314035px; animation-duration: 3.406121s; opacity: 0.214735;"></div><div class="raindrop" style="left: 245.23195px; animation-duration: 3.972511s; opacity: 0.208145;"></div><div class="raindrop" style="left: 200.672424px; animation-duration: 2.82239s; opacity: 0.084524;"></div><div class="raindrop" style="left: 342.344529px; animation-duration: 2.646306s; opacity: 0.905913;"></div><div class="raindrop" style="left: 215.30269px; animation-duration: 2.273444s; opacity: 0.13114;"></div><div class="raindrop" style="left: 363.121464px; animation-duration: 2.308698s; opacity: 0.073552;"></div><div class="raindrop" style="left: 99.36918px; animation-duration: 3.052897s; opacity: 0.117287;"></div><div class="raindrop" style="left: 9.581744px; animation-duration: 3.26889s; opacity: 0.616587;"></div><div class="raindrop" style="left: 335.182618px; animation-duration: 3.589823s; opacity: 0.742902;"></div><div class="raindrop" style="left: 57.02353px; animation-duration: 3.951054s; opacity: 0.102907;"></div><div class="raindrop" style="left: 222.375319px; animation-duration: 2.330388s; opacity: 0.317655;"></div><div class="raindrop" style="left: 166.113509px; animation-duration: 3.620555s; opacity: 0.573267;"></div><div class="raindrop" style="left: 334.518315px; animation-duration: 2.5047s; opacity: 0.326774;"></div><div class="raindrop" style="left: 332.5208px; animation-duration: 2.814658s; opacity: 0.680743;"></div><div class="raindrop" style="left: 358.759104px; animation-duration: 3.301218s; opacity: 0.254263;"></div><div class="raindrop" style="left: 31.880509px; animation-duration: 2.206156s; opacity: 0.106536;"></div><div class="raindrop" style="left: 81.307283px; animation-duration: 3.236077s; opacity: 0.384952;"></div><div class="raindrop" style="left: 242.657856px; animation-duration: 3.37193s; opacity: 0.770683;"></div><div class="raindrop" style="left: 204.665635px; animation-duration: 2.542275s; opacity: 0.984706;"></div><div class="raindrop" style="left: 92.137637px; animation-duration: 2.262275s; opacity: 0.567139;"></div><div class="raindrop" style="left: 146.104891px; animation-duration: 3.515384s; opacity: 0.97308;"></div><div class="raindrop" style="left: 154.982825px; animation-duration: 3.149995s; opacity: 0.553759;"></div><div class="raindrop" style="left: 79.982865px; animation-duration: 3.994997s; opacity: 0.197367;"></div><div class="raindrop" style="left: 15.873357px; animation-duration: 3.255671s; opacity: 0.562963;"></div><div class="raindrop" style="left: 26.365692px; animation-duration: 3.081677s; opacity: 0.807271;"></div><div class="raindrop" style="left: 287.838494px; animation-duration: 3.459969s; opacity: 0.826195;"></div><div class="raindrop" style="left: 135.67691px; animation-duration: 2.898732s; opacity: 0.925283;"></div><div class="raindrop" style="left: 99.460605px; animation-duration: 3.719303s; opacity: 0.511085;"></div><div class="raindrop" style="left: 229.525183px; animation-duration: 2.82917s; opacity: 0.60205;"></div><div class="raindrop" style="left: 277.302523px; animation-duration: 3.946884s; opacity: 0.169049;"></div><div class="raindrop" style="left: 270.87255px; animation-duration: 2.623997s; opacity: 0.478295;"></div><div class="raindrop" style="left: 359.763519px; animation-duration: 3.173286s; opacity: 0.449424;"></div><div class="raindrop" style="left: 176.335572px; animation-duration: 2.415582s; opacity: 0.998384;"></div><div class="raindrop" style="left: 248.273526px; animation-duration: 3.198571s; opacity: 0.552773;"></div><div class="raindrop" style="left: 238.780974px; animation-duration: 3.357359s; opacity: 0.073655;"></div><div class="raindrop" style="left: 43.351614px; animation-duration: 3.010373s; opacity: 0.583859;"></div><div class="raindrop" style="left: 130.208057px; animation-duration: 3.173916s; opacity: 0.591936;"></div><div class="raindrop" style="left: 62.035163px; animation-duration: 2.77646s; opacity: 0.126794;"></div><div class="raindrop" style="left: 87.217384px; animation-duration: 3.767077s; opacity: 0.737745;"></div><div class="raindrop" style="left: 373.593017px; animation-duration: 2.25821s; opacity: 0.309968;"></div><div class="raindrop" style="left: 366.313801px; animation-duration: 2.15612s; opacity: 0.672564;"></div><div class="raindrop" style="left: 306.454843px; animation-duration: 3.250723s; opacity: 0.526066;"></div><div class="raindrop" style="left: 225.89093px; animation-duration: 2.196914s; opacity: 0.779717;"></div><div class="raindrop" style="left: 327.18418px; animation-duration: 3.730056s; opacity: 0.737353;"></div><div class="raindrop" style="left: 183.965485px; animation-duration: 3.459223s; opacity: 0.479756;"></div><div class="raindrop" style="left: 359.703404px; animation-duration: 3.666878s; opacity: 0.52558;"></div><div class="raindrop" style="left: 195.613739px; animation-duration: 3.648755s; opacity: 0.562973;"></div><div class="raindrop" style="left: 48.209056px; animation-duration: 3.155884s; opacity: 0.140374;"></div><div class="raindrop" style="left: 179.868923px; animation-duration: 2.591463s; opacity: 0.607686;"></div><div class="raindrop" style="left: 56.430007px; animation-duration: 2.605425s; opacity: 0.010766;"></div><div class="raindrop" style="left: 13.543913px; animation-duration: 2.722469s; opacity: 0.360714;"></div><div class="raindrop" style="left: 342.095671px; animation-duration: 3.976197s; opacity: 0.189723;"></div><div class="raindrop" style="left: 116.945662px; animation-duration: 3.972427s; opacity: 0.588307;"></div><div class="raindrop" style="left: 168.479514px; animation-duration: 2.298278s; opacity: 0.598011;"></div><div class="raindrop" style="left: 327.113566px; animation-duration: 2.448234s; opacity: 0.901516;"></div><div class="raindrop" style="left: 297.43193px; animation-duration: 3.077846s; opacity: 0.331546;"></div><div class="raindrop" style="left: 35.165542px; animation-duration: 3.222924s; opacity: 0.13318;"></div><div class="raindrop" style="left: 284.294508px; animation-duration: 3.893813s; opacity: 0.692907;"></div><div class="raindrop" style="left: 238.770277px; animation-duration: 3.44609s; opacity: 0.972561;"></div><div class="raindrop" style="left: 97.592475px; animation-duration: 3.183178s; opacity: 0.775146;"></div><div class="raindrop" style="left: 346.62598px; animation-duration: 3.166843s; opacity: 0.244008;"></div><div class="raindrop" style="left: 340.482851px; animation-duration: 3.095063s; opacity: 0.521621;"></div><div class="raindrop" style="left: 203.831525px; animation-duration: 3.679906s; opacity: 0.262189;"></div><div class="raindrop" style="left: 126.51369px; animation-duration: 2.447306s; opacity: 0.728306;"></div><div class="raindrop" style="left: 195.30917px; animation-duration: 2.04581s; opacity: 0.644141;"></div><div class="raindrop" style="left: 360.332025px; animation-duration: 3.675788s; opacity: 0.244414;"></div><div class="raindrop" style="left: 85.437802px; animation-duration: 2.411117s; opacity: 0.811756;"></div><div class="raindrop" style="left: 68.80276px; animation-duration: 3.789174s; opacity: 0.591101;"></div><div class="raindrop" style="left: 332.971962px; animation-duration: 2.437347s; opacity: 0.228845;"></div><div class="raindrop" style="left: 300.394723px; animation-duration: 2.563324s; opacity: 0.728596;"></div><div class="raindrop" style="left: 330.925886px; animation-duration: 3.559553s; opacity: 0.920377;"></div><div class="raindrop" style="left: 240.33292px; animation-duration: 3.206036s; opacity: 0.337458;"></div><div class="raindrop" style="left: 348.017686px; animation-duration: 3.536118s; opacity: 0.958223;"></div><div class="raindrop" style="left: 136.298305px; animation-duration: 2.965706s; opacity: 0.569321;"></div><div class="raindrop" style="left: 292.956321px; animation-duration: 3.336908s; opacity: 0.557307;"></div><div class="raindrop" style="left: 103.629078px; animation-duration: 3.272971s; opacity: 0.134659;"></div><div class="raindrop" style="left: 239.106912px; animation-duration: 2.196901s; opacity: 0.764167;"></div><div class="raindrop" style="left: 29.668025px; animation-duration: 2.74907s; opacity: 0.784568;"></div><div class="raindrop" style="left: 67.59992px; animation-duration: 3.26995s; opacity: 0.079103;"></div><div class="raindrop" style="left: 237.872949px; animation-duration: 3.91677s; opacity: 0.555225;"></div><div class="raindrop" style="left: 289.859957px; animation-duration: 2.392783s; opacity: 0.189787;"></div><div class="raindrop" style="left: 236.921116px; animation-duration: 2.133835s; opacity: 0.873722;"></div><div class="raindrop" style="left: 257.250743px; animation-duration: 3.900515s; opacity: 0.820261;"></div><div class="raindrop" style="left: 27.118308px; animation-duration: 3.782223s; opacity: 0.598012;"></div><div class="raindrop" style="left: 256.844775px; animation-duration: 2.276276s; opacity: 0.78998;"></div><div class="raindrop" style="left: 59.045352px; animation-duration: 2.833313s; opacity: 0.40885;"></div><div class="raindrop" style="left: 236.63668px; animation-duration: 3.565871s; opacity: 0.461442;"></div><div class="raindrop" style="left: 193.103143px; animation-duration: 3.324081s; opacity: 0.327008;"></div><div class="raindrop" style="left: 138.523118px; animation-duration: 2.795467s; opacity: 0.308067;"></div><div class="raindrop" style="left: 1.682544px; animation-duration: 3.112375s; opacity: 0.290175;"></div><div class="raindrop" style="left: 355.230885px; animation-duration: 2.354442s; opacity: 0.639131;"></div><div class="raindrop" style="left: 331.889909px; animation-duration: 3.156951s; opacity: 0.656096;"></div><div class="raindrop" style="left: 164.458664px; animation-duration: 2.463117s; opacity: 0.379308;"></div><div class="raindrop" style="left: 345.668535px; animation-duration: 3.308411s; opacity: 0.482808;"></div><div class="raindrop" style="left: 146.562148px; animation-duration: 2.300167s; opacity: 0.51914;"></div><div class="raindrop" style="left: 217.305606px; animation-duration: 3.523338s; opacity: 0.800938;"></div><div class="raindrop" style="left: 114.499714px; animation-duration: 2.234239s; opacity: 0.05904;"></div><div class="raindrop" style="left: 73.720233px; animation-duration: 2.503821s; opacity: 0.697562;"></div></body></html>
