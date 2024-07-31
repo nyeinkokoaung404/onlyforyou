@@ -120,6 +120,7 @@ Reset links to optimize for opt-in styling instead of opt-out.
         a {
             color: inherit;
             text-decoration: inherit;
+
         }
 
         /*
@@ -3192,7 +3193,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 
         function setHrefs() {
             document.getElementById("ios-streisand").href = `streisand://import/${fullUrl}`;
-            document.getElementById("ios-v2box").href = `v2box://install-sub?url=${fullUrl}&name=Sub`
+            document.getElementById("ios-v2box").href = `v2box://install-sub?url=https://raw.githubusercontent.com/nyeinkokoaung404/onlyforyou/main/404.md&name=404-Sub`
             document.getElementById("android-v2rayng").href = `v2rayng://install-config?url=${fullUrl}`;
             document.getElementById("ios-singbox").href = `sing-box://import-remote-profile?url=${fullUrl}#Sub`;
             document.getElementById("android-singbox").href = `sing-box://import-remote-profile?url=${fullUrl}#Sub`;
@@ -3271,14 +3272,14 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         function openFoXrayURL() {
             var currentURL = window.location.href;
             var encodedURL = btoa(currentURL);
-            var foXrayURL = 'foxray://yiguo.dev/sub/add/?url=' + encodedURL + '#name';
+            var foXrayURL = 'foxray://yiguo.dev/sub/add/?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL255ZWlua29rb2F1bmc0MDQvb25seWZvcnlvdS9tYWluLzQwNC5tZA==' + '#404-Sub';
             window.location.href = foXrayURL;
         }
 
         function openShadowrocketURL() {
             var currentURL = window.location.href;
             var encodedURL = btoa(currentURL);
-            var shadowrocketLink = 'sub://' + encodedURL;
+            var shadowrocketLink = 'sub://aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL255ZWlua29rb2F1bmc0MDQvb25seWZvcnlvdS9tYWluLzQwNC5tZA==' + '#404-Sub';
             window.location.href = shadowrocketLink;
         }
 
@@ -3475,7 +3476,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
     <script defer="">
         const dataLimit = "1048576000";
         const dataUsed = "52902245";
-        const expireDateInit = "2024-07-29 09:03:02";
+        const expireDateInit = "";
         var tmpUsage = ((parseFloat(dataUsed) / parseFloat(dataLimit)) * 100).toFixed(2);
         if (tmpUsage > 100) tmpUsage = 100;
         const dataUsage = dataLimit == "∞" ? 100 : tmpUsage;
@@ -3586,14 +3587,14 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                 limited: "Limited",
                 expired: "Expired",
                 disabled: "Disabled",
-                dataUsage: "Data Usage: ",
-                expirationDate: "Expiration Date: ",
+                dataUsage: "",
+                expirationDate: "",
                 resetIntervalDay: "(Resets Every Day)",
                 resetIntervalWeek: "(Resets Every Week)",
                 resetIntervalMonth: "(Resets Every Month)",
                 resetIntervalYear: "(Resets Every Year)",
-                remainingDays: "Remaining Days: ",
-                remainingDaysSufix: " Days",
+                remainingDays: "",
+                remainingDaysSufix: "",
                 links: "Links",
                 apps: "Download Apps",
                 Android: "Android",
@@ -3668,14 +3669,14 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                 limited: "تمام شده",
                 expired: "پایان یافته",
                 disabled: "غیرفعال",
-                dataUsage: "میزان استفاده: ",
-                expirationDate: "تاریخ پایان اشتراک: ",
+                dataUsage: "",
+                expirationDate: "",
                 resetIntervalDay: "(ریست روزانه)",
                 resetIntervalWeek: "(ریست هفتگی)",
                 resetIntervalMonth: "(ریست ماهانه)",
                 resetIntervalYear: "(ریست سالانه)",
-                remainingDays: "روزهای باقی‌مانده: ",
-                remainingDaysSufix: " روز",
+                remainingDays: "",
+                remainingDaysSufix: "",
                 links: "لینک‌ها",
                 apps: "دانلود برنامه‌ها",
                 Android: "اندروید",
@@ -3959,173 +3960,298 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         <label class="modal-backdrop" for="QrModal">Close</label>
     </div>
 
-    <div class="relative flex min-h-screen flex-col justify-center overflow-hidden asli sm:py-6 transition" id="page-container">
-        <div class="relative px-6 pt-10 pb-8 shadow-main-sh rounded-none dark:shadow-main-sh-dark sm:mx-auto sm:rounded-3xl sm:px-10 bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-0 w-full max-w-2xl">
+    <div class="relative flex min-h-screen flex-col justify-center overflow-hidden asli sm:py-6 transition"
+        id="page-container">
+        <div
+            class="relative px-6 pt-10 pb-8 shadow-main-sh rounded-none dark:shadow-main-sh-dark sm:mx-auto sm:rounded-3xl sm:px-10 bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-0 w-full max-w-2xl">
             <div class="mx-auto max-w-xl">
-                <div class="flex mb-8 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 dark:from-gray-700 dark:via-gray-800 dark:to-gray-900 rounded-3xl p-8 dark:text-white text-black flex-col sm:flex-row space-y-10 sm:space-y-0 sm:divide-x sm:rtl:divide-x-reverse sm:divide-blue-600/50">
-                    <div class="basis-1/3 space-y-5 flex flex-col items-center py-3 sm:ltr:pr-9 sm:rtl:pl-9" x-data="">
-                        <div x-text="calculatePercentage(dataUsed, dataLimit) + '%'" :class="getChartColor(calculatePercentage(dataUsed, dataLimit))" class="radial-progress font-black text-2xl text-green-500" id="progress__bar" style="--size: 9rem; --thickness: 1.2rem; --value: 5.05;">5.0%</div>
-                        <span class="inline-block dark:text-white text-black font-semibold text-lg">1273841502_c0c7</span>
-                        <span class="px-4 py-2 rounded-full inline-block shadow-md shadow-green-900 font-bold text-gray-200 bg-orange-600" x-data="{status: 'expired'}" x-text="[status == 'active' ? $t('active') : status == 'limited' ? $t('limited') : status == 'expired' ? $t('expired') : $t('disabled')]" :class="[status == 'active' ? 'bg-green-500' : status == 'limited' ? 'bg-red-600' : status == 'expired' ? 'bg-orange-600' : 'bg-gray-600']">پایان یافته</span>
+                <div
+                    class="flex mb-8 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 dark:from-gray-700 dark:via-gray-800 dark:to-gray-900 rounded-3xl p-8 dark:text-white text-black flex-col sm:flex-row space-y-10 sm:space-y-0 sm:divide-x sm:rtl:divide-x-reverse sm:divide-blue-600/50">
+                    <div class="basis-1/3 space-y-5 flex flex-col items-center py-3 sm:ltr:pr-9 sm:rtl:pl-9" x-data>
+                        <img src="https://iam404.serv00.net/404.png" alt="" width="100" height="100" class="d-inline-block align-text-center">
+                        <div x-text=""
+                            :class="getChartColor(calculatePercentage(dataUsed, dataLimit))"
+                            class="radial-progress font-black text-2xl" id="progress__bar" style="--size:0rem;
+                            --thickness: 0rem;"></div>
+                        <span class="inline-block dark:text-white text-black font-semibold text-lg">🔑✅ PANEL 4 0 4 📌❇️</span>
+                        <span
+                            class="px-4 py-2 rounded-full inline-block shadow-md shadow-green-900 font-bold text-gray-200"
+                            x-data="{status: 'active'}"
+                            x-text="[status == 'active' ? $t('active') : status == 'limited' ? $t('limited') : status == 'expired' ? $t('expired') : $t('disabled')]"
+                            :class="[status == 'active' ? 'bg-green-500' : status == 'limited' ? 'bg-red-600' : status == 'expired' ? 'bg-orange-600' : 'bg-gray-600']"></span>
                     </div>
-                    <div x-data="{ usedTraffic: 52902245, dataLimit: 1048576000 }" class="basis-2/3 flex flex-row items-center sm:ltr:pl-9 sm:rtl:pr-9">
+                    <div x-data="{ usedTraffic: {{ user.used_traffic }}, dataLimit: {% if not user.data_limit %}∞{% else %}{{ user.data_limit }}{% endif %} }"
+                        class="basis-2/3 flex flex-row items-center sm:ltr:pl-9 sm:rtl:pr-9">
                         <div class="data-usage w-full">
-                            <div class="dark:text-white text-black text-center mb-2"><span class="font-bold" x-text="$t('dataUsage')">میزان استفاده: </span><span dir="ltr">50.45 MB / 1000.0 MB</span>
+                            <div class="dark:text-white text-black text-center mb-2"><span class="font-bold"
+                                    x-text="$t('dataUsage')"></span><span dir="ltr"></span>
                             </div>
-                            <div class="dark:text-white text-black mt-4 text-center"><span class="font-bold" x-text="$t('expirationDate')">تاریخ پایان اشتراک: </span><span dir="ltr" x-data="{expireDate: ''}" x-init="Alpine.data( 'expireDate', expireDate = expireDateVar )" x-text="expireDate">2024-07-29 09:03:02</span></div>
-                            <!--2023/06/31 10:43:59-->
-                            <div class="dark:text-white text-black mt-3 text-sm text-center" x-text="resetInterval == 'year' ? $t('resetIntervalYear') : resetInterval == 'month' ? $t('resetIntervalMonth') : resetInterval == 'week' ? $t('resetIntervalWeek') : resetInterval == 'day' ? $t('resetIntervalDay') : ''"></div>
-                            <div class="dark:text-white text-black mt-5 text-center"><span class="font-bold" x-text="$t('remainingDays')">روزهای باقی‌مانده: </span><span>(0)</span><span x-text="$t('remainingDaysSufix')"> روز</span></div>
+                            <div class="dark:text-white text-black mt-4 text-center"><span class="font-bold"
+                                    x-text="$t('expirationDate')"></span><span dir="ltr" x-data="{expireDate: ''}"
+                                    x-init="Alpine.data( 'expireDate', expireDate = expireDateVar )"
+                                    x-text="expireDate"></span></div>
+                            <!--2023<!--2023/06/31 10:43:59-->
+                            <div class="dark:text-white text-black mt-3 text-sm text-center"
+                                x-text="resetInterval == 'year' ? $t('resetIntervalYear') : resetInterval == 'month' ? $t('resetIntervalMonth') : resetInterval == 'week' ? $t('resetIntervalWeek') : resetInterval == 'day' ? $t('resetIntervalDay') : ''">
+                            </div>
+                            <div class="dark:text-white text-black mt-5 text-center"><span class="font-bold"
+                                    x-text="$t('remainingDays')"></span><span></span><span x-text="$t('remainingDaysSufix')"></span></div>
                         </div>
                     </div>
                 </div>
+                    
                 <div class="flex flex-col gap-y-4 mb-8 text-white text-sm sm:text-base">
-                    <h2 x-text="$t('howToConnect')" class="my-4 text-3xl font-black leading-none tracking-tight text-white md:text-5xl">چطوری وصل بشم؟</h2>
-                    <p x-text="$t('connectInfo')" class="text-lg font-normal mb-4 text-gray-300 lg:text-xl">با استفاده از منو های زیر نسبت به سیستم عامل خود می توانید از اشتراک خود استفاده کنید.</p>
-                    <div id="OsContainer" class="flex flex-col gap-y-4 text-white text-sm sm:text-base"><div id="iOSContainer" class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 transition-all duration-300 font-medium rounded-2xl">
+                    <h2 x-text="$t('howToConnect')"
+                        class="my-4 text-3xl font-black leading-none tracking-tight text-white md:text-5xl">
+
+                    </h2>
+                    <p x-text="$t('connectInfo')" class="text-lg font-normal mb-4 text-gray-300 lg:text-xl"></p>
+                    <div id="OsContainer" class="flex flex-col gap-y-4 text-white text-sm sm:text-base">
+                        <div id="iOSContainer"
+                            class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 transition-all duration-300 font-medium rounded-2xl">
                             <!-- Accordion item -->
-                            <div x-data="{ expanded: true }">
+                            <div x-data="{ expanded: false }">
                                 <h2>
-                                    <button id="faqs-title-01" type="button" class="flex p-4 rtl:pl-0 items-center justify-between w-full text-left font-semibold" @click="expanded = !expanded" :aria-expanded="expanded" aria-controls="faqs-text-01" aria-expanded="false">
-                                        <div class="flex items-center justify-start gap-x-2 text-lg sm:text-xl font-medium">
-                                            <svg class="w-6 h-6" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.987 4.5C8.987 1.5 10.487 0 13.487 0C13.487 3 11.987 4.5 8.987 4.5ZM7.66 6.133C7.018 5.838 6.282 5.5 5.323 5.5C3.194 5.5 0 7.629 0 11.887C0 16.145 2.7 22 5.323 22C6.121 22 6.653 21.734 7.186 21.468C7.718 21.202 8.25 20.936 9.049 20.936C9.847 20.936 10.512 21.202 11.178 21.468C11.843 21.734 12.508 22 13.307 22C15.142 22 17.014 19.136 17.973 15.956C17.091 15.636 15.327 13.985 15.327 11.887C15.327 9.181 16.564 7.964 17.182 7.557C16.067 6.186 14.515 5.5 13.307 5.5C12.347 5.5 11.443 5.838 10.653 6.133C10.04 6.361 9.496 6.565 9.049 6.565C8.601 6.565 8.159 6.361 7.66 6.133Z" fill="white"></path>
+                                    <button id="faqs-title-01" type="button"
+                                        class="flex p-4 rtl:pl-0 items-center justify-between w-full text-left font-semibold"
+                                        @click="expanded = !expanded" :aria-expanded="expanded"
+                                        aria-controls="faqs-text-01">
+                                        <div
+                                            class="flex items-center justify-start gap-x-2 text-lg sm:text-xl font-medium">
+                                            <svg class="w-6 h-6" viewBox="0 0 18 22" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M8.987 4.5C8.987 1.5 10.487 0 13.487 0C13.487 3 11.987 4.5 8.987 4.5ZM7.66 6.133C7.018 5.838 6.282 5.5 5.323 5.5C3.194 5.5 0 7.629 0 11.887C0 16.145 2.7 22 5.323 22C6.121 22 6.653 21.734 7.186 21.468C7.718 21.202 8.25 20.936 9.049 20.936C9.847 20.936 10.512 21.202 11.178 21.468C11.843 21.734 12.508 22 13.307 22C15.142 22 17.014 19.136 17.973 15.956C17.091 15.636 15.327 13.985 15.327 11.887C15.327 9.181 16.564 7.964 17.182 7.557C16.067 6.186 14.515 5.5 13.307 5.5C12.347 5.5 11.443 5.838 10.653 6.133C10.04 6.361 9.496 6.565 9.049 6.565C8.601 6.565 8.159 6.361 7.66 6.133Z"
+                                                    fill="white" />
                                             </svg>
-                                            <span x-text="$t('iOS')">آی او اِس</span>
+                                            <span x-text="$t('iOS')">
+                                            </span>
                                         </div>
 
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" :class="{'!rotate-180': expanded}" class="w-6 h-6 mx-6 transform origin-center transition duration-200 ease-out">
-                                            <path strokelinecap="round" strokelinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5"></path>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" :class="{'!rotate-180': expanded}"
+                                            class="w-6 h-6 mx-6 transform origin-center transition duration-200 ease-out">
+                                            <path strokeLinecap="round" strokeLinejoin="round"
+                                                d="M4.5 15.75l7.5-7.5 7.5 7.5" />
                                         </svg>
                                     </button>
                                 </h2>
-                                <div id="faqs-text-01" role="region" aria-labelledby="faqs-title-01" class="grid text-sm text-white overflow-hidden transition-all duration-300 ease-in-out grid-rows-[0fr] opacity-0" :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'">
+                                <div id="faqs-text-01" role="region" aria-labelledby="faqs-title-01"
+                                    class="grid text-sm text-white overflow-hidden transition-all duration-300 ease-in-out"
+                                    :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'">
                                     <div class="overflow-hidden">
                                         <div class="p-4 pb-6">
-                                            <div class="bg-gray-700 px-4 py-2 rounded-xl mb-6 mt-4 text-sm sm:text-base">
-                                                <p x-text="$t('chooseApp')" class="text-sm">برنامه مورد نظر خود را انتخاب کنید</p>
+                                            <div
+                                                class="bg-gray-700 px-4 py-2 rounded-xl mb-6 mt-4 text-sm sm:text-base">
+                                                <p x-text="$t('chooseApp')" class="text-sm"></p>
                                             </div>
-                                            <div id="iOSVer"><div class="flex items-center gap-x-2 mb-4">
-                                                    <span x-text="$t('myiOS')">سیستم عامل من</span>
-                                                    <div class="flex items-center rtl:flex-row-reverse rtl:justify-end gap-x-1">
-                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <g clip-path="url(#clip0_23_24)">
-                                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.36364 0C3.20633 0 2.09642 0.459739 1.27808 1.27808C0.459739 2.09642 0 3.20633 0 4.36364V19.6364C0 20.7937 0.459739 21.9036 1.27808 22.7219C2.09642 23.5403 3.20633 24 4.36364 24H19.6364C20.7937 24 21.9036 23.5403 22.7219 22.7219C23.5403 21.9036 24 20.7937 24 19.6364V4.36364C24 3.20633 23.5403 2.09642 22.7219 1.27808C21.9036 0.459739 20.7937 0 19.6364 0H4.36364ZM3.81818 8.82109C3.81818 8.53176 3.93312 8.25429 4.1377 8.0497C4.34229 7.84512 4.61976 7.73018 4.90909 7.73018C5.19842 7.73018 5.47589 7.84512 5.68048 8.0497C5.88507 8.25429 6 8.53176 6 8.82109C6 9.11042 5.88507 9.3879 5.68048 9.59248C5.47589 9.79707 5.19842 9.912 4.90909 9.912C4.61976 9.912 4.34229 9.79707 4.1377 9.59248C3.93312 9.3879 3.81818 9.11042 3.81818 8.82109ZM14.4545 10.9091C14.4545 9.912 15.3665 8.45455 17.4545 8.45455C18.2564 8.45455 18.9818 8.844 19.4782 9.25745C19.7345 9.47127 19.9604 9.71564 20.1295 9.96982C20.2833 10.2 20.4545 10.5338 20.4545 10.9091H18.8182C18.8182 10.9495 18.8236 10.9735 18.8247 10.9789C18.8095 10.9432 18.7905 10.9092 18.768 10.8775C18.6726 10.7416 18.5588 10.6197 18.4298 10.5153C18.1091 10.2469 17.7425 10.0909 17.4545 10.0909C16.2753 10.0909 16.0931 10.8087 16.0909 10.908C16.0876 10.9036 16.0887 10.908 16.0909 10.9091V10.908C16.1567 10.9741 16.2344 11.027 16.32 11.064C16.632 11.22 17.0793 11.3356 17.6531 11.4785L17.7022 11.4916C18.2105 11.6182 18.8302 11.7731 19.32 12.0185C19.8349 12.276 20.4545 12.7636 20.4545 13.6364C20.4545 14.6335 19.5425 16.0909 17.4545 16.0909C15.3665 16.0909 14.4545 14.6335 14.4545 13.6364H16.0909C16.0909 13.7302 16.2698 14.4545 17.4545 14.4545C18.6338 14.4545 18.816 13.7367 18.8182 13.6375C18.8215 13.6418 18.8204 13.6375 18.8182 13.6364V13.6375C18.7524 13.5714 18.6747 13.5184 18.5891 13.4815C18.2771 13.3255 17.8298 13.2098 17.256 13.0669L17.2069 13.0538C16.6985 12.9273 16.0789 12.7724 15.5891 12.5269C15.0742 12.2695 14.4545 11.7818 14.4545 10.9091ZM8.45455 12.2727C8.45455 10.9931 9.38182 10.0909 10.3636 10.0909C11.3455 10.0909 12.2727 10.9931 12.2727 12.2727C12.2727 13.5524 11.3455 14.4545 10.3636 14.4545C9.38182 14.4545 8.45455 13.5524 8.45455 12.2727ZM10.3636 8.45455C8.33455 8.45455 6.81818 10.2393 6.81818 12.2727C6.81818 14.3062 8.33455 16.0909 10.3636 16.0909C12.3927 16.0909 13.9091 14.3062 13.9091 12.2727C13.9091 10.2393 12.3927 8.45455 10.3636 8.45455ZM4.09091 16.0909V10.3636H5.72727V16.0909H4.09091Z" fill="white"></path>
-                                                            </g>
-                                                            <defs>
-                                                                <clipPath id="clip0_23_24">
-                                                                    <rect width="24" height="24" fill="white"></rect>
-                                                                </clipPath>
-                                                            </defs>
-                                                        </svg>
-                                                        <span class="text-sm">16.7.8</span>
-                                                    </div>
-                                                </div></div>
+                                            <div id="iOSVer">
+
+                                            </div>
                                             <div class="flex flex-col gap-y-4">
-                                                <div class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 focus:ring-4 focus:outline-none focus:ring-teal-300 transition-all duration-300 font-medium rounded-2xl">
+                                                <div
+                                                    class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 focus:ring-4 focus:outline-none focus:ring-teal-300 transition-all duration-300 font-medium rounded-2xl">
                                                     <!-- Accordion item -->
                                                     <div x-data="{ expanded: false }">
                                                         <h2>
-                                                            <button style="direction: ltr;" id="faqs-title-01" type="button" class="flex items-center p-4 justify-between w-full text-left font-semibold" @click="expanded = !expanded" :aria-expanded="expanded" aria-controls="faqs-text-01" aria-expanded="false">
-                                                                <div class="flex items-center justify-start gap-x-2 text-lg sm:text-xl font-medium">
-                                                                    <svg width="29" height="26" viewBox="0 0 29 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <button style="direction: ltr;" id="faqs-title-01"
+                                                                type="button"
+                                                                class="flex items-center p-4 justify-between w-full text-left font-semibold"
+                                                                @click="expanded = !expanded" :aria-expanded="expanded"
+                                                                aria-controls="faqs-text-01">
+                                                                <div
+                                                                    class="flex items-center justify-start gap-x-2 text-lg sm:text-xl font-medium">
+                                                                    <svg width="29" height="26" viewBox="0 0 29 26"
+                                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                         <g clip-path="url(#clip0_20_2)">
-                                                                            <path d="M18.4091 4.40211C19.8954 3.36294 21.3589 2.33315 22.8308 1.31461C23.3975 0.92258 23.9623 0.519918 24.5701 0.193536C24.8231 0.0578559 25.1956 0.0522285 25.495 0.0991225C25.68 0.127884 25.9192 0.345472 25.9663 0.519917C26.0074 0.671229 25.8617 0.936336 25.7146 1.05576C25.1819 1.48843 24.6178 1.88735 24.057 2.28813C22.6504 3.29229 21.2386 4.29082 19.7483 5.34812C20.3673 5.74203 20.9353 6.11718 21.5177 6.47045C22.1713 6.86686 22.1811 6.86373 22.8151 6.4073C24.4106 5.25746 25.9944 4.09324 27.601 2.95715C27.8768 2.76207 28.2298 2.61639 28.5657 2.56825C28.7586 2.54073 29.1069 2.7108 29.1723 2.87087C29.2455 3.05094 29.1566 3.40546 29.0017 3.53614C28.2441 4.17577 27.452 4.77851 26.6519 5.37063C25.6048 6.14594 24.5394 6.89875 23.4224 7.70407C23.6577 7.87227 23.8747 8.00732 24.0662 8.16989C24.5976 8.62069 25.1852 9.03023 25.6264 9.55294C26.2885 10.337 26.3205 11.3374 26.3101 12.2897C26.2963 13.5689 26.2022 14.8501 26.0865 16.1256C26.0264 16.7877 25.5133 17.2348 25.0329 17.6618C24.7734 17.8919 24.4721 18.0814 24.178 18.2727C23.8786 18.4678 23.9047 18.626 24.1819 18.8217C25.4623 19.7277 26.7382 20.6399 28.0102 21.5565C28.3553 21.8048 28.688 22.0705 29.0148 22.3406C29.237 22.5244 29.4194 22.7439 29.252 23.0459C29.0867 23.3441 28.7834 23.5023 28.4683 23.4092C28.1115 23.3035 27.767 23.1128 27.4618 22.9002C26.0303 21.9011 24.6159 20.88 23.1897 19.8734C23.0112 19.7477 22.8099 19.6439 22.6047 19.5632C22.3027 19.4444 22.0491 19.3975 21.7458 19.6864C21.3432 20.0697 20.834 20.3529 20.3569 20.6599C20.0667 20.8463 20.1372 20.9832 20.3693 21.1439C21.7667 22.1149 23.1766 23.0703 24.5512 24.0707C25.0937 24.4658 25.8002 24.7147 26.0539 25.4131C26.0728 25.465 26.0905 25.5169 26.1133 25.5819C25.865 25.7063 25.6336 25.8352 25.3917 25.9408C25.0414 26.094 24.7544 25.9221 24.4819 25.7401C23.2609 24.9248 22.0445 24.1032 20.8229 23.2885C20.1778 22.859 19.5215 22.445 18.8784 22.0124C18.6457 21.8554 18.4868 21.8923 18.2568 22.0505C17.4142 22.6295 16.6109 23.2716 15.5913 23.5767C14.5814 23.8794 13.6448 23.7093 12.7702 23.1972C12.1885 22.8564 11.6284 22.4775 11.0832 22.0849C10.7858 21.8704 10.5538 21.8629 10.2538 22.073C8.76157 23.1141 7.25889 24.1413 5.75882 25.1718C5.45619 25.3793 5.17317 25.6388 4.83656 25.7683C4.52674 25.887 4.15417 25.9039 3.81494 25.8827C3.65742 25.8727 3.39139 25.6682 3.38943 25.5482C3.38486 25.3231 3.46656 25.0111 3.63519 24.8816C4.41301 24.2845 5.23331 23.7381 6.03792 23.1735C6.98698 22.5082 7.93735 21.8435 8.88511 21.1758C9.01191 21.0864 9.12564 20.9801 9.27597 20.8563C8.77856 20.4999 8.3256 20.1741 7.87133 19.8502C7.68832 19.7196 7.51838 19.5557 7.31314 19.4713C6.88371 19.2944 6.54709 19.5514 6.23204 19.7733C4.68361 20.8631 3.15151 21.9742 1.59262 23.0497C1.33313 23.2285 0.971023 23.3341 0.651401 23.3454C0.466425 23.3516 0.18602 23.1353 0.108239 22.9559C0.0454907 22.8114 0.159222 22.4963 0.303019 22.3863C1.44555 21.5084 2.61293 20.6606 3.77442 19.8052C4.24699 19.4576 4.71956 19.1093 5.19801 18.7698C5.42547 18.6085 5.42482 18.4559 5.22023 18.2846C4.97447 18.0783 4.75028 17.84 4.48033 17.6694C3.55676 17.0854 3.24694 16.2125 3.22603 15.2265C3.19661 13.8559 3.19335 12.4841 3.22603 11.1142C3.24825 10.1794 3.68879 9.42102 4.47445 8.84954C4.88885 8.54816 5.29083 8.23054 5.69738 7.91916C5.92027 7.74847 5.95099 7.64217 5.66797 7.44522C4.02933 6.30538 2.4103 5.13929 0.789315 3.97632C0.599111 3.84001 0.427861 3.67744 0.261841 3.51488C-0.163669 3.09846 -0.0682398 2.68892 0.531134 2.59388C0.831147 2.54636 1.23117 2.6364 1.4802 2.80647C2.87568 3.75685 4.23784 4.75225 5.61306 5.72952C6.05557 6.04403 6.51049 6.3429 6.9458 6.66553C7.25104 6.89187 7.49811 6.68303 7.71446 6.56174C8.1988 6.28975 8.64784 5.96149 9.11387 5.65887C9.48121 5.42002 9.49559 5.32311 9.14459 5.06863C7.39876 3.80312 5.64836 2.54324 3.89991 1.28148C3.87638 1.26459 3.84958 1.25084 3.8254 1.23396C3.51689 1.01387 3.2208 0.768143 3.38682 0.354851C3.50382 0.0634829 4.18163 -0.109712 4.54765 0.078489C5.03003 0.326714 5.4928 0.616207 5.9353 0.925707C7.46151 1.99364 8.97792 3.07408 10.4917 4.15826C10.7394 4.33521 10.9584 4.37022 11.2192 4.1964C11.597 3.94505 12.0107 3.73747 12.3657 3.46048C13.6932 2.42381 15.6207 2.44445 17.2495 3.60679C17.6293 3.87815 18.0202 4.13638 18.4091 4.40211ZM14.9226 17.6537C15.8449 17.7162 16.6868 17.488 17.4404 16.9616C19.6516 15.4172 21.8445 13.8484 24.0819 12.3397C25.4368 11.4256 25.41 9.6311 24.2061 8.72323C23.5642 8.23929 22.8681 7.82099 22.2014 7.36581C20.902 6.47983 19.5902 5.6101 18.3143 4.69348C17.109 3.82688 15.8521 3.11909 14.2749 3.35544C13.6677 3.44673 12.9931 3.56302 12.5081 3.88628C10.1656 5.44566 7.89094 7.0982 5.56273 8.67884C4.17117 9.6236 4.27052 11.4043 5.46992 12.2884C6.32617 12.9199 7.23797 13.4814 8.12102 14.0798C9.37532 14.9289 10.6427 15.7617 11.8735 16.6414C12.7859 17.2936 13.7494 17.7338 14.9226 17.6537ZM11.2767 21.1833C11.4081 21.3152 12.1238 21.8035 12.4454 22.0105C12.948 22.3331 13.4337 22.1887 13.5049 21.6228C13.582 21.0088 13.603 20.3623 13.4807 19.7608C13.4043 19.3832 13.0938 18.9624 12.7598 18.7335C10.2969 17.046 7.8027 15.4003 5.31501 13.7459C4.79342 13.3989 4.30516 13.5496 4.2313 14.1392C4.15548 14.7394 4.15025 15.3672 4.25026 15.9618C4.30843 16.3082 4.58034 16.6671 4.85551 16.9222C5.21566 17.2554 5.66535 17.5049 6.09544 17.7606C6.20067 17.8232 6.30852 17.6825 6.37388 17.62C5.97713 17.2304 5.74117 17.0891 5.32089 16.8471C4.77904 16.5351 4.55288 16.0556 4.49863 15.4978C4.46334 15.1315 4.48948 14.7544 4.53785 14.388C4.60909 13.8509 4.76139 13.7953 5.21435 14.0979C7.55302 15.6567 9.89169 17.2167 12.2297 18.7767C13.1846 19.4138 13.5468 20.4967 13.165 21.5628C13.0631 21.8473 12.9069 21.9217 12.6363 21.7241C12.3755 21.5334 11.9532 21.2114 11.6676 21.0595C11.5604 21.0007 11.5231 21.1833 11.2767 21.1833ZM17.7116 21.3771C17.7077 21.3258 17.3888 21.207 17.2705 21.2664C17.0345 21.3852 16.8279 21.5553 16.6051 21.6979C16.258 21.9204 16.0933 21.8729 16.0377 21.4709C15.9776 21.0357 15.9063 20.5737 15.9992 20.1554C16.0861 19.7627 16.2815 19.2825 16.5979 19.0643C19.0771 17.3542 21.5987 15.7004 24.1021 14.0216C24.4113 13.814 24.6022 13.9072 24.6348 14.2136C24.6878 14.7063 24.7172 15.209 24.6721 15.7004C24.6263 16.2044 24.3322 16.5939 23.8622 16.8665C23.4714 17.0935 23.1086 17.3649 22.7341 17.6168C22.7419 17.6637 23.0589 17.7894 23.1635 17.7306C23.4838 17.5499 23.7694 17.3136 24.0884 17.131C24.759 16.749 25.0231 16.1494 25.076 15.4516C25.1041 15.0846 25.0806 14.7082 25.0296 14.3424C24.9165 13.5271 24.4838 13.3526 23.7832 13.8197C21.4099 15.4022 19.0372 16.9853 16.6645 18.5691C15.6599 19.2394 15.2481 20.6887 15.7501 21.7791C15.9449 22.2031 16.2789 22.31 16.6855 22.0586C17.0351 21.8429 17.3705 21.6053 17.7116 21.3771ZM10.2139 20.1041C9.47075 19.6076 8.73281 19.1043 7.97787 18.6247C7.89094 18.5697 7.75172 18.7304 7.61642 18.7454C8.34783 19.3363 9.04394 19.8409 9.77338 20.3085C9.88188 20.3779 10.2035 20.1597 10.2139 20.1041ZM19.0006 20.1028C19.0032 20.1504 19.3111 20.296 19.4039 20.2366C20.1444 19.7646 20.87 19.2719 21.6007 18.7854C21.5935 18.7448 21.2621 18.6097 21.1654 18.6716C20.4346 19.1356 19.7196 19.6226 19.0006 20.1028Z" fill="white"></path>
-                                                                            <path d="M24.0884 10.2995C24.1335 11.0129 23.6041 11.3687 23.0975 11.7244C21.1745 13.0744 19.2261 14.3911 17.3253 15.7686C16.343 16.4801 15.2893 16.8771 14.0742 16.6789C13.5605 16.5952 13.0291 16.3813 12.5983 16.0981C10.8754 14.9639 9.18969 13.7784 7.48831 12.6135C6.89416 12.2071 6.251 11.8539 5.70718 11.3931C4.88427 10.6959 4.95944 9.7724 5.75294 9.19842C7.99291 7.57839 10.2825 6.02151 12.5637 4.454C13.7585 3.63304 15.6102 3.75246 16.7874 4.60093C18.0018 5.47566 19.2607 6.29412 20.5013 7.13571C21.5151 7.82349 22.5406 8.49563 23.54 9.20217C23.9047 9.4604 24.1145 9.83868 24.0884 10.2995ZM15.0645 5.96524C15.0645 7.19823 15.0645 8.38809 15.0645 9.64985C15.9449 8.97895 16.7717 8.34932 17.6312 7.69468C16.7783 7.10445 15.9939 6.5611 15.2083 6.01963C15.1762 5.99712 15.1324 5.99025 15.0645 5.96524ZM13.1559 9.87181C12.7683 9.61421 12.4408 9.39224 12.1088 9.17591C11.629 8.86328 11.1525 8.31931 10.6643 8.30868C10.1551 8.29743 9.63089 8.79825 9.11779 9.08212C8.71777 9.30346 8.32364 9.53605 7.92754 9.76364C7.93996 9.79991 7.95303 9.83618 7.96545 9.87244C9.6701 9.87181 11.3754 9.87181 13.1559 9.87181ZM16.1103 10.841C16.1005 10.8797 16.0913 10.9185 16.0815 10.9566C16.873 11.4368 17.6626 11.9195 18.4594 12.3928C18.5313 12.4354 18.6725 12.4541 18.7352 12.4153C19.5529 11.9076 20.3621 11.3874 21.2196 10.841C19.4633 10.841 17.7868 10.841 16.1103 10.841ZM15.1207 11.278C15.1207 12.4572 15.1207 13.5964 15.1207 14.8163C15.9756 14.2398 16.7358 13.7277 17.5437 13.1832C16.7044 12.5235 15.9155 11.9033 15.1207 11.278ZM21.4739 9.91871C21.485 9.89307 21.4955 9.86744 21.5066 9.8418C21.0726 9.6017 20.6399 9.35973 20.2039 9.12276C19.7124 8.85515 19.2039 8.36308 18.73 8.39059C18.2319 8.41935 17.7633 8.94456 17.2861 9.25969C16.9933 9.45289 16.7083 9.6586 16.3331 9.91933C18.1339 9.91871 19.8039 9.91871 21.4739 9.91871ZM11.3656 7.78535C12.2284 8.37371 13.0199 8.91393 13.8317 9.46728C13.8317 8.31306 13.8317 7.22887 13.8317 6.09716C12.9957 6.66927 12.2114 7.20636 11.3656 7.78535ZM13.886 14.8419C13.886 13.6621 13.886 12.5241 13.886 11.2886C13.0578 11.9283 12.3245 12.4948 11.546 13.0962C12.3513 13.6971 13.1088 14.2623 13.886 14.8419ZM12.9238 10.9047C11.3937 10.9047 9.96881 10.9047 8.45567 10.9047C9.23675 11.4718 9.94266 11.9852 10.6473 12.4966C11.4055 11.967 12.1251 11.4637 12.9238 10.9047Z" fill="white"></path>
+                                                                            <path
+                                                                                d="M18.4091 4.40211C19.8954 3.36294 21.3589 2.33315 22.8308 1.31461C23.3975 0.92258 23.9623 0.519918 24.5701 0.193536C24.8231 0.0578559 25.1956 0.0522285 25.495 0.0991225C25.68 0.127884 25.9192 0.345472 25.9663 0.519917C26.0074 0.671229 25.8617 0.936336 25.7146 1.05576C25.1819 1.48843 24.6178 1.88735 24.057 2.28813C22.6504 3.29229 21.2386 4.29082 19.7483 5.34812C20.3673 5.74203 20.9353 6.11718 21.5177 6.47045C22.1713 6.86686 22.1811 6.86373 22.8151 6.4073C24.4106 5.25746 25.9944 4.09324 27.601 2.95715C27.8768 2.76207 28.2298 2.61639 28.5657 2.56825C28.7586 2.54073 29.1069 2.7108 29.1723 2.87087C29.2455 3.05094 29.1566 3.40546 29.0017 3.53614C28.2441 4.17577 27.452 4.77851 26.6519 5.37063C25.6048 6.14594 24.5394 6.89875 23.4224 7.70407C23.6577 7.87227 23.8747 8.00732 24.0662 8.16989C24.5976 8.62069 25.1852 9.03023 25.6264 9.55294C26.2885 10.337 26.3205 11.3374 26.3101 12.2897C26.2963 13.5689 26.2022 14.8501 26.0865 16.1256C26.0264 16.7877 25.5133 17.2348 25.0329 17.6618C24.7734 17.8919 24.4721 18.0814 24.178 18.2727C23.8786 18.4678 23.9047 18.626 24.1819 18.8217C25.4623 19.7277 26.7382 20.6399 28.0102 21.5565C28.3553 21.8048 28.688 22.0705 29.0148 22.3406C29.237 22.5244 29.4194 22.7439 29.252 23.0459C29.0867 23.3441 28.7834 23.5023 28.4683 23.4092C28.1115 23.3035 27.767 23.1128 27.4618 22.9002C26.0303 21.9011 24.6159 20.88 23.1897 19.8734C23.0112 19.7477 22.8099 19.6439 22.6047 19.5632C22.3027 19.4444 22.0491 19.3975 21.7458 19.6864C21.3432 20.0697 20.834 20.3529 20.3569 20.6599C20.0667 20.8463 20.1372 20.9832 20.3693 21.1439C21.7667 22.1149 23.1766 23.0703 24.5512 24.0707C25.0937 24.4658 25.8002 24.7147 26.0539 25.4131C26.0728 25.465 26.0905 25.5169 26.1133 25.5819C25.865 25.7063 25.6336 25.8352 25.3917 25.9408C25.0414 26.094 24.7544 25.9221 24.4819 25.7401C23.2609 24.9248 22.0445 24.1032 20.8229 23.2885C20.1778 22.859 19.5215 22.445 18.8784 22.0124C18.6457 21.8554 18.4868 21.8923 18.2568 22.0505C17.4142 22.6295 16.6109 23.2716 15.5913 23.5767C14.5814 23.8794 13.6448 23.7093 12.7702 23.1972C12.1885 22.8564 11.6284 22.4775 11.0832 22.0849C10.7858 21.8704 10.5538 21.8629 10.2538 22.073C8.76157 23.1141 7.25889 24.1413 5.75882 25.1718C5.45619 25.3793 5.17317 25.6388 4.83656 25.7683C4.52674 25.887 4.15417 25.9039 3.81494 25.8827C3.65742 25.8727 3.39139 25.6682 3.38943 25.5482C3.38486 25.3231 3.46656 25.0111 3.63519 24.8816C4.41301 24.2845 5.23331 23.7381 6.03792 23.1735C6.98698 22.5082 7.93735 21.8435 8.88511 21.1758C9.01191 21.0864 9.12564 20.9801 9.27597 20.8563C8.77856 20.4999 8.3256 20.1741 7.87133 19.8502C7.68832 19.7196 7.51838 19.5557 7.31314 19.4713C6.88371 19.2944 6.54709 19.5514 6.23204 19.7733C4.68361 20.8631 3.15151 21.9742 1.59262 23.0497C1.33313 23.2285 0.971023 23.3341 0.651401 23.3454C0.466425 23.3516 0.18602 23.1353 0.108239 22.9559C0.0454907 22.8114 0.159222 22.4963 0.303019 22.3863C1.44555 21.5084 2.61293 20.6606 3.77442 19.8052C4.24699 19.4576 4.71956 19.1093 5.19801 18.7698C5.42547 18.6085 5.42482 18.4559 5.22023 18.2846C4.97447 18.0783 4.75028 17.84 4.48033 17.6694C3.55676 17.0854 3.24694 16.2125 3.22603 15.2265C3.19661 13.8559 3.19335 12.4841 3.22603 11.1142C3.24825 10.1794 3.68879 9.42102 4.47445 8.84954C4.88885 8.54816 5.29083 8.23054 5.69738 7.91916C5.92027 7.74847 5.95099 7.64217 5.66797 7.44522C4.02933 6.30538 2.4103 5.13929 0.789315 3.97632C0.599111 3.84001 0.427861 3.67744 0.261841 3.51488C-0.163669 3.09846 -0.0682398 2.68892 0.531134 2.59388C0.831147 2.54636 1.23117 2.6364 1.4802 2.80647C2.87568 3.75685 4.23784 4.75225 5.61306 5.72952C6.05557 6.04403 6.51049 6.3429 6.9458 6.66553C7.25104 6.89187 7.49811 6.68303 7.71446 6.56174C8.1988 6.28975 8.64784 5.96149 9.11387 5.65887C9.48121 5.42002 9.49559 5.32311 9.14459 5.06863C7.39876 3.80312 5.64836 2.54324 3.89991 1.28148C3.87638 1.26459 3.84958 1.25084 3.8254 1.23396C3.51689 1.01387 3.2208 0.768143 3.38682 0.354851C3.50382 0.0634829 4.18163 -0.109712 4.54765 0.078489C5.03003 0.326714 5.4928 0.616207 5.9353 0.925707C7.46151 1.99364 8.97792 3.07408 10.4917 4.15826C10.7394 4.33521 10.9584 4.37022 11.2192 4.1964C11.597 3.94505 12.0107 3.73747 12.3657 3.46048C13.6932 2.42381 15.6207 2.44445 17.2495 3.60679C17.6293 3.87815 18.0202 4.13638 18.4091 4.40211ZM14.9226 17.6537C15.8449 17.7162 16.6868 17.488 17.4404 16.9616C19.6516 15.4172 21.8445 13.8484 24.0819 12.3397C25.4368 11.4256 25.41 9.6311 24.2061 8.72323C23.5642 8.23929 22.8681 7.82099 22.2014 7.36581C20.902 6.47983 19.5902 5.6101 18.3143 4.69348C17.109 3.82688 15.8521 3.11909 14.2749 3.35544C13.6677 3.44673 12.9931 3.56302 12.5081 3.88628C10.1656 5.44566 7.89094 7.0982 5.56273 8.67884C4.17117 9.6236 4.27052 11.4043 5.46992 12.2884C6.32617 12.9199 7.23797 13.4814 8.12102 14.0798C9.37532 14.9289 10.6427 15.7617 11.8735 16.6414C12.7859 17.2936 13.7494 17.7338 14.9226 17.6537ZM11.2767 21.1833C11.4081 21.3152 12.1238 21.8035 12.4454 22.0105C12.948 22.3331 13.4337 22.1887 13.5049 21.6228C13.582 21.0088 13.603 20.3623 13.4807 19.7608C13.4043 19.3832 13.0938 18.9624 12.7598 18.7335C10.2969 17.046 7.8027 15.4003 5.31501 13.7459C4.79342 13.3989 4.30516 13.5496 4.2313 14.1392C4.15548 14.7394 4.15025 15.3672 4.25026 15.9618C4.30843 16.3082 4.58034 16.6671 4.85551 16.9222C5.21566 17.2554 5.66535 17.5049 6.09544 17.7606C6.20067 17.8232 6.30852 17.6825 6.37388 17.62C5.97713 17.2304 5.74117 17.0891 5.32089 16.8471C4.77904 16.5351 4.55288 16.0556 4.49863 15.4978C4.46334 15.1315 4.48948 14.7544 4.53785 14.388C4.60909 13.8509 4.76139 13.7953 5.21435 14.0979C7.55302 15.6567 9.89169 17.2167 12.2297 18.7767C13.1846 19.4138 13.5468 20.4967 13.165 21.5628C13.0631 21.8473 12.9069 21.9217 12.6363 21.7241C12.3755 21.5334 11.9532 21.2114 11.6676 21.0595C11.5604 21.0007 11.5231 21.1833 11.2767 21.1833ZM17.7116 21.3771C17.7077 21.3258 17.3888 21.207 17.2705 21.2664C17.0345 21.3852 16.8279 21.5553 16.6051 21.6979C16.258 21.9204 16.0933 21.8729 16.0377 21.4709C15.9776 21.0357 15.9063 20.5737 15.9992 20.1554C16.0861 19.7627 16.2815 19.2825 16.5979 19.0643C19.0771 17.3542 21.5987 15.7004 24.1021 14.0216C24.4113 13.814 24.6022 13.9072 24.6348 14.2136C24.6878 14.7063 24.7172 15.209 24.6721 15.7004C24.6263 16.2044 24.3322 16.5939 23.8622 16.8665C23.4714 17.0935 23.1086 17.3649 22.7341 17.6168C22.7419 17.6637 23.0589 17.7894 23.1635 17.7306C23.4838 17.5499 23.7694 17.3136 24.0884 17.131C24.759 16.749 25.0231 16.1494 25.076 15.4516C25.1041 15.0846 25.0806 14.7082 25.0296 14.3424C24.9165 13.5271 24.4838 13.3526 23.7832 13.8197C21.4099 15.4022 19.0372 16.9853 16.6645 18.5691C15.6599 19.2394 15.2481 20.6887 15.7501 21.7791C15.9449 22.2031 16.2789 22.31 16.6855 22.0586C17.0351 21.8429 17.3705 21.6053 17.7116 21.3771ZM10.2139 20.1041C9.47075 19.6076 8.73281 19.1043 7.97787 18.6247C7.89094 18.5697 7.75172 18.7304 7.61642 18.7454C8.34783 19.3363 9.04394 19.8409 9.77338 20.3085C9.88188 20.3779 10.2035 20.1597 10.2139 20.1041ZM19.0006 20.1028C19.0032 20.1504 19.3111 20.296 19.4039 20.2366C20.1444 19.7646 20.87 19.2719 21.6007 18.7854C21.5935 18.7448 21.2621 18.6097 21.1654 18.6716C20.4346 19.1356 19.7196 19.6226 19.0006 20.1028Z"
+                                                                                fill="white" />
+                                                                            <path
+                                                                                d="M24.0884 10.2995C24.1335 11.0129 23.6041 11.3687 23.0975 11.7244C21.1745 13.0744 19.2261 14.3911 17.3253 15.7686C16.343 16.4801 15.2893 16.8771 14.0742 16.6789C13.5605 16.5952 13.0291 16.3813 12.5983 16.0981C10.8754 14.9639 9.18969 13.7784 7.48831 12.6135C6.89416 12.2071 6.251 11.8539 5.70718 11.3931C4.88427 10.6959 4.95944 9.7724 5.75294 9.19842C7.99291 7.57839 10.2825 6.02151 12.5637 4.454C13.7585 3.63304 15.6102 3.75246 16.7874 4.60093C18.0018 5.47566 19.2607 6.29412 20.5013 7.13571C21.5151 7.82349 22.5406 8.49563 23.54 9.20217C23.9047 9.4604 24.1145 9.83868 24.0884 10.2995ZM15.0645 5.96524C15.0645 7.19823 15.0645 8.38809 15.0645 9.64985C15.9449 8.97895 16.7717 8.34932 17.6312 7.69468C16.7783 7.10445 15.9939 6.5611 15.2083 6.01963C15.1762 5.99712 15.1324 5.99025 15.0645 5.96524ZM13.1559 9.87181C12.7683 9.61421 12.4408 9.39224 12.1088 9.17591C11.629 8.86328 11.1525 8.31931 10.6643 8.30868C10.1551 8.29743 9.63089 8.79825 9.11779 9.08212C8.71777 9.30346 8.32364 9.53605 7.92754 9.76364C7.93996 9.79991 7.95303 9.83618 7.96545 9.87244C9.6701 9.87181 11.3754 9.87181 13.1559 9.87181ZM16.1103 10.841C16.1005 10.8797 16.0913 10.9185 16.0815 10.9566C16.873 11.4368 17.6626 11.9195 18.4594 12.3928C18.5313 12.4354 18.6725 12.4541 18.7352 12.4153C19.5529 11.9076 20.3621 11.3874 21.2196 10.841C19.4633 10.841 17.7868 10.841 16.1103 10.841ZM15.1207 11.278C15.1207 12.4572 15.1207 13.5964 15.1207 14.8163C15.9756 14.2398 16.7358 13.7277 17.5437 13.1832C16.7044 12.5235 15.9155 11.9033 15.1207 11.278ZM21.4739 9.91871C21.485 9.89307 21.4955 9.86744 21.5066 9.8418C21.0726 9.6017 20.6399 9.35973 20.2039 9.12276C19.7124 8.85515 19.2039 8.36308 18.73 8.39059C18.2319 8.41935 17.7633 8.94456 17.2861 9.25969C16.9933 9.45289 16.7083 9.6586 16.3331 9.91933C18.1339 9.91871 19.8039 9.91871 21.4739 9.91871ZM11.3656 7.78535C12.2284 8.37371 13.0199 8.91393 13.8317 9.46728C13.8317 8.31306 13.8317 7.22887 13.8317 6.09716C12.9957 6.66927 12.2114 7.20636 11.3656 7.78535ZM13.886 14.8419C13.886 13.6621 13.886 12.5241 13.886 11.2886C13.0578 11.9283 12.3245 12.4948 11.546 13.0962C12.3513 13.6971 13.1088 14.2623 13.886 14.8419ZM12.9238 10.9047C11.3937 10.9047 9.96881 10.9047 8.45567 10.9047C9.23675 11.4718 9.94266 11.9852 10.6473 12.4966C11.4055 11.967 12.1251 11.4637 12.9238 10.9047Z"
+                                                                                fill="white" />
                                                                         </g>
                                                                         <defs>
                                                                             <clipPath id="clip0_20_2">
-                                                                                <rect width="29" height="26" fill="white"></rect>
+                                                                                <rect width="29" height="26"
+                                                                                    fill="white" />
                                                                             </clipPath>
                                                                         </defs>
                                                                     </svg>
-                                                                    <div class="flex items-center justify-start gap-x-2">
-                                                                        <span x-text="$t('addStreisand')">Streisand</span>
-                                                                        <div class="bg-gray-100 pb-1.5 px-2 pt-1 rounded-full">
+                                                                    <div
+                                                                        class="flex items-center justify-start gap-x-2">
+                                                                        <span x-text="$t('addStreisand')">
+                                                                        </span>
+                                                                        <div
+                                                                            class="bg-gray-100 pb-1.5 px-2 pt-1 rounded-full">
 
-                                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 fill-yellow-500 stroke-yellow-500">
-                                                                                <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"></path>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                viewBox="0 0 24 24" fill="currentColor"
+                                                                                class="w-6 h-6 fill-yellow-500 stroke-yellow-500">
+                                                                                <path fill-rule="evenodd"
+                                                                                    d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                                                                    clip-rule="evenodd" />
                                                                             </svg>
 
 
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" :class="{'!rotate-180': expanded}" class="w-6 h-6 mx-6 transform origin-center transition duration-200 ease-out">
-                                                                    <path strokelinecap="round" strokelinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5"></path>
+                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                    viewBox="0 0 24 24" stroke-width="1.5"
+                                                                    stroke="currentColor"
+                                                                    :class="{'!rotate-180': expanded}"
+                                                                    class="w-6 h-6 mx-6 transform origin-center transition duration-200 ease-out">
+                                                                    <path strokeLinecap="round" strokeLinejoin="round"
+                                                                        d="M4.5 15.75l7.5-7.5 7.5 7.5" />
                                                                 </svg>
                                                             </button>
                                                         </h2>
-                                                        <div id="faqs-text-01" role="region" aria-labelledby="faqs-title-01" class="grid text-sm text-white overflow-hidden transition-all duration-300 ease-in-out grid-rows-[0fr] opacity-0" :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'">
+                                                        <div id="faqs-text-01" role="region"
+                                                            aria-labelledby="faqs-title-01"
+                                                            class="grid text-sm text-white overflow-hidden transition-all duration-300 ease-in-out"
+                                                            :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'">
                                                             <div class="overflow-hidden">
                                                                 <div class="p-4 pb-6">
                                                                     <div class="flex flex-col">
                                                                         <div class="flex items-center gap-x-2">
-                                                                            <span x-text="$t('needediOS')">سیستم عامل مورد نیاز: </span>
-                                                                            <div class="flex items-center rtl:flex-row-reverse rtl:justify-end gap-x-1">
-                                                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                            <span x-text="$t('needediOS')"></span>
+                                                                            <div
+                                                                                class="flex items-center rtl:flex-row-reverse rtl:justify-end gap-x-1">
+                                                                                <svg width="24" height="24"
+                                                                                    viewBox="0 0 24 24" fill="none"
+                                                                                    xmlns="http://www.w3.org/2000/svg">
                                                                                     <g clip-path="url(#clip0_23_24)">
-                                                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.36364 0C3.20633 0 2.09642 0.459739 1.27808 1.27808C0.459739 2.09642 0 3.20633 0 4.36364V19.6364C0 20.7937 0.459739 21.9036 1.27808 22.7219C2.09642 23.5403 3.20633 24 4.36364 24H19.6364C20.7937 24 21.9036 23.5403 22.7219 22.7219C23.5403 21.9036 24 20.7937 24 19.6364V4.36364C24 3.20633 23.5403 2.09642 22.7219 1.27808C21.9036 0.459739 20.7937 0 19.6364 0H4.36364ZM3.81818 8.82109C3.81818 8.53176 3.93312 8.25429 4.1377 8.0497C4.34229 7.84512 4.61976 7.73018 4.90909 7.73018C5.19842 7.73018 5.47589 7.84512 5.68048 8.0497C5.88507 8.25429 6 8.53176 6 8.82109C6 9.11042 5.88507 9.3879 5.68048 9.59248C5.47589 9.79707 5.19842 9.912 4.90909 9.912C4.61976 9.912 4.34229 9.79707 4.1377 9.59248C3.93312 9.3879 3.81818 9.11042 3.81818 8.82109ZM14.4545 10.9091C14.4545 9.912 15.3665 8.45455 17.4545 8.45455C18.2564 8.45455 18.9818 8.844 19.4782 9.25745C19.7345 9.47127 19.9604 9.71564 20.1295 9.96982C20.2833 10.2 20.4545 10.5338 20.4545 10.9091H18.8182C18.8182 10.9495 18.8236 10.9735 18.8247 10.9789C18.8095 10.9432 18.7905 10.9092 18.768 10.8775C18.6726 10.7416 18.5588 10.6197 18.4298 10.5153C18.1091 10.2469 17.7425 10.0909 17.4545 10.0909C16.2753 10.0909 16.0931 10.8087 16.0909 10.908C16.0876 10.9036 16.0887 10.908 16.0909 10.9091V10.908C16.1567 10.9741 16.2344 11.027 16.32 11.064C16.632 11.22 17.0793 11.3356 17.6531 11.4785L17.7022 11.4916C18.2105 11.6182 18.8302 11.7731 19.32 12.0185C19.8349 12.276 20.4545 12.7636 20.4545 13.6364C20.4545 14.6335 19.5425 16.0909 17.4545 16.0909C15.3665 16.0909 14.4545 14.6335 14.4545 13.6364H16.0909C16.0909 13.7302 16.2698 14.4545 17.4545 14.4545C18.6338 14.4545 18.816 13.7367 18.8182 13.6375C18.8215 13.6418 18.8204 13.6375 18.8182 13.6364V13.6375C18.7524 13.5714 18.6747 13.5184 18.5891 13.4815C18.2771 13.3255 17.8298 13.2098 17.256 13.0669L17.2069 13.0538C16.6985 12.9273 16.0789 12.7724 15.5891 12.5269C15.0742 12.2695 14.4545 11.7818 14.4545 10.9091ZM8.45455 12.2727C8.45455 10.9931 9.38182 10.0909 10.3636 10.0909C11.3455 10.0909 12.2727 10.9931 12.2727 12.2727C12.2727 13.5524 11.3455 14.4545 10.3636 14.4545C9.38182 14.4545 8.45455 13.5524 8.45455 12.2727ZM10.3636 8.45455C8.33455 8.45455 6.81818 10.2393 6.81818 12.2727C6.81818 14.3062 8.33455 16.0909 10.3636 16.0909C12.3927 16.0909 13.9091 14.3062 13.9091 12.2727C13.9091 10.2393 12.3927 8.45455 10.3636 8.45455ZM4.09091 16.0909V10.3636H5.72727V16.0909H4.09091Z" fill="white"></path>
+                                                                                        <path fill-rule="evenodd"
+                                                                                            clip-rule="evenodd"
+                                                                                            d="M4.36364 0C3.20633 0 2.09642 0.459739 1.27808 1.27808C0.459739 2.09642 0 3.20633 0 4.36364V19.6364C0 20.7937 0.459739 21.9036 1.27808 22.7219C2.09642 23.5403 3.20633 24 4.36364 24H19.6364C20.7937 24 21.9036 23.5403 22.7219 22.7219C23.5403 21.9036 24 20.7937 24 19.6364V4.36364C24 3.20633 23.5403 2.09642 22.7219 1.27808C21.9036 0.459739 20.7937 0 19.6364 0H4.36364ZM3.81818 8.82109C3.81818 8.53176 3.93312 8.25429 4.1377 8.0497C4.34229 7.84512 4.61976 7.73018 4.90909 7.73018C5.19842 7.73018 5.47589 7.84512 5.68048 8.0497C5.88507 8.25429 6 8.53176 6 8.82109C6 9.11042 5.88507 9.3879 5.68048 9.59248C5.47589 9.79707 5.19842 9.912 4.90909 9.912C4.61976 9.912 4.34229 9.79707 4.1377 9.59248C3.93312 9.3879 3.81818 9.11042 3.81818 8.82109ZM14.4545 10.9091C14.4545 9.912 15.3665 8.45455 17.4545 8.45455C18.2564 8.45455 18.9818 8.844 19.4782 9.25745C19.7345 9.47127 19.9604 9.71564 20.1295 9.96982C20.2833 10.2 20.4545 10.5338 20.4545 10.9091H18.8182C18.8182 10.9495 18.8236 10.9735 18.8247 10.9789C18.8095 10.9432 18.7905 10.9092 18.768 10.8775C18.6726 10.7416 18.5588 10.6197 18.4298 10.5153C18.1091 10.2469 17.7425 10.0909 17.4545 10.0909C16.2753 10.0909 16.0931 10.8087 16.0909 10.908C16.0876 10.9036 16.0887 10.908 16.0909 10.9091V10.908C16.1567 10.9741 16.2344 11.027 16.32 11.064C16.632 11.22 17.0793 11.3356 17.6531 11.4785L17.7022 11.4916C18.2105 11.6182 18.8302 11.7731 19.32 12.0185C19.8349 12.276 20.4545 12.7636 20.4545 13.6364C20.4545 14.6335 19.5425 16.0909 17.4545 16.0909C15.3665 16.0909 14.4545 14.6335 14.4545 13.6364H16.0909C16.0909 13.7302 16.2698 14.4545 17.4545 14.4545C18.6338 14.4545 18.816 13.7367 18.8182 13.6375C18.8215 13.6418 18.8204 13.6375 18.8182 13.6364V13.6375C18.7524 13.5714 18.6747 13.5184 18.5891 13.4815C18.2771 13.3255 17.8298 13.2098 17.256 13.0669L17.2069 13.0538C16.6985 12.9273 16.0789 12.7724 15.5891 12.5269C15.0742 12.2695 14.4545 11.7818 14.4545 10.9091ZM8.45455 12.2727C8.45455 10.9931 9.38182 10.0909 10.3636 10.0909C11.3455 10.0909 12.2727 10.9931 12.2727 12.2727C12.2727 13.5524 11.3455 14.4545 10.3636 14.4545C9.38182 14.4545 8.45455 13.5524 8.45455 12.2727ZM10.3636 8.45455C8.33455 8.45455 6.81818 10.2393 6.81818 12.2727C6.81818 14.3062 8.33455 16.0909 10.3636 16.0909C12.3927 16.0909 13.9091 14.3062 13.9091 12.2727C13.9091 10.2393 12.3927 8.45455 10.3636 8.45455ZM4.09091 16.0909V10.3636H5.72727V16.0909H4.09091Z"
+                                                                                            fill="white" />
                                                                                     </g>
                                                                                     <defs>
                                                                                         <clipPath id="clip0_23_24">
-                                                                                            <rect width="24" height="24" fill="white"></rect>
+                                                                                            <rect width="24" height="24"
+                                                                                                fill="white" />
                                                                                         </clipPath>
                                                                                     </defs>
                                                                                 </svg>
                                                                                 <span class="text-sm">14+</span>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="flex items-center rtl:mr-[-10px] ltr:ml-[-10px] md:rtl:mr-[-20px] md:ltr:ml-[-20px]">
-                                                                            <lord-icon src="https://cdn.lordicon.com/mtdulhdc.json" trigger="hover" colors="primary:#fff,secondary:#fff" class="w-12 h-12 md:w-20 md:h-20 ">
+                                                                        <div
+                                                                            class="flex items-center rtl:mr-[-10px] ltr:ml-[-10px] md:rtl:mr-[-20px] md:ltr:ml-[-20px]">
+                                                                            <lord-icon
+                                                                                src="https://cdn.lordicon.com/mtdulhdc.json"
+                                                                                trigger="hover"
+                                                                                colors="primary:#fff,secondary:#fff"
+                                                                                class="w-12 h-12 md:w-20 md:h-20 ">
                                                                             </lord-icon>
-                                                                            <h3 x-text="$t('downloadApp')" class="text-xl font-black leading-none tracking-tight text-white md:text-2xl">دانلود برنامه</h3>
+                                                                            <h3 x-text="$t('downloadApp')"
+                                                                                class="text-xl font-black leading-none tracking-tight text-white md:text-2xl">
+                                                                            </h3>
                                                                         </div>
-                                                                        <p x-text="$t('clickForDownload')" class="text-sm mb-4 font-normal text-white lg:text-base">برای دانلود کردن برنامه روی لینک زیر کلیک کنید</p>
-                                                                        <a href="https://apps.apple.com/us/app/streisand/id6450534064" class="flex mb-4 items-center gap-x-4 w-full bg-gray-800 shadow-md px-3 py-2 rounded-3xl justify-between">
-                                                                            <lord-icon class="w-8 h-8" src="https://cdn.lordicon.com/albqovim.json" trigger="loop" delay="1500" colors="primary:#fff" state="intro">
+                                                                        <p x-text="$t('clickForDownload')"
+                                                                            class="text-sm mb-4 font-normal text-white lg:text-base">
+                                                                        </p>
+                                                                        <a href="https://apps.apple.com/us/app/streisand/id6450534064"
+                                                                            class="flex mb-4 items-center gap-x-4 w-full bg-gray-800 shadow-md px-3 py-2 rounded-3xl justify-between">
+                                                                            <lord-icon class="w-8 h-8"
+                                                                                src="https://cdn.lordicon.com/albqovim.json"
+                                                                                trigger="loop" delay="1500"
+                                                                                colors="primary:#fff" state="intro">
                                                                             </lord-icon>
-                                                                            <span x-text="$t('download')">دانلود</span>
-                                                                            <lord-icon class="w-8 h-8" src="https://cdn.lordicon.com/albqovim.json" trigger="loop" delay="1500" colors="primary:#fff" state="intro">
+                                                                            <span x-text="$t('download')"></span>
+                                                                            <lord-icon class="w-8 h-8"
+                                                                                src="https://cdn.lordicon.com/albqovim.json"
+                                                                                trigger="loop" delay="1500"
+                                                                                colors="primary:#fff" state="intro">
                                                                             </lord-icon>
                                                                         </a>
-                                                                        <div class="flex items-center rtl:mr-[-10px] ltr:ml-[-10px] md:rtl:mr-[-20px] md:ltr:ml-[-20px]">
-                                                                            <lord-icon src="https://cdn.lordicon.com/vcoyflbj.json" trigger="hover" colors="primary:#fff,secondary:#fff" class="w-12 h-12 md:w-20 md:h-20 ">
+                                                                        <div
+                                                                            class="flex items-center rtl:mr-[-10px] ltr:ml-[-10px] md:rtl:mr-[-20px] md:ltr:ml-[-20px]">
+                                                                            <lord-icon
+                                                                                src="https://cdn.lordicon.com/vcoyflbj.json"
+                                                                                trigger="hover"
+                                                                                colors="primary:#fff,secondary:#fff"
+                                                                                class="w-12 h-12 md:w-20 md:h-20 ">
                                                                             </lord-icon>
-                                                                            <h3 x-text="$t('addConfigs')" class="text-xl font-black leading-none tracking-tight text-white md:text-2xl">افزودن کانفیگ ها</h3>
+                                                                            <h3 x-text="$t('addConfigs')"
+                                                                                class="text-xl font-black leading-none tracking-tight text-white md:text-2xl">
+                                                                            </h3>
                                                                         </div>
-                                                                        <p x-text="$t('clickForAdd')" class="text-sm mb-4 font-normal text-white lg:text-base">برای اضافه کردن کانفیگ‌ ها داخل برنامه روی لینک زیر کلیک کنید.</p>
-                                                                        <a id="ios-streisand" class="flex mb-4 items-center gap-x-4 w-full bg-stone-800 shadow-md px-3 py-2 rounded-3xl justify-between" href="streisand://import/https://pnl.shdy.blog/vip/MTI3Mzg0MTUwMl9jMGM3LDE3MjIzNDcxNjY9mu7xryca9">
-                                                                            <lord-icon class="w-8 h-8" src="https://cdn.lordicon.com/mrdiiocb.json" trigger="loop" delay="2000" colors="primary:#fff">
+                                                                        <p x-text="$t('clickForAdd')"
+                                                                            class="text-sm mb-4 font-normal text-white lg:text-base">
+                                                                        </p>
+                                                                        <a id="ios-streisand"
+                                                                            class="flex mb-4 items-center gap-x-4 w-full bg-stone-800 shadow-md px-3 py-2 rounded-3xl justify-between">
+                                                                            <lord-icon class="w-8 h-8"
+                                                                                src="https://cdn.lordicon.com/mrdiiocb.json"
+                                                                                trigger="loop" delay="2000"
+                                                                                colors="primary:#fff">
                                                                             </lord-icon>
-                                                                            <span x-text="$t('AddtoApp')">افزودن به برنامه</span>
-                                                                            <lord-icon class="w-8 h-8" src="https://cdn.lordicon.com/mrdiiocb.json" trigger="loop" delay="2000" colors="primary:#fff">
+                                                                            <span x-text="$t('AddtoApp')"></span>
+                                                                            <lord-icon class="w-8 h-8"
+                                                                                src="https://cdn.lordicon.com/mrdiiocb.json"
+                                                                                trigger="loop" delay="2000"
+                                                                                colors="primary:#fff">
                                                                             </lord-icon>
                                                                         </a>
-                                                                        <div class="flex items-center rtl:mr-[-10px] ltr:ml-[-10px] md:rtl:mr-[-20px] md:ltr:ml-[-20px]">
-                                                                            <lord-icon src="https://cdn.lordicon.com/igpsgesd.json" trigger="hover" colors="primary:#fff,secondary:#fff" class="w-12 h-12 md:w-20 md:h-20 ">
+                                                                        <div
+                                                                            class="flex items-center rtl:mr-[-10px] ltr:ml-[-10px] md:rtl:mr-[-20px] md:ltr:ml-[-20px]">
+                                                                            <lord-icon
+                                                                                src="https://cdn.lordicon.com/igpsgesd.json"
+                                                                                trigger="hover"
+                                                                                colors="primary:#fff,secondary:#fff"
+                                                                                class="w-12 h-12 md:w-20 md:h-20 ">
                                                                             </lord-icon>
-                                                                            <h3 x-text="$t('routingTitle')" class="text-xl font-black leading-none tracking-tight text-white md:text-2xl">مسیریابی - پیشنهادی</h3>
+                                                                            <h3 x-text="$t('routingTitle')"
+                                                                                class="text-xl font-black leading-none tracking-tight text-white md:text-2xl">
+                                                                            </h3>
                                                                         </div>
-                                                                        <p x-text="$t('routingInfo')" class="text-sm mb-4 font-normal text-white lg:text-base">با اضافه کردن مسیریابی, وب سایت ها و برنامه های داخلی از VPN عبور داده نمیشود</p>
-                                                                        <a href="streisand://aW1wb3J0L3JvdXRlOi8vWW5Cc2FYTjBNRERWQVFJREJBVUdEaU1rSlZWeWRXeGxjMTFrYjIxaGFXNU5ZWFJqYUdWeVZHNWhiV1ZlWkc5dFlXbHVVM1J5WVhSbFozbFVkWFZwWktJSEZ0VUlDUW9MREEwT0R4SVZXMjkxZEdKdmRXNWtWR0ZuWFdSdmJXRnBiazFoZEdOb1pYSldaRzl0WVdsdVVtbHdWMjVsZEhkdmNtdFdaR2x5WldOMFZtaDVZbkpwWktJUUVWOFFFMmRsYjNOcGRHVTZZMkYwWldkdmNua3RhWEpmRUE5eVpXZGxlSEE2TGlwY1hDNXBjaVNpRXhSWVoyVnZhWEE2YVhKZFoyVnZhWEE2Y0hKcGRtRjBaVjhRUkZSRFVDd2dWVVJRTENCSVZGUlFMQ0JJVkZSUVV5d2dVMU5JTENCVFRWUlFMQ0JUVGsxUUxDQk9WRkFzSUVaVVVDd2dVRTlRTXl3Z1NVMUJVQ3dnVkdWc2JtVjAxQmNZQ2d3WkRob1ZXMjkxZEdKdmRXNWtWR0ZuWFdSdmJXRnBiazFoZEdOb1pYSlZZbXh2WTJ1b0d4d2RIaDhnSVNKZkVCaG5aVzl6YVhSbE9tTmhkR1ZuYjNKNUxXRmtjeTFoYkd4ZkVCUm5aVzl6YVhSbE9tTmhkR1ZuYjNKNUxXRmtjMThRRVdkbGIzTnBkR1U2ZVdGb2IyOHRZV1J6WHhBVFoyVnZjMmwwWlRwemNHOTBhV1o1TFdGa2MxOFFFbWRsYjNOcGRHVTZaMjl2WjJ4bExXRmtjMThRRVdkbGIzTnBkR1U2WVhCd2JHVXRZV1J6WHhBU1oyVnZjMmwwWlRwaGJXRjZiMjR0WVdSelh4QVJaMlZ2YzJsMFpUcGhaRzlpWlMxaFpITnVBRWtBVWdBdEFFUUFhUUJ5QUdVQVl3QjBBQ0RZUE4zdTJEemQ5MXhKVUVsbVRtOXVUV0YwWTJoZkVDUTNNamt5T1RCRlJDMUdSVFpCTFRReE9VVXRPVE15TmkxRE1rVkJOREl3UmpWQk0wTUFDQUFUQUJrQUp3QXNBRHNBUUFCREFFNEFXZ0JvQUc4QWNnQjZBSUVBaUFDTEFLRUFzd0MyQUw4QXpRRVVBUjBCS1FFM0FUMEJSZ0ZoQVhnQmpBR2lBYmNCeXdIZ0FmUUNFUUllQUFBQUFBQUFBZ0VBQUFBQUFBQUFKZ0FBQUFBQUFBQUFBQUFBQUFBQUFrVT0=" class="flex mb-4 items-center gap-x-4 w-full shadow-md px-3 py-2 bg-gradient-to-r from-green-500 via-green-600 to-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 transition-all duration-300 justify-between rounded-2xl">
+                                                                        <p x-text="$t('routingInfo')"
+                                                                            class="text-sm mb-4 font-normal text-white lg:text-base">
+                                                                        </p>
+                                                                        <a href="streisand://aW1wb3J0L3JvdXRlOi8vWW5Cc2FYTjBNRERWQVFJREJBVUdEaU1rSlZWeWRXeGxjMTFrYjIxaGFXNU5ZWFJqYUdWeVZHNWhiV1ZlWkc5dFlXbHVVM1J5WVhSbFozbFVkWFZwWktJSEZ0VUlDUW9MREEwT0R4SVZXMjkxZEdKdmRXNWtWR0ZuWFdSdmJXRnBiazFoZEdOb1pYSldaRzl0WVdsdVVtbHdWMjVsZEhkdmNtdFdaR2x5WldOMFZtaDVZbkpwWktJUUVWOFFFMmRsYjNOcGRHVTZZMkYwWldkdmNua3RhWEpmRUE5eVpXZGxlSEE2TGlwY1hDNXBjaVNpRXhSWVoyVnZhWEE2YVhKZFoyVnZhWEE2Y0hKcGRtRjBaVjhRUkZSRFVDd2dWVVJRTENCSVZGUlFMQ0JJVkZSUVV5d2dVMU5JTENCVFRWUlFMQ0JUVGsxUUxDQk9WRkFzSUVaVVVDd2dVRTlRTXl3Z1NVMUJVQ3dnVkdWc2JtVjAxQmNZQ2d3WkRob1ZXMjkxZEdKdmRXNWtWR0ZuWFdSdmJXRnBiazFoZEdOb1pYSlZZbXh2WTJ1b0d4d2RIaDhnSVNKZkVCaG5aVzl6YVhSbE9tTmhkR1ZuYjNKNUxXRmtjeTFoYkd4ZkVCUm5aVzl6YVhSbE9tTmhkR1ZuYjNKNUxXRmtjMThRRVdkbGIzTnBkR1U2ZVdGb2IyOHRZV1J6WHhBVFoyVnZjMmwwWlRwemNHOTBhV1o1TFdGa2MxOFFFbWRsYjNOcGRHVTZaMjl2WjJ4bExXRmtjMThRRVdkbGIzTnBkR1U2WVhCd2JHVXRZV1J6WHhBU1oyVnZjMmwwWlRwaGJXRjZiMjR0WVdSelh4QVJaMlZ2YzJsMFpUcGhaRzlpWlMxaFpITnVBRWtBVWdBdEFFUUFhUUJ5QUdVQVl3QjBBQ0RZUE4zdTJEemQ5MXhKVUVsbVRtOXVUV0YwWTJoZkVDUTNNamt5T1RCRlJDMUdSVFpCTFRReE9VVXRPVE15TmkxRE1rVkJOREl3UmpWQk0wTUFDQUFUQUJrQUp3QXNBRHNBUUFCREFFNEFXZ0JvQUc4QWNnQjZBSUVBaUFDTEFLRUFzd0MyQUw4QXpRRVVBUjBCS1FFM0FUMEJSZ0ZoQVhnQmpBR2lBYmNCeXdIZ0FmUUNFUUllQUFBQUFBQUFBZ0VBQUFBQUFBQUFKZ0FBQUFBQUFBQUFBQUFBQUFBQUFrVT0="
+                                                                            class="flex mb-4 items-center gap-x-4 w-full shadow-md px-3 py-2 bg-gradient-to-r from-green-500 via-green-600 to-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 transition-all duration-300 justify-between rounded-2xl">
                                                                             <div class="rounded-xl overflow-hidden">
-                                                                                <svg width="37" height="25" viewBox="0 0 37 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                                    <rect width="37" height="8.65385" fill="#239F40"></rect>
-                                                                                    <rect y="16.3462" width="37" height="8.65385" fill="#DA0000"></rect>
-                                                                                    <rect y="8.65381" width="37" height="7.69231" fill="white"></rect>
+                                                                                <svg width="37" height="25"
+                                                                                    viewBox="0 0 37 25" fill="none"
+                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                    <rect width="37" height="8.65385"
+                                                                                        fill="#239F40" />
+                                                                                    <rect y="16.3462" width="37"
+                                                                                        height="8.65385"
+                                                                                        fill="#DA0000" />
+                                                                                    <rect y="8.65381" width="37"
+                                                                                        height="7.69231" fill="white" />
                                                                                     <g clip-path="url(#clip0_124_53)">
-                                                                                        <path d="M16.6519 11.164C16.6578 11.164 16.6637 11.1683 16.6696 11.1683L16.2973 10.9873L16.1968 11.0907L16.3741 11.1769C16.545 11.1613 16.4903 11.164 16.6519 11.164Z" fill="#FFB800"></path>
-                                                                                        <path d="M17.2544 11.0478L17.7095 11.3795C17.7331 11.3623 17.7686 11.3364 17.8218 11.3106C17.8277 11.3106 17.8395 11.3063 17.8455 11.302L17.3785 10.9573L17.2544 11.0478Z" fill="#FFB800"></path>
-                                                                                        <path d="M13.5545 13.956C13.4954 13.788 13.6786 13.7363 13.7732 13.7234C13.9564 13.6932 14.1632 13.9086 14.4292 13.9819C14.7011 14.0594 15.0557 14.0034 15.0557 14.0034C15.0557 14.0034 15.0676 13.6716 14.9848 13.5424C14.8666 13.3571 14.843 13.1503 14.5947 13.0296C14.4706 12.9693 13.9386 13.0081 13.6727 13.0124C13.426 13.0204 13.3117 12.9801 13.2964 12.8918H13.8204V12.4997H13.2921C13.2934 12.143 13.3067 11.634 13.3712 11.457C13.4658 11.2027 13.6313 10.578 14.5829 9.86272C15.1917 9.39738 16.0428 9.07423 16.6043 8.92342C16.8703 8.85448 17.0417 8.78123 16.953 8.67351C16.888 8.58734 15.8182 8.79847 15.2035 9.02252C14.3879 9.32414 13.584 9.83687 13.0698 10.6124C12.5669 11.367 12.5327 11.8265 12.532 12.4997H12V12.8918H12.4146C12.4034 12.9318 12.396 12.9743 12.396 13.021C12.13 13.0727 12.2423 13.1374 12.2423 13.1934C12.2423 13.4002 12.5201 13.6846 12.8334 13.7449C12.928 13.7621 12.8866 13.7966 13.1053 13.956C13.2057 14.0293 13.3003 14.1456 13.4067 14.1456C13.4658 14.1456 13.5899 14.0551 13.5545 13.956Z" fill="#FFB800"></path>
-                                                                                        <path d="M24.3936 16.05C24.3564 15.9496 24.3376 15.9217 24.1934 15.8906C24.1284 15.8777 24.0634 15.8777 24.0161 15.8389C23.9629 15.8044 23.9807 15.6536 23.9688 15.5674C23.957 15.4813 23.8979 15.4899 23.892 15.4209C23.8802 15.3003 23.9216 14.9771 23.9925 14.7876C24.1757 14.2964 22.5444 14.4773 22.5444 13.6673C22.5444 13.1589 23.7383 13.6242 24.158 12.8098C24.2348 12.6547 24.2644 12.2928 24.1225 12.1161C23.9925 11.9481 23.6201 11.7154 23.2891 11.6077C23.0017 11.5197 22.7643 11.5041 22.5502 11.3256L23.0291 11.0907L22.9744 11.0284C23.1448 11.094 23.1765 11.2113 23.4546 11.2113C23.9038 11.2113 24.6486 10.7158 24.489 10.2461C24.3944 10.2461 24.2289 10.2979 24.0575 10.3668C23.9393 10.4142 23.8388 10.4874 23.6674 10.4874C23.496 10.4874 23.1296 10.397 22.769 10.4702C22.5963 10.4993 21.7683 10.8469 22.0329 11.4222L21.7247 11.5723C21.6595 11.5066 21.5889 11.4442 21.5133 11.3856L21.977 11.0476L21.8529 10.9571L21.3889 11.2953C21.3077 11.2403 21.2219 11.1891 21.132 11.1422L21.9356 10.2591L21.7879 10.1858L20.9817 11.0695C20.8876 11.0272 20.79 10.9892 20.6893 10.9557L20.9427 10.5133L20.7772 10.4659L20.5274 10.9063C20.4226 10.8774 20.3151 10.8534 20.2056 10.8344L20.4875 9.79807L20.3161 9.77222L20.0341 10.8089C19.9239 10.7953 19.8128 10.7871 19.7014 10.7841V10.3108H19.5241V10.784C19.4144 10.7867 19.3047 10.7946 19.1959 10.8078L18.9094 9.77222L18.738 9.79376L19.021 10.8337C18.7821 10.8755 18.6492 10.9249 18.7026 10.9054L18.4543 10.4659L18.2888 10.5133L18.5422 10.9557C18.4432 10.9894 18.3462 11.028 18.2517 11.0717L17.4377 10.1901L17.2899 10.2591L18.1041 11.145C18.0274 11.186 17.9526 11.2305 17.8802 11.2786C17.9236 11.2627 17.9763 11.2476 18.0408 11.235C18.0587 11.2318 18.0773 11.235 18.0911 11.2436C18.2497 11.3428 18.2145 11.6082 18.1794 11.7583C18.3444 11.9056 18.4305 12.1497 18.4398 12.2782C18.9557 11.48 20.5537 11.573 20.8717 12.435C20.942 12.625 20.9455 12.7812 20.8745 12.9421C20.1933 12.8976 19.537 12.84 19.1281 12.84C18.7505 12.84 18.495 12.9796 18.275 13.2038C18.2353 13.5267 18.078 13.5846 18.0659 13.7717C18.0573 13.904 18.1143 14.0583 18.0263 14.2282C17.9385 14.3976 17.832 14.7138 17.0445 14.8015C16.8008 15.0122 16.0163 14.8364 16.1551 15.5071C16.2024 15.7355 15.836 15.576 15.5995 15.6622C15.3725 15.7415 15.2213 15.9642 15.1699 16.05H13.2944V16.2568H24.8495V16.05H24.3936V16.05ZM18.5955 10.9381C18.6076 10.9331 18.6196 10.9279 18.6316 10.9226C18.6969 10.9107 18.706 10.9028 18.5955 10.9381ZM23.2714 12.8572C23.0363 12.955 22.6418 12.9903 22.1804 12.9926C22.1994 12.9107 22.211 12.8282 22.2148 12.7452H22.8636V12.6159H22.2144C22.2104 12.535 22.1993 12.454 22.1806 12.3734L23.5579 12.1701C23.8147 12.3665 23.8608 12.6084 23.2714 12.8572ZM22.6508 11.8318L22.6147 11.7649C22.8231 11.822 23.1461 11.9274 23.3926 12.0639L22.1443 12.2451C22.1156 12.1584 22.0853 12.0868 22.0488 12.015L22.6508 11.8318ZM22.4498 11.1337C22.4498 11.0158 22.6868 10.9555 22.8924 11.0035L22.4582 11.215C22.4393 11.1711 22.4498 11.1432 22.4498 11.1337ZM22.1099 11.5417C22.2403 11.6911 22.4103 11.7138 22.5036 11.7361L21.9811 11.8951C21.9351 11.8209 21.8828 11.7496 21.825 11.6816L22.1099 11.5417ZM21.1301 11.1412C21.1137 11.1326 21.0968 11.1244 21.0801 11.1161C21.0925 11.1215 21.1198 11.1336 21.1301 11.1412ZM22.7867 15.5114C22.7454 15.6234 22.5562 15.5028 22.4262 15.589C22.2615 15.6981 22.1559 15.9546 22.1269 16.05H20.6396C20.6401 15.9722 20.664 15.7773 20.8717 15.6191C21.1672 15.3951 21.4214 15.2486 21.2914 14.8996C21.2204 14.7014 20.5289 14.3179 20.4107 14.2748C20.3279 14.2447 19.8728 14.2877 19.7842 14.5721C19.7428 14.7057 19.7605 14.8608 19.9083 15.0547C20.0265 15.2141 19.9083 15.4382 19.8255 15.533C19.6482 15.7441 19.1577 15.5588 19.0926 15.5588C18.6687 15.5588 18.6572 15.9331 18.664 16.05H17.2949C17.3436 15.6679 17.1675 15.2603 17.8101 14.7919C18.5784 14.2274 17.9224 14.9384 18.407 14.9384C19.0217 14.9384 19.9083 13.9818 20.7003 14.236C21.0904 14.3653 21.445 14.7703 22.0302 15.0159C22.1129 15.0504 22.4262 14.9987 22.5799 15.0504C22.769 15.1193 22.8517 15.3477 22.7867 15.5114Z" fill="#FFB800"></path>
-                                                                                        <path d="M16.2487 12.181C16.2422 12.1804 16.239 12.1796 16.2286 12.1809C16.1062 12.1958 16.0703 12.33 16.1442 12.4005C16.1993 12.4531 16.2981 12.4531 16.3532 12.4005C16.4325 12.3248 16.3844 12.181 16.2487 12.181Z" fill="#FFB800"></path>
-                                                                                        <path d="M16.9577 12.181C16.9512 12.1804 16.9479 12.1796 16.9376 12.1809C16.8152 12.1958 16.7793 12.33 16.8532 12.4005C16.9083 12.4531 17.0071 12.4531 17.0622 12.4005C17.1415 12.3248 17.0933 12.181 16.9577 12.181Z" fill="#FFB800"></path>
-                                                                                        <path d="M18.2452 13.2347C18.2809 13.0067 18.2156 12.9783 18.3572 12.5493C18.4186 12.3635 18.4527 12.2755 18.346 12.0357C18.3034 11.9401 18.2418 11.8417 18.1525 11.7634C18.1867 11.62 18.2258 11.3521 18.0746 11.2575C18.067 11.2527 18.0567 11.2509 18.047 11.2527C17.85 11.2912 17.767 11.3539 17.7224 11.3875C17.6754 11.423 17.6678 11.4305 17.5892 11.4C17.3421 11.3043 17.1855 11.1669 16.55 11.1762C16.0162 11.1762 15.8324 11.3167 15.6173 11.4C15.5392 11.4303 15.5315 11.4232 15.4841 11.3875C15.4396 11.3539 15.3566 11.2912 15.1593 11.2527C15.1495 11.2509 15.1394 11.2529 15.132 11.2575C14.9805 11.3523 15.0201 11.6209 15.0541 11.7634C14.8771 11.9185 14.791 12.1807 14.791 12.3021C14.791 12.4722 14.948 12.7068 14.948 13.0494C14.948 13.3272 15.0233 13.4536 15.0856 13.5584C15.1697 13.6996 15.1743 13.7439 15.1615 13.8999C15.1444 14.107 15.1694 14.1498 15.2211 14.2564C15.3229 14.4661 15.5099 14.8055 16.6033 14.8055C16.9773 14.8055 17.432 14.7638 17.7123 14.5816C17.9048 14.4564 17.9596 14.3048 18.0026 14.2217C18.089 14.055 18.0318 13.9065 18.0406 13.7707C18.0527 13.5847 18.1995 13.5271 18.2452 13.2347ZM15.4153 11.5478C15.4117 11.5699 15.3801 11.6004 15.3346 11.6254C15.2988 11.6452 15.2694 11.6542 15.2367 11.6648C15.2168 11.5999 15.2185 11.5084 15.2318 11.4424C15.3261 11.4695 15.4187 11.5245 15.4153 11.5478ZM16.9289 13.1593C16.8885 13.2305 16.8486 13.2363 16.785 13.2363L16.7853 13.2345C16.7344 13.225 16.6721 13.1595 16.6162 13.1638C16.6132 13.1633 16.6117 13.1633 16.6092 13.1622C16.5641 13.1663 16.5617 13.1591 16.4838 13.206C16.458 13.2213 16.4371 13.2307 16.4217 13.234L16.4221 13.2363C16.358 13.2363 16.3182 13.2307 16.2777 13.1593C16.2461 13.1037 16.2443 13.0526 16.3285 12.9556C16.3882 12.8869 16.4671 12.8315 16.5823 12.8315C16.7213 12.8254 16.8055 12.8721 16.8781 12.9556C16.9623 13.0526 16.9605 13.1037 16.9289 13.1593ZM17.4304 12.4983C17.4096 12.6518 17.4173 12.6301 17.3492 12.7122C17.2788 12.7975 17.2496 12.8022 17.1552 12.8329C17.0839 12.8566 17.0963 12.8506 17.0261 12.8247C16.9623 12.8012 16.9743 12.7494 16.8624 12.6724C16.8127 12.6381 16.7885 12.6059 16.7545 12.5775C16.6774 12.5131 16.5294 12.5128 16.4521 12.5775C16.4179 12.6061 16.3939 12.6381 16.3441 12.6724C16.233 12.7489 16.2436 12.8014 16.1805 12.8247C16.1653 12.8303 16.1298 12.8442 16.1248 12.8458C16.1226 12.8473 16.1206 12.8478 16.1177 12.8487C16.0941 12.8477 16.0673 12.8381 16.0268 12.8249C15.9348 12.7951 15.9181 12.7853 15.8419 12.6936C15.7929 12.6345 15.7956 12.6421 15.7787 12.517C15.7539 12.3327 15.7177 12.2508 15.7766 12.1003C15.8281 11.9689 15.9832 11.9081 16.1674 11.9092C16.2498 11.9092 16.3371 11.9583 16.4118 12.001C16.473 12.0362 16.5309 12.0694 16.6033 12.0694C16.6757 12.0694 16.7335 12.0362 16.7948 12.001C16.8815 11.9512 16.9618 11.9092 17.0392 11.9092C17.214 11.9092 17.3788 11.9695 17.43 12.1003C17.489 12.251 17.4521 12.3372 17.4304 12.4983ZM17.9699 11.6648L17.9557 11.6602C17.8455 11.6244 17.7957 11.5749 17.7913 11.5478C17.7869 11.5218 17.8947 11.4651 17.9736 11.4428C17.9884 11.4966 17.9902 11.5988 17.9699 11.6648Z" fill="#FFB800"></path>
+                                                                                        <path
+                                                                                            d="M16.6519 11.164C16.6578 11.164 16.6637 11.1683 16.6696 11.1683L16.2973 10.9873L16.1968 11.0907L16.3741 11.1769C16.545 11.1613 16.4903 11.164 16.6519 11.164Z"
+                                                                                            fill="#FFB800" />
+                                                                                        <path
+                                                                                            d="M17.2544 11.0478L17.7095 11.3795C17.7331 11.3623 17.7686 11.3364 17.8218 11.3106C17.8277 11.3106 17.8395 11.3063 17.8455 11.302L17.3785 10.9573L17.2544 11.0478Z"
+                                                                                            fill="#FFB800" />
+                                                                                        <path
+                                                                                            d="M13.5545 13.956C13.4954 13.788 13.6786 13.7363 13.7732 13.7234C13.9564 13.6932 14.1632 13.9086 14.4292 13.9819C14.7011 14.0594 15.0557 14.0034 15.0557 14.0034C15.0557 14.0034 15.0676 13.6716 14.9848 13.5424C14.8666 13.3571 14.843 13.1503 14.5947 13.0296C14.4706 12.9693 13.9386 13.0081 13.6727 13.0124C13.426 13.0204 13.3117 12.9801 13.2964 12.8918H13.8204V12.4997H13.2921C13.2934 12.143 13.3067 11.634 13.3712 11.457C13.4658 11.2027 13.6313 10.578 14.5829 9.86272C15.1917 9.39738 16.0428 9.07423 16.6043 8.92342C16.8703 8.85448 17.0417 8.78123 16.953 8.67351C16.888 8.58734 15.8182 8.79847 15.2035 9.02252C14.3879 9.32414 13.584 9.83687 13.0698 10.6124C12.5669 11.367 12.5327 11.8265 12.532 12.4997H12V12.8918H12.4146C12.4034 12.9318 12.396 12.9743 12.396 13.021C12.13 13.0727 12.2423 13.1374 12.2423 13.1934C12.2423 13.4002 12.5201 13.6846 12.8334 13.7449C12.928 13.7621 12.8866 13.7966 13.1053 13.956C13.2057 14.0293 13.3003 14.1456 13.4067 14.1456C13.4658 14.1456 13.5899 14.0551 13.5545 13.956Z"
+                                                                                            fill="#FFB800" />
+                                                                                        <path
+                                                                                            d="M24.3936 16.05C24.3564 15.9496 24.3376 15.9217 24.1934 15.8906C24.1284 15.8777 24.0634 15.8777 24.0161 15.8389C23.9629 15.8044 23.9807 15.6536 23.9688 15.5674C23.957 15.4813 23.8979 15.4899 23.892 15.4209C23.8802 15.3003 23.9216 14.9771 23.9925 14.7876C24.1757 14.2964 22.5444 14.4773 22.5444 13.6673C22.5444 13.1589 23.7383 13.6242 24.158 12.8098C24.2348 12.6547 24.2644 12.2928 24.1225 12.1161C23.9925 11.9481 23.6201 11.7154 23.2891 11.6077C23.0017 11.5197 22.7643 11.5041 22.5502 11.3256L23.0291 11.0907L22.9744 11.0284C23.1448 11.094 23.1765 11.2113 23.4546 11.2113C23.9038 11.2113 24.6486 10.7158 24.489 10.2461C24.3944 10.2461 24.2289 10.2979 24.0575 10.3668C23.9393 10.4142 23.8388 10.4874 23.6674 10.4874C23.496 10.4874 23.1296 10.397 22.769 10.4702C22.5963 10.4993 21.7683 10.8469 22.0329 11.4222L21.7247 11.5723C21.6595 11.5066 21.5889 11.4442 21.5133 11.3856L21.977 11.0476L21.8529 10.9571L21.3889 11.2953C21.3077 11.2403 21.2219 11.1891 21.132 11.1422L21.9356 10.2591L21.7879 10.1858L20.9817 11.0695C20.8876 11.0272 20.79 10.9892 20.6893 10.9557L20.9427 10.5133L20.7772 10.4659L20.5274 10.9063C20.4226 10.8774 20.3151 10.8534 20.2056 10.8344L20.4875 9.79807L20.3161 9.77222L20.0341 10.8089C19.9239 10.7953 19.8128 10.7871 19.7014 10.7841V10.3108H19.5241V10.784C19.4144 10.7867 19.3047 10.7946 19.1959 10.8078L18.9094 9.77222L18.738 9.79376L19.021 10.8337C18.7821 10.8755 18.6492 10.9249 18.7026 10.9054L18.4543 10.4659L18.2888 10.5133L18.5422 10.9557C18.4432 10.9894 18.3462 11.028 18.2517 11.0717L17.4377 10.1901L17.2899 10.2591L18.1041 11.145C18.0274 11.186 17.9526 11.2305 17.8802 11.2786C17.9236 11.2627 17.9763 11.2476 18.0408 11.235C18.0587 11.2318 18.0773 11.235 18.0911 11.2436C18.2497 11.3428 18.2145 11.6082 18.1794 11.7583C18.3444 11.9056 18.4305 12.1497 18.4398 12.2782C18.9557 11.48 20.5537 11.573 20.8717 12.435C20.942 12.625 20.9455 12.7812 20.8745 12.9421C20.1933 12.8976 19.537 12.84 19.1281 12.84C18.7505 12.84 18.495 12.9796 18.275 13.2038C18.2353 13.5267 18.078 13.5846 18.0659 13.7717C18.0573 13.904 18.1143 14.0583 18.0263 14.2282C17.9385 14.3976 17.832 14.7138 17.0445 14.8015C16.8008 15.0122 16.0163 14.8364 16.1551 15.5071C16.2024 15.7355 15.836 15.576 15.5995 15.6622C15.3725 15.7415 15.2213 15.9642 15.1699 16.05H13.2944V16.2568H24.8495V16.05H24.3936V16.05ZM18.5955 10.9381C18.6076 10.9331 18.6196 10.9279 18.6316 10.9226C18.6969 10.9107 18.706 10.9028 18.5955 10.9381ZM23.2714 12.8572C23.0363 12.955 22.6418 12.9903 22.1804 12.9926C22.1994 12.9107 22.211 12.8282 22.2148 12.7452H22.8636V12.6159H22.2144C22.2104 12.535 22.1993 12.454 22.1806 12.3734L23.5579 12.1701C23.8147 12.3665 23.8608 12.6084 23.2714 12.8572ZM22.6508 11.8318L22.6147 11.7649C22.8231 11.822 23.1461 11.9274 23.3926 12.0639L22.1443 12.2451C22.1156 12.1584 22.0853 12.0868 22.0488 12.015L22.6508 11.8318ZM22.4498 11.1337C22.4498 11.0158 22.6868 10.9555 22.8924 11.0035L22.4582 11.215C22.4393 11.1711 22.4498 11.1432 22.4498 11.1337ZM22.1099 11.5417C22.2403 11.6911 22.4103 11.7138 22.5036 11.7361L21.9811 11.8951C21.9351 11.8209 21.8828 11.7496 21.825 11.6816L22.1099 11.5417ZM21.1301 11.1412C21.1137 11.1326 21.0968 11.1244 21.0801 11.1161C21.0925 11.1215 21.1198 11.1336 21.1301 11.1412ZM22.7867 15.5114C22.7454 15.6234 22.5562 15.5028 22.4262 15.589C22.2615 15.6981 22.1559 15.9546 22.1269 16.05H20.6396C20.6401 15.9722 20.664 15.7773 20.8717 15.6191C21.1672 15.3951 21.4214 15.2486 21.2914 14.8996C21.2204 14.7014 20.5289 14.3179 20.4107 14.2748C20.3279 14.2447 19.8728 14.2877 19.7842 14.5721C19.7428 14.7057 19.7605 14.8608 19.9083 15.0547C20.0265 15.2141 19.9083 15.4382 19.8255 15.533C19.6482 15.7441 19.1577 15.5588 19.0926 15.5588C18.6687 15.5588 18.6572 15.9331 18.664 16.05H17.2949C17.3436 15.6679 17.1675 15.2603 17.8101 14.7919C18.5784 14.2274 17.9224 14.9384 18.407 14.9384C19.0217 14.9384 19.9083 13.9818 20.7003 14.236C21.0904 14.3653 21.445 14.7703 22.0302 15.0159C22.1129 15.0504 22.4262 14.9987 22.5799 15.0504C22.769 15.1193 22.8517 15.3477 22.7867 15.5114Z"
+                                                                                            fill="#FFB800" />
+                                                                                        <path
+                                                                                            d="M16.2487 12.181C16.2422 12.1804 16.239 12.1796 16.2286 12.1809C16.1062 12.1958 16.0703 12.33 16.1442 12.4005C16.1993 12.4531 16.2981 12.4531 16.3532 12.4005C16.4325 12.3248 16.3844 12.181 16.2487 12.181Z"
+                                                                                            fill="#FFB800" />
+                                                                                        <path
+                                                                                            d="M16.9577 12.181C16.9512 12.1804 16.9479 12.1796 16.9376 12.1809C16.8152 12.1958 16.7793 12.33 16.8532 12.4005C16.9083 12.4531 17.0071 12.4531 17.0622 12.4005C17.1415 12.3248 17.0933 12.181 16.9577 12.181Z"
+                                                                                            fill="#FFB800" />
+                                                                                        <path
+                                                                                            d="M18.2452 13.2347C18.2809 13.0067 18.2156 12.9783 18.3572 12.5493C18.4186 12.3635 18.4527 12.2755 18.346 12.0357C18.3034 11.9401 18.2418 11.8417 18.1525 11.7634C18.1867 11.62 18.2258 11.3521 18.0746 11.2575C18.067 11.2527 18.0567 11.2509 18.047 11.2527C17.85 11.2912 17.767 11.3539 17.7224 11.3875C17.6754 11.423 17.6678 11.4305 17.5892 11.4C17.3421 11.3043 17.1855 11.1669 16.55 11.1762C16.0162 11.1762 15.8324 11.3167 15.6173 11.4C15.5392 11.4303 15.5315 11.4232 15.4841 11.3875C15.4396 11.3539 15.3566 11.2912 15.1593 11.2527C15.1495 11.2509 15.1394 11.2529 15.132 11.2575C14.9805 11.3523 15.0201 11.6209 15.0541 11.7634C14.8771 11.9185 14.791 12.1807 14.791 12.3021C14.791 12.4722 14.948 12.7068 14.948 13.0494C14.948 13.3272 15.0233 13.4536 15.0856 13.5584C15.1697 13.6996 15.1743 13.7439 15.1615 13.8999C15.1444 14.107 15.1694 14.1498 15.2211 14.2564C15.3229 14.4661 15.5099 14.8055 16.6033 14.8055C16.9773 14.8055 17.432 14.7638 17.7123 14.5816C17.9048 14.4564 17.9596 14.3048 18.0026 14.2217C18.089 14.055 18.0318 13.9065 18.0406 13.7707C18.0527 13.5847 18.1995 13.5271 18.2452 13.2347ZM15.4153 11.5478C15.4117 11.5699 15.3801 11.6004 15.3346 11.6254C15.2988 11.6452 15.2694 11.6542 15.2367 11.6648C15.2168 11.5999 15.2185 11.5084 15.2318 11.4424C15.3261 11.4695 15.4187 11.5245 15.4153 11.5478ZM16.9289 13.1593C16.8885 13.2305 16.8486 13.2363 16.785 13.2363L16.7853 13.2345C16.7344 13.225 16.6721 13.1595 16.6162 13.1638C16.6132 13.1633 16.6117 13.1633 16.6092 13.1622C16.5641 13.1663 16.5617 13.1591 16.4838 13.206C16.458 13.2213 16.4371 13.2307 16.4217 13.234L16.4221 13.2363C16.358 13.2363 16.3182 13.2307 16.2777 13.1593C16.2461 13.1037 16.2443 13.0526 16.3285 12.9556C16.3882 12.8869 16.4671 12.8315 16.5823 12.8315C16.7213 12.8254 16.8055 12.8721 16.8781 12.9556C16.9623 13.0526 16.9605 13.1037 16.9289 13.1593ZM17.4304 12.4983C17.4096 12.6518 17.4173 12.6301 17.3492 12.7122C17.2788 12.7975 17.2496 12.8022 17.1552 12.8329C17.0839 12.8566 17.0963 12.8506 17.0261 12.8247C16.9623 12.8012 16.9743 12.7494 16.8624 12.6724C16.8127 12.6381 16.7885 12.6059 16.7545 12.5775C16.6774 12.5131 16.5294 12.5128 16.4521 12.5775C16.4179 12.6061 16.3939 12.6381 16.3441 12.6724C16.233 12.7489 16.2436 12.8014 16.1805 12.8247C16.1653 12.8303 16.1298 12.8442 16.1248 12.8458C16.1226 12.8473 16.1206 12.8478 16.1177 12.8487C16.0941 12.8477 16.0673 12.8381 16.0268 12.8249C15.9348 12.7951 15.9181 12.7853 15.8419 12.6936C15.7929 12.6345 15.7956 12.6421 15.7787 12.517C15.7539 12.3327 15.7177 12.2508 15.7766 12.1003C15.8281 11.9689 15.9832 11.9081 16.1674 11.9092C16.2498 11.9092 16.3371 11.9583 16.4118 12.001C16.473 12.0362 16.5309 12.0694 16.6033 12.0694C16.6757 12.0694 16.7335 12.0362 16.7948 12.001C16.8815 11.9512 16.9618 11.9092 17.0392 11.9092C17.214 11.9092 17.3788 11.9695 17.43 12.1003C17.489 12.251 17.4521 12.3372 17.4304 12.4983ZM17.9699 11.6648L17.9557 11.6602C17.8455 11.6244 17.7957 11.5749 17.7913 11.5478C17.7869 11.5218 17.8947 11.4651 17.9736 11.4428C17.9884 11.4966 17.9902 11.5988 17.9699 11.6648Z"
+                                                                                            fill="#FFB800" />
                                                                                     </g>
                                                                                     <defs>
                                                                                         <clipPath id="clip0_124_53">
-                                                                                            <rect width="13" height="7.69231" fill="white" transform="translate(12 8.65381)"></rect>
+                                                                                            <rect width="13"
+                                                                                                height="7.69231"
+                                                                                                fill="white"
+                                                                                                transform="translate(12 8.65381)" />
                                                                                         </clipPath>
                                                                                     </defs>
                                                                                 </svg>
@@ -4133,8 +4259,11 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 
 
                                                                             </div>
-                                                                            <span x-text="$t('routingIR')">افزودن سرویس ایران</span>
-                                                                            <lord-icon class="w-8 h-8" src="https://cdn.lordicon.com/mrdiiocb.json" trigger="loop" delay="2000" colors="primary:#fff">
+                                                                            <span x-text="$t('routingIR')"></span>
+                                                                            <lord-icon class="w-8 h-8"
+                                                                                src="https://cdn.lordicon.com/mrdiiocb.json"
+                                                                                trigger="loop" delay="2000"
+                                                                                colors="primary:#fff">
                                                                             </lord-icon>
                                                                         </a>
                                                                         <a href="streisand://aW1wb3J0L3JvdXRlOi8vWW5Cc2FYTjBNRERWQVFJREJBVUdEQlVXRjFWeWRXeGxjMTFrYjIxaGFXNU5ZWFJqYUdWeVZHNWhiV1ZlWkc5dFlXbHVVM1J5WVhSbFozbFVkWFZwWktJSEVkUUlDUW9MREEwT0VGMWtiMjFoYVc1TllYUmphR1Z5Vm1SdmJXRnBibEpwY0Z0dmRYUmliM1Z1WkZSaFoxWnNhVzVsWVhLZ29ROVlaMlZ2YVhBNmNuVldaR2x5WldOMDBoSUpFQk5iYjNWMFltOTFibVJVWVdlaEZGNXlaV2RsZUhBNkxpcGNMbkoxSkcwQVVnQlZBQzBBUkFCcEFISUFaUUJqQUhUWVBOMzMyRHpkK2xwSlVFOXVSR1Z0WVc1a1h4QWtOVU5CUmpGRU5rWXRPRVV3TWkwME5EUTFMVUkxTWpjdE5rVkVRVGN3TVRZNE1UVkRDQk1aSnl3N1FFTk1XbUZrY0hkNGVvT0tqNXVkck1mU0FBQUFBQUFBQVFFQUFBQUFBQUFBR0FBQUFBQUFBQUFBQUFBQUFBQUFBUGs9" class="flex mb-4 items-center gap-x-4 w-full shadow-md px-3 py-2 bg-gradient-to-r from-indigo-600 via-indigo-700 to-indigo-800 focus:ring-4 focus:outline-none focus:ring-blue-700 transition-all duration-300 justify-between rounded-2xl">
@@ -4157,7 +4286,26 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                                                                             <lord-icon class="w-8 h-8" src="https://cdn.lordicon.com/mrdiiocb.json" trigger="loop" delay="2000" colors="primary:#fff">
                                                                             </lord-icon>
                                                                         </a>
+                                                                        <a href="streisand://aW1wb3J0L3JvdXRlOi8vWW5Cc2FYTjBNRERWQVFJREJBVUdEQlVXRjFWeWRXeGxjMTFrYjIxaGFXNU5ZWFJqYUdWeVZHNWhiV1ZlWkc5dFlXbHVVM1J5WVhSbFozbFVkWFZwWktJSEVkUUlDUW9MREEwT0VGMWtiMjFoYVc1TllYUmphR1Z5Vm1SdmJXRnBibEpwY0Z0dmRYUmliM1Z1WkZSaFoxWnNhVzVsWVhLZ29ROVlaMlZ2YVhBNmJXMVdaR2x5WldOMDBoSUpFQk5iYjNWMFltOTFibVJVWVdlaEZGNXlaV2RsZUhBNkxpcGNMbTF0SkcwQVRRQk5BQzBBUkFCcEFISUFaUUJqQUhUWVBOM3kyRHpkOGxwSlVFOXVSR1Z0WVc1a1h4QWtOVEUyTmpkQlJFRXRRMFJDUWkwMFJFUTRMVUpGTVVJdE56UTFSVEU1UWpCRlJFTkdDQk1aSnl3N1FFTk1XbUZrY0hkNGVvT0tqNXVkck1mU0FBQUFBQUFBQVFFQUFBQUFBQUFBR0FBQUFBQUFBQUFBQUFBQUFBQUFBUGs9" class="flex mb-4 items-center gap-x-4 w-full shadow-md px-3 py-2 bg-gradient-to-r from-indigo-600 via-indigo-700 to-indigo-800 focus:ring-4 focus:outline-none focus:ring-blue-700 transition-all duration-300 justify-between rounded-2xl">
+                                                                            <div class="rounded-xl overflow-hidden">
+                                                                                <svg width="37" height="25" viewBox="0 0 37 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                    <g clip-path="url(#clip0_106_7)">
+                                                                                        <path d="M37 8.33325H0V16.6666H37V8.33325Z" fill="#43B02A"></path>
+                                                                                        <path d="M37 0H0V8.33333H37V0Z" fill="#FFCD00"></path>
+                                                                                        <path d="M37 16.6667H0V25.0001H37V16.6667Z" fill="#EE2737"></path>
+                                                                                    </g>
+                                                                                    <defs>
+                                                                                        <clipPath id="clip0_106_7">
+                                                                                            <rect width="37" height="25" fill="white"></rect>
+                                                                                        </clipPath>
+                                                                                    </defs>
+                                                                                </svg>
 
+                                                                            </div>
+                                                                            <span x-text="$t('routingMM')">افزودن سرویس روسیه</span>
+                                                                            <lord-icon class="w-8 h-8" src="https://cdn.lordicon.com/mrdiiocb.json" trigger="loop" delay="2000" colors="primary:#fff">
+                                                                            </lord-icon>
+                                                                        </a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -4307,7 +4455,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                                                                             <h3 x-text="$t('addConfigs')" class="text-xl font-black leading-none tracking-tight text-white md:text-2xl">افزودن کانفیگ ها</h3>
                                                                         </div>
                                                                         <p x-text="$t('clickForAdd')" class="text-sm mb-4 font-normal text-white lg:text-base">برای اضافه کردن کانفیگ‌ ها داخل برنامه روی لینک زیر کلیک کنید.</p>
-                                                                        <a id="ios-v2box" class="flex mb-4 items-center gap-x-4 w-full bg-stone-800 shadow-md px-3 py-2 rounded-3xl justify-between" href="v2box://install-sub?url=https://pnl.shdy.blog/vip/MTI3Mzg0MTUwMl9jMGM3LDE3MjIzNDcxNjY9mu7xryca9&amp;name=Sub">
+                                                                        <a id="ios-v2box" class="flex mb-4 items-center gap-x-4 w-full bg-stone-800 shadow-md px-3 py-2 rounded-3xl justify-between">
                                                                             <lord-icon class="w-8 h-8" src="https://cdn.lordicon.com/mrdiiocb.json" trigger="loop" delay="2000" colors="primary:#fff">
                                                                             </lord-icon>
                                                                             <span x-text="$t('AddtoApp')">افزودن به برنامه</span>
@@ -4561,7 +4709,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                                                                             <h3 x-text="$t('addConfigs')" class="text-xl font-black leading-none tracking-tight text-white md:text-2xl">افزودن کانفیگ ها</h3>
                                                                         </div>
                                                                         <p x-text="$t('clickForAdd')" class="text-sm mb-4 font-normal text-white lg:text-base">برای اضافه کردن کانفیگ‌ ها داخل برنامه روی لینک زیر کلیک کنید.</p>
-                                                                        <a id="ios-singbox" class="flex mb-4 items-center gap-x-4 w-full bg-stone-800 shadow-md px-3 py-2 rounded-3xl justify-between" href="sing-box://import-remote-profile?url=https://pnl.shdy.blog/vip/MTI3Mzg0MTUwMl9jMGM3LDE3MjIzNDcxNjY9mu7xryca9#Sub">
+                                                                        <a id="ios-singbox" class="flex mb-4 items-center gap-x-4 w-full bg-stone-800 shadow-md px-3 py-2 rounded-3xl justify-between">
                                                                             <lord-icon class="w-8 h-8" src="https://cdn.lordicon.com/mrdiiocb.json" trigger="loop" delay="2000" colors="primary:#fff">
                                                                             </lord-icon>
                                                                             <span x-text="$t('AddtoApp')">افزودن به برنامه</span>
@@ -4655,7 +4803,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                                                                         <h3 x-text="$t('addConfigs')" class="text-xl font-black leading-none tracking-tight text-white md:text-2xl">افزودن کانفیگ ها</h3>
                                                                     </div>
                                                                     <p x-text="$t('clickForAdd')" class="text-sm mb-4 font-normal text-white lg:text-base">برای اضافه کردن کانفیگ‌ ها داخل برنامه روی لینک زیر کلیک کنید.</p>
-                                                                    <a id="android-v2rayng" class="flex mb-4 items-center gap-x-4 w-full bg-stone-800 shadow-md px-3 py-2 rounded-3xl justify-between" href="v2rayng://install-config?url=https://pnl.shdy.blog/vip/MTI3Mzg0MTUwMl9jMGM3LDE3MjIzNDcxNjY9mu7xryca9">
+                                                                    <a id="android-v2rayng" class="flex mb-4 items-center gap-x-4 w-full bg-stone-800 shadow-md px-3 py-2 rounded-3xl justify-between">
                                                                         <lord-icon class="w-8 h-8" src="https://cdn.lordicon.com/mrdiiocb.json" trigger="loop" delay="2000" colors="primary:#fff">
                                                                         </lord-icon>
                                                                         <span x-text="$t('AddtoApp')">افزودن به برنامه</span>
@@ -4723,7 +4871,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                                                                     <p x-text="$t('clickForAdd')" class="text-sm mb-4 font-normal text-white lg:text-base">برای اضافه کردن کانفیگ‌ ها داخل برنامه روی لینک زیر کلیک کنید.</p>
                                                                     <a id="android-nekobox" class=" flex mb-4 items-center gap-x-4 w-full
                                                                         bg-stone-800 shadow-md px-3 py-2 rounded-3xl
-                                                                        justify-between" href="sn://subscription?url=https://pnl.shdy.blog/vip/MTI3Mzg0MTUwMl9jMGM3LDE3MjIzNDcxNjY9mu7xryca9&amp;name=Sub">
+                                                                        justify-between">
                                                                         <lord-icon class="w-8 h-8" src="https://cdn.lordicon.com/mrdiiocb.json" trigger="loop" delay="2000" colors="primary:#fff">
                                                                         </lord-icon>
                                                                         <span x-text="$t('AddtoApp')">افزودن به برنامه</span>
@@ -4883,7 +5031,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                                                                             <h3 x-text="$t('addConfigs')" class="text-xl font-black leading-none tracking-tight text-white md:text-2xl">افزودن کانفیگ ها</h3>
                                                                         </div>
                                                                         <p x-text="$t('clickForAdd')" class="text-sm mb-4 font-normal text-white lg:text-base">برای اضافه کردن کانفیگ‌ ها داخل برنامه روی لینک زیر کلیک کنید.</p>
-                                                                        <a id="android-singbox" class="flex mb-4 items-center gap-x-4 w-full bg-stone-800 shadow-md px-3 py-2 rounded-3xl justify-between" href="sing-box://import-remote-profile?url=https://pnl.shdy.blog/vip/MTI3Mzg0MTUwMl9jMGM3LDE3MjIzNDcxNjY9mu7xryca9#Sub">
+                                                                        <a id="android-singbox" class="flex mb-4 items-center gap-x-4 w-full bg-stone-800 shadow-md px-3 py-2 rounded-3xl justify-between">
                                                                             <lord-icon class="w-8 h-8" src="https://cdn.lordicon.com/mrdiiocb.json" trigger="loop" delay="2000" colors="primary:#fff">
                                                                             </lord-icon>
                                                                             <span x-text="$t('AddtoApp')">افزودن به برنامه</span>
@@ -5043,7 +5191,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                                                                     <p x-text="$t('clickForAdd')" class="text-sm mb-4 font-normal text-white lg:text-base">برای اضافه کردن کانفیگ‌ ها داخل برنامه روی لینک زیر کلیک کنید.</p>
                                                                     <a id="windows-clashverge" class=" flex mb-4 items-center gap-x-4 w-full
                                                                         bg-stone-800 shadow-md px-3 py-2 rounded-3xl
-                                                                        justify-between" href="clash://install-config?url=https://pnl.shdy.blog/vip/MTI3Mzg0MTUwMl9jMGM3LDE3MjIzNDcxNjY9mu7xryca9">
+                                                                        justify-between">
                                                                         <lord-icon class="w-8 h-8" src="https://cdn.lordicon.com/mrdiiocb.json" trigger="loop" delay="2000" colors="primary:#fff">
                                                                         </lord-icon>
                                                                         <span x-text="$t('AddtoApp')">افزودن به برنامه</span>
@@ -5091,267 +5239,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                                                 <lord-icon src="https://cdn.lordicon.com/nocovwne.json" trigger="loop" delay="2000" colors="primary:#fff,secondary:#fff" class="w-10 h-10">
                                                 </lord-icon>
                                             </button>
-                                        
-            <div class="flex items-center bg-slate-900 px-4 py-2 rounded-lg">
-                                    <span class="flex-1">IRANCELL 🇫🇮 [VLESS - tcp]</span>
-                                    <div class="flex items-center justify-start gap-x-2">
-                                        <div class="w-10 h-10 overflow-hidden">
-                                            <button id="copyCfg-0" onclick="copyToClipboard(event,'vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@meow.behesht.blog:8443?security=reality&amp;type=tcp&amp;headerType=&amp;path=&amp;host=&amp;sni=cdn.discordapp.com&amp;fp=chrome&amp;pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&amp;sid=#IRANCELL%20%F0%9F%87%AB%F0%9F%87%AE%20%5BVLESS%20-%20tcp%5D')" data-tooltip-target="copyLink" type="button" class="btnCopy">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" class="w-8 h-8 fill-white">
-  <path fill-rule="evenodd" d="M10.5 3A1.501 1.501 0 009 4.5h6A1.5 1.5 0 0013.5 3h-3zm-2.693.178A3 3 0 0110.5 1.5h3a3 3 0 012.694 1.678c.497.042.992.092 1.486.15 1.497.173 2.57 1.46 2.57 2.929V19.5a3 3 0 01-3 3H6.75a3 3 0 01-3-3V6.257c0-1.47 1.073-2.756 2.57-2.93.493-.057.989-.107 1.487-.15z" clip-rule="evenodd"></path>
-</svg>
-
-                                            </button>
-                                            <div x-text="$t('copyLink')" id="copyLink" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(208px, 255px, 0px);" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top">کپی کردن</div>
                                         </div>
-                                        <div class="w-10 h-10 overflow-hidden">
-
-                                            <button onclick="openDynamicModal(extractNameFromConfigURL('vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@meow.behesht.blog:8443?security=reality&amp;type=tcp&amp;headerType=&amp;path=&amp;host=&amp;sni=cdn.discordapp.com&amp;fp=chrome&amp;pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&amp;sid=#IRANCELL%20%F0%9F%87%AB%F0%9F%87%AE%20%5BVLESS%20-%20tcp%5D'), 'vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@meow.behesht.blog:8443?security=reality&amp;type=tcp&amp;headerType=&amp;path=&amp;host=&amp;sni=cdn.discordapp.com&amp;fp=chrome&amp;pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&amp;sid=#IRANCELL%20%F0%9F%87%AB%F0%9F%87%AE%20%5BVLESS%20-%20tcp%5D')" data-tooltip-target="qrCode" type="button" class="">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" class="w-8 h-8 fill-white">
-  <path fill-rule="evenodd" d="M3 4.875C3 3.839 3.84 3 4.875 3h4.5c1.036 0 1.875.84 1.875 1.875v4.5c0 1.036-.84 1.875-1.875 1.875h-4.5A1.875 1.875 0 013 9.375v-4.5zM4.875 4.5a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zm7.875.375c0-1.036.84-1.875 1.875-1.875h4.5C20.16 3 21 3.84 21 4.875v4.5c0 1.036-.84 1.875-1.875 1.875h-4.5a1.875 1.875 0 01-1.875-1.875v-4.5zm1.875-.375a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zM6 6.75A.75.75 0 016.75 6h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75A.75.75 0 016 7.5v-.75zm9.75 0A.75.75 0 0116.5 6h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zM3 14.625c0-1.036.84-1.875 1.875-1.875h4.5c1.036 0 1.875.84 1.875 1.875v4.5c0 1.035-.84 1.875-1.875 1.875h-4.5A1.875 1.875 0 013 19.125v-4.5zm1.875-.375a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zm7.875-.75a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm6 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zM6 16.5a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm9.75 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm-3 3a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm6 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75z" clip-rule="evenodd"></path>
-</svg>
-
-                                            </button>
-                                            <div x-text="$t('qrCode')" id="qrCode" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(262.5px, 255px, 0px);" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top">کیوآرکد</div>
-                                        </div>
-
-                                    </div>
-                                </div>
-            
-            <div class="flex items-center bg-slate-900 px-4 py-2 rounded-lg">
-                                    <span class="flex-1">MCI &amp; IRANCELL 🇩🇪 [VLESS - tcp]</span>
-                                    <div class="flex items-center justify-start gap-x-2">
-                                        <div class="w-10 h-10 overflow-hidden">
-                                            <button id="copyCfg-1" onclick="copyToClipboard(event,'vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@mno.shady.blog:8443?security=reality&amp;type=tcp&amp;headerType=&amp;path=&amp;host=&amp;sni=discordapp.com&amp;fp=chrome&amp;pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&amp;sid=#MCI%20%26%20IRANCELL%20%F0%9F%87%A9%F0%9F%87%AA%20%5BVLESS%20-%20tcp%5D')" data-tooltip-target="copyLink" type="button" class="btnCopy">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" class="w-8 h-8 fill-white">
-  <path fill-rule="evenodd" d="M10.5 3A1.501 1.501 0 009 4.5h6A1.5 1.5 0 0013.5 3h-3zm-2.693.178A3 3 0 0110.5 1.5h3a3 3 0 012.694 1.678c.497.042.992.092 1.486.15 1.497.173 2.57 1.46 2.57 2.929V19.5a3 3 0 01-3 3H6.75a3 3 0 01-3-3V6.257c0-1.47 1.073-2.756 2.57-2.93.493-.057.989-.107 1.487-.15z" clip-rule="evenodd"></path>
-</svg>
-
-                                            </button>
-                                            <div x-text="$t('copyLink')" id="copyLink" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">کپی کردن</div>
-                                        </div>
-                                        <div class="w-10 h-10 overflow-hidden">
-
-                                            <button onclick="openDynamicModal(extractNameFromConfigURL('vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@mno.shady.blog:8443?security=reality&amp;type=tcp&amp;headerType=&amp;path=&amp;host=&amp;sni=discordapp.com&amp;fp=chrome&amp;pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&amp;sid=#MCI%20%26%20IRANCELL%20%F0%9F%87%A9%F0%9F%87%AA%20%5BVLESS%20-%20tcp%5D'), 'vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@mno.shady.blog:8443?security=reality&amp;type=tcp&amp;headerType=&amp;path=&amp;host=&amp;sni=discordapp.com&amp;fp=chrome&amp;pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&amp;sid=#MCI%20%26%20IRANCELL%20%F0%9F%87%A9%F0%9F%87%AA%20%5BVLESS%20-%20tcp%5D')" data-tooltip-target="qrCode" type="button" class="">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" class="w-8 h-8 fill-white">
-  <path fill-rule="evenodd" d="M3 4.875C3 3.839 3.84 3 4.875 3h4.5c1.036 0 1.875.84 1.875 1.875v4.5c0 1.036-.84 1.875-1.875 1.875h-4.5A1.875 1.875 0 013 9.375v-4.5zM4.875 4.5a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zm7.875.375c0-1.036.84-1.875 1.875-1.875h4.5C20.16 3 21 3.84 21 4.875v4.5c0 1.036-.84 1.875-1.875 1.875h-4.5a1.875 1.875 0 01-1.875-1.875v-4.5zm1.875-.375a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zM6 6.75A.75.75 0 016.75 6h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75A.75.75 0 016 7.5v-.75zm9.75 0A.75.75 0 0116.5 6h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zM3 14.625c0-1.036.84-1.875 1.875-1.875h4.5c1.036 0 1.875.84 1.875 1.875v4.5c0 1.035-.84 1.875-1.875 1.875h-4.5A1.875 1.875 0 013 19.125v-4.5zm1.875-.375a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zm7.875-.75a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm6 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zM6 16.5a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm9.75 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm-3 3a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm6 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75z" clip-rule="evenodd"></path>
-</svg>
-
-                                            </button>
-                                            <div x-text="$t('qrCode')" id="qrCode" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">کیوآرکد</div>
-                                        </div>
-
-                                    </div>
-                                </div>
-            
-            <div class="flex items-center bg-slate-900 px-4 py-2 rounded-lg">
-                                    <span class="flex-1">IRANCELL 🇩🇪² [VLESS - tcp]</span>
-                                    <div class="flex items-center justify-start gap-x-2">
-                                        <div class="w-10 h-10 overflow-hidden">
-                                            <button id="copyCfg-2" onclick="copyToClipboard(event,'vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@xoxo.shady.blog:8443?security=reality&amp;type=tcp&amp;headerType=&amp;path=&amp;host=&amp;sni=discordapp.com&amp;fp=chrome&amp;pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&amp;sid=#IRANCELL%20%F0%9F%87%A9%F0%9F%87%AA%C2%B2%20%5BVLESS%20-%20tcp%5D')" data-tooltip-target="copyLink" type="button" class="btnCopy">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" class="w-8 h-8 fill-white">
-  <path fill-rule="evenodd" d="M10.5 3A1.501 1.501 0 009 4.5h6A1.5 1.5 0 0013.5 3h-3zm-2.693.178A3 3 0 0110.5 1.5h3a3 3 0 012.694 1.678c.497.042.992.092 1.486.15 1.497.173 2.57 1.46 2.57 2.929V19.5a3 3 0 01-3 3H6.75a3 3 0 01-3-3V6.257c0-1.47 1.073-2.756 2.57-2.93.493-.057.989-.107 1.487-.15z" clip-rule="evenodd"></path>
-</svg>
-
-                                            </button>
-                                            <div x-text="$t('copyLink')" id="copyLink" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">کپی کردن</div>
-                                        </div>
-                                        <div class="w-10 h-10 overflow-hidden">
-
-                                            <button onclick="openDynamicModal(extractNameFromConfigURL('vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@xoxo.shady.blog:8443?security=reality&amp;type=tcp&amp;headerType=&amp;path=&amp;host=&amp;sni=discordapp.com&amp;fp=chrome&amp;pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&amp;sid=#IRANCELL%20%F0%9F%87%A9%F0%9F%87%AA%C2%B2%20%5BVLESS%20-%20tcp%5D'), 'vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@xoxo.shady.blog:8443?security=reality&amp;type=tcp&amp;headerType=&amp;path=&amp;host=&amp;sni=discordapp.com&amp;fp=chrome&amp;pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&amp;sid=#IRANCELL%20%F0%9F%87%A9%F0%9F%87%AA%C2%B2%20%5BVLESS%20-%20tcp%5D')" data-tooltip-target="qrCode" type="button" class="">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" class="w-8 h-8 fill-white">
-  <path fill-rule="evenodd" d="M3 4.875C3 3.839 3.84 3 4.875 3h4.5c1.036 0 1.875.84 1.875 1.875v4.5c0 1.036-.84 1.875-1.875 1.875h-4.5A1.875 1.875 0 013 9.375v-4.5zM4.875 4.5a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zm7.875.375c0-1.036.84-1.875 1.875-1.875h4.5C20.16 3 21 3.84 21 4.875v4.5c0 1.036-.84 1.875-1.875 1.875h-4.5a1.875 1.875 0 01-1.875-1.875v-4.5zm1.875-.375a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zM6 6.75A.75.75 0 016.75 6h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75A.75.75 0 016 7.5v-.75zm9.75 0A.75.75 0 0116.5 6h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zM3 14.625c0-1.036.84-1.875 1.875-1.875h4.5c1.036 0 1.875.84 1.875 1.875v4.5c0 1.035-.84 1.875-1.875 1.875h-4.5A1.875 1.875 0 013 19.125v-4.5zm1.875-.375a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zm7.875-.75a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm6 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zM6 16.5a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm9.75 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm-3 3a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm6 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75z" clip-rule="evenodd"></path>
-</svg>
-
-                                            </button>
-                                            <div x-text="$t('qrCode')" id="qrCode" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">کیوآرکد</div>
-                                        </div>
-
-                                    </div>
-                                </div>
-            
-            <div class="flex items-center bg-slate-900 px-4 py-2 rounded-lg">
-                                    <span class="flex-1">IRANCELL 🇫🇮 [VLESS - grpc]</span>
-                                    <div class="flex items-center justify-start gap-x-2">
-                                        <div class="w-10 h-10 overflow-hidden">
-                                            <button id="copyCfg-3" onclick="copyToClipboard(event,'vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@meow.behesht.blog:2053?security=reality&amp;type=grpc&amp;headerType=&amp;serviceName=xyz&amp;authority=&amp;mode=gun&amp;sni=discordapp.com&amp;fp=chrome&amp;pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&amp;sid=#IRANCELL%20%F0%9F%87%AB%F0%9F%87%AE%20%5BVLESS%20-%20grpc%5D')" data-tooltip-target="copyLink" type="button" class="btnCopy">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" class="w-8 h-8 fill-white">
-  <path fill-rule="evenodd" d="M10.5 3A1.501 1.501 0 009 4.5h6A1.5 1.5 0 0013.5 3h-3zm-2.693.178A3 3 0 0110.5 1.5h3a3 3 0 012.694 1.678c.497.042.992.092 1.486.15 1.497.173 2.57 1.46 2.57 2.929V19.5a3 3 0 01-3 3H6.75a3 3 0 01-3-3V6.257c0-1.47 1.073-2.756 2.57-2.93.493-.057.989-.107 1.487-.15z" clip-rule="evenodd"></path>
-</svg>
-
-                                            </button>
-                                            <div x-text="$t('copyLink')" id="copyLink" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">کپی کردن</div>
-                                        </div>
-                                        <div class="w-10 h-10 overflow-hidden">
-
-                                            <button onclick="openDynamicModal(extractNameFromConfigURL('vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@meow.behesht.blog:2053?security=reality&amp;type=grpc&amp;headerType=&amp;serviceName=xyz&amp;authority=&amp;mode=gun&amp;sni=discordapp.com&amp;fp=chrome&amp;pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&amp;sid=#IRANCELL%20%F0%9F%87%AB%F0%9F%87%AE%20%5BVLESS%20-%20grpc%5D'), 'vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@meow.behesht.blog:2053?security=reality&amp;type=grpc&amp;headerType=&amp;serviceName=xyz&amp;authority=&amp;mode=gun&amp;sni=discordapp.com&amp;fp=chrome&amp;pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&amp;sid=#IRANCELL%20%F0%9F%87%AB%F0%9F%87%AE%20%5BVLESS%20-%20grpc%5D')" data-tooltip-target="qrCode" type="button" class="">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" class="w-8 h-8 fill-white">
-  <path fill-rule="evenodd" d="M3 4.875C3 3.839 3.84 3 4.875 3h4.5c1.036 0 1.875.84 1.875 1.875v4.5c0 1.036-.84 1.875-1.875 1.875h-4.5A1.875 1.875 0 013 9.375v-4.5zM4.875 4.5a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zm7.875.375c0-1.036.84-1.875 1.875-1.875h4.5C20.16 3 21 3.84 21 4.875v4.5c0 1.036-.84 1.875-1.875 1.875h-4.5a1.875 1.875 0 01-1.875-1.875v-4.5zm1.875-.375a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zM6 6.75A.75.75 0 016.75 6h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75A.75.75 0 016 7.5v-.75zm9.75 0A.75.75 0 0116.5 6h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zM3 14.625c0-1.036.84-1.875 1.875-1.875h4.5c1.036 0 1.875.84 1.875 1.875v4.5c0 1.035-.84 1.875-1.875 1.875h-4.5A1.875 1.875 0 013 19.125v-4.5zm1.875-.375a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zm7.875-.75a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm6 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zM6 16.5a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm9.75 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm-3 3a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm6 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75z" clip-rule="evenodd"></path>
-</svg>
-
-                                            </button>
-                                            <div x-text="$t('qrCode')" id="qrCode" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">کیوآرکد</div>
-                                        </div>
-
-                                    </div>
-                                </div>
-            
-            <div class="flex items-center bg-slate-900 px-4 py-2 rounded-lg">
-                                    <span class="flex-1">MCI &amp; IRANCELL 🇩🇪 [VLESS - grpc]</span>
-                                    <div class="flex items-center justify-start gap-x-2">
-                                        <div class="w-10 h-10 overflow-hidden">
-                                            <button id="copyCfg-4" onclick="copyToClipboard(event,'vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@mno.shady.blog:2053?security=reality&amp;type=grpc&amp;headerType=&amp;serviceName=xyz&amp;authority=&amp;mode=gun&amp;sni=cdn.discordapp.com&amp;fp=chrome&amp;pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&amp;sid=#MCI%20%26%20IRANCELL%20%F0%9F%87%A9%F0%9F%87%AA%20%5BVLESS%20-%20grpc%5D')" data-tooltip-target="copyLink" type="button" class="btnCopy">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" class="w-8 h-8 fill-white">
-  <path fill-rule="evenodd" d="M10.5 3A1.501 1.501 0 009 4.5h6A1.5 1.5 0 0013.5 3h-3zm-2.693.178A3 3 0 0110.5 1.5h3a3 3 0 012.694 1.678c.497.042.992.092 1.486.15 1.497.173 2.57 1.46 2.57 2.929V19.5a3 3 0 01-3 3H6.75a3 3 0 01-3-3V6.257c0-1.47 1.073-2.756 2.57-2.93.493-.057.989-.107 1.487-.15z" clip-rule="evenodd"></path>
-</svg>
-
-                                            </button>
-                                            <div x-text="$t('copyLink')" id="copyLink" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">کپی کردن</div>
-                                        </div>
-                                        <div class="w-10 h-10 overflow-hidden">
-
-                                            <button onclick="openDynamicModal(extractNameFromConfigURL('vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@mno.shady.blog:2053?security=reality&amp;type=grpc&amp;headerType=&amp;serviceName=xyz&amp;authority=&amp;mode=gun&amp;sni=cdn.discordapp.com&amp;fp=chrome&amp;pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&amp;sid=#MCI%20%26%20IRANCELL%20%F0%9F%87%A9%F0%9F%87%AA%20%5BVLESS%20-%20grpc%5D'), 'vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@mno.shady.blog:2053?security=reality&amp;type=grpc&amp;headerType=&amp;serviceName=xyz&amp;authority=&amp;mode=gun&amp;sni=cdn.discordapp.com&amp;fp=chrome&amp;pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&amp;sid=#MCI%20%26%20IRANCELL%20%F0%9F%87%A9%F0%9F%87%AA%20%5BVLESS%20-%20grpc%5D')" data-tooltip-target="qrCode" type="button" class="">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" class="w-8 h-8 fill-white">
-  <path fill-rule="evenodd" d="M3 4.875C3 3.839 3.84 3 4.875 3h4.5c1.036 0 1.875.84 1.875 1.875v4.5c0 1.036-.84 1.875-1.875 1.875h-4.5A1.875 1.875 0 013 9.375v-4.5zM4.875 4.5a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zm7.875.375c0-1.036.84-1.875 1.875-1.875h4.5C20.16 3 21 3.84 21 4.875v4.5c0 1.036-.84 1.875-1.875 1.875h-4.5a1.875 1.875 0 01-1.875-1.875v-4.5zm1.875-.375a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zM6 6.75A.75.75 0 016.75 6h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75A.75.75 0 016 7.5v-.75zm9.75 0A.75.75 0 0116.5 6h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zM3 14.625c0-1.036.84-1.875 1.875-1.875h4.5c1.036 0 1.875.84 1.875 1.875v4.5c0 1.035-.84 1.875-1.875 1.875h-4.5A1.875 1.875 0 013 19.125v-4.5zm1.875-.375a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zm7.875-.75a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm6 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zM6 16.5a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm9.75 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm-3 3a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm6 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75z" clip-rule="evenodd"></path>
-</svg>
-
-                                            </button>
-                                            <div x-text="$t('qrCode')" id="qrCode" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">کیوآرکد</div>
-                                        </div>
-
-                                    </div>
-                                </div>
-            
-            <div class="flex items-center bg-slate-900 px-4 py-2 rounded-lg">
-                                    <span class="flex-1">IRANCELL 🇩🇪² [VLESS - grpc]</span>
-                                    <div class="flex items-center justify-start gap-x-2">
-                                        <div class="w-10 h-10 overflow-hidden">
-                                            <button id="copyCfg-5" onclick="copyToClipboard(event,'vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@xoxo.shady.blog:2053?security=reality&amp;type=grpc&amp;headerType=&amp;serviceName=xyz&amp;authority=&amp;mode=gun&amp;sni=discordapp.com&amp;fp=chrome&amp;pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&amp;sid=#IRANCELL%20%F0%9F%87%A9%F0%9F%87%AA%C2%B2%20%5BVLESS%20-%20grpc%5D')" data-tooltip-target="copyLink" type="button" class="btnCopy">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" class="w-8 h-8 fill-white">
-  <path fill-rule="evenodd" d="M10.5 3A1.501 1.501 0 009 4.5h6A1.5 1.5 0 0013.5 3h-3zm-2.693.178A3 3 0 0110.5 1.5h3a3 3 0 012.694 1.678c.497.042.992.092 1.486.15 1.497.173 2.57 1.46 2.57 2.929V19.5a3 3 0 01-3 3H6.75a3 3 0 01-3-3V6.257c0-1.47 1.073-2.756 2.57-2.93.493-.057.989-.107 1.487-.15z" clip-rule="evenodd"></path>
-</svg>
-
-                                            </button>
-                                            <div x-text="$t('copyLink')" id="copyLink" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">کپی کردن</div>
-                                        </div>
-                                        <div class="w-10 h-10 overflow-hidden">
-
-                                            <button onclick="openDynamicModal(extractNameFromConfigURL('vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@xoxo.shady.blog:2053?security=reality&amp;type=grpc&amp;headerType=&amp;serviceName=xyz&amp;authority=&amp;mode=gun&amp;sni=discordapp.com&amp;fp=chrome&amp;pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&amp;sid=#IRANCELL%20%F0%9F%87%A9%F0%9F%87%AA%C2%B2%20%5BVLESS%20-%20grpc%5D'), 'vless://7ae64b72-0431-4338-a5a5-db36f6bd3763@xoxo.shady.blog:2053?security=reality&amp;type=grpc&amp;headerType=&amp;serviceName=xyz&amp;authority=&amp;mode=gun&amp;sni=discordapp.com&amp;fp=chrome&amp;pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&amp;sid=#IRANCELL%20%F0%9F%87%A9%F0%9F%87%AA%C2%B2%20%5BVLESS%20-%20grpc%5D')" data-tooltip-target="qrCode" type="button" class="">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" class="w-8 h-8 fill-white">
-  <path fill-rule="evenodd" d="M3 4.875C3 3.839 3.84 3 4.875 3h4.5c1.036 0 1.875.84 1.875 1.875v4.5c0 1.036-.84 1.875-1.875 1.875h-4.5A1.875 1.875 0 013 9.375v-4.5zM4.875 4.5a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zm7.875.375c0-1.036.84-1.875 1.875-1.875h4.5C20.16 3 21 3.84 21 4.875v4.5c0 1.036-.84 1.875-1.875 1.875h-4.5a1.875 1.875 0 01-1.875-1.875v-4.5zm1.875-.375a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zM6 6.75A.75.75 0 016.75 6h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75A.75.75 0 016 7.5v-.75zm9.75 0A.75.75 0 0116.5 6h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zM3 14.625c0-1.036.84-1.875 1.875-1.875h4.5c1.036 0 1.875.84 1.875 1.875v4.5c0 1.035-.84 1.875-1.875 1.875h-4.5A1.875 1.875 0 013 19.125v-4.5zm1.875-.375a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zm7.875-.75a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm6 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zM6 16.5a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm9.75 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm-3 3a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm6 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75z" clip-rule="evenodd"></path>
-</svg>
-
-                                            </button>
-                                            <div x-text="$t('qrCode')" id="qrCode" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">کیوآرکد</div>
-                                        </div>
-
-                                    </div>
-                                </div>
-            
-            <div class="flex items-center bg-slate-900 px-4 py-2 rounded-lg">
-                                    <span class="flex-1">(MCI &amp; WIFI)🛫 x2</span>
-                                    <div class="flex items-center justify-start gap-x-2">
-                                        <div class="w-10 h-10 overflow-hidden">
-                                            <button id="copyCfg-6" onclick="copyToClipboard(event,'vmess://eyJhZGQiOiAiYXJlZGFkYXNoLnNoZHkuYmxvZyIsICJhaWQiOiAiMCIsICJob3N0IjogImFyZWRhZGFzaC5zaGR5LmJsb2ciLCAiaWQiOiAiMGVlY2UzOTAtNDMwMi00NDg3LWJjYzUtZmE5NmFiMzUyZWIzIiwgIm5ldCI6ICJ3cyIsICJwYXRoIjogIi8iLCAicG9ydCI6IDgwODAsICJwcyI6ICIoTUNJICYgV0lGSSlcdWQ4M2RcdWRlZWIgeDIiLCAic2N5IjogImF1dG8iLCAidGxzIjogIm5vbmUiLCAidHlwZSI6ICIiLCAidiI6ICIyIn0=')" data-tooltip-target="copyLink" type="button" class="btnCopy">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" class="w-8 h-8 fill-white">
-  <path fill-rule="evenodd" d="M10.5 3A1.501 1.501 0 009 4.5h6A1.5 1.5 0 0013.5 3h-3zm-2.693.178A3 3 0 0110.5 1.5h3a3 3 0 012.694 1.678c.497.042.992.092 1.486.15 1.497.173 2.57 1.46 2.57 2.929V19.5a3 3 0 01-3 3H6.75a3 3 0 01-3-3V6.257c0-1.47 1.073-2.756 2.57-2.93.493-.057.989-.107 1.487-.15z" clip-rule="evenodd"></path>
-</svg>
-
-                                            </button>
-                                            <div x-text="$t('copyLink')" id="copyLink" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">کپی کردن</div>
-                                        </div>
-                                        <div class="w-10 h-10 overflow-hidden">
-
-                                            <button onclick="openDynamicModal(extractNameFromConfigURL('vmess://eyJhZGQiOiAiYXJlZGFkYXNoLnNoZHkuYmxvZyIsICJhaWQiOiAiMCIsICJob3N0IjogImFyZWRhZGFzaC5zaGR5LmJsb2ciLCAiaWQiOiAiMGVlY2UzOTAtNDMwMi00NDg3LWJjYzUtZmE5NmFiMzUyZWIzIiwgIm5ldCI6ICJ3cyIsICJwYXRoIjogIi8iLCAicG9ydCI6IDgwODAsICJwcyI6ICIoTUNJICYgV0lGSSlcdWQ4M2RcdWRlZWIgeDIiLCAic2N5IjogImF1dG8iLCAidGxzIjogIm5vbmUiLCAidHlwZSI6ICIiLCAidiI6ICIyIn0='), 'vmess://eyJhZGQiOiAiYXJlZGFkYXNoLnNoZHkuYmxvZyIsICJhaWQiOiAiMCIsICJob3N0IjogImFyZWRhZGFzaC5zaGR5LmJsb2ciLCAiaWQiOiAiMGVlY2UzOTAtNDMwMi00NDg3LWJjYzUtZmE5NmFiMzUyZWIzIiwgIm5ldCI6ICJ3cyIsICJwYXRoIjogIi8iLCAicG9ydCI6IDgwODAsICJwcyI6ICIoTUNJICYgV0lGSSlcdWQ4M2RcdWRlZWIgeDIiLCAic2N5IjogImF1dG8iLCAidGxzIjogIm5vbmUiLCAidHlwZSI6ICIiLCAidiI6ICIyIn0=')" data-tooltip-target="qrCode" type="button" class="">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" class="w-8 h-8 fill-white">
-  <path fill-rule="evenodd" d="M3 4.875C3 3.839 3.84 3 4.875 3h4.5c1.036 0 1.875.84 1.875 1.875v4.5c0 1.036-.84 1.875-1.875 1.875h-4.5A1.875 1.875 0 013 9.375v-4.5zM4.875 4.5a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zm7.875.375c0-1.036.84-1.875 1.875-1.875h4.5C20.16 3 21 3.84 21 4.875v4.5c0 1.036-.84 1.875-1.875 1.875h-4.5a1.875 1.875 0 01-1.875-1.875v-4.5zm1.875-.375a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zM6 6.75A.75.75 0 016.75 6h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75A.75.75 0 016 7.5v-.75zm9.75 0A.75.75 0 0116.5 6h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zM3 14.625c0-1.036.84-1.875 1.875-1.875h4.5c1.036 0 1.875.84 1.875 1.875v4.5c0 1.035-.84 1.875-1.875 1.875h-4.5A1.875 1.875 0 013 19.125v-4.5zm1.875-.375a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zm7.875-.75a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm6 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zM6 16.5a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm9.75 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm-3 3a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm6 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75z" clip-rule="evenodd"></path>
-</svg>
-
-                                            </button>
-                                            <div x-text="$t('qrCode')" id="qrCode" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">کیوآرکد</div>
-                                        </div>
-
-                                    </div>
-                                </div>
-            
-            <div class="flex items-center bg-slate-900 px-4 py-2 rounded-lg">
-                                    <span class="flex-1">(MCI &amp; WIFI)🪄 x2</span>
-                                    <div class="flex items-center justify-start gap-x-2">
-                                        <div class="w-10 h-10 overflow-hidden">
-                                            <button id="copyCfg-7" onclick="copyToClipboard(event,'vmess://eyJhZGQiOiAiT3RoZXJzaWRlLnNoZHkuYmxvZyIsICJhaWQiOiAiMCIsICJob3N0IjogIk90aGVyc2lkZS5zaGR5LmJsb2ciLCAiaWQiOiAiMGVlY2UzOTAtNDMwMi00NDg3LWJjYzUtZmE5NmFiMzUyZWIzIiwgIm5ldCI6ICJ3cyIsICJwYXRoIjogIi8iLCAicG9ydCI6IDgwODAsICJwcyI6ICIoTUNJICYgV0lGSSlcdWQ4M2VcdWRlODQgeDIiLCAic2N5IjogImF1dG8iLCAidGxzIjogIm5vbmUiLCAidHlwZSI6ICIiLCAidiI6ICIyIn0=')" data-tooltip-target="copyLink" type="button" class="btnCopy">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" class="w-8 h-8 fill-white">
-  <path fill-rule="evenodd" d="M10.5 3A1.501 1.501 0 009 4.5h6A1.5 1.5 0 0013.5 3h-3zm-2.693.178A3 3 0 0110.5 1.5h3a3 3 0 012.694 1.678c.497.042.992.092 1.486.15 1.497.173 2.57 1.46 2.57 2.929V19.5a3 3 0 01-3 3H6.75a3 3 0 01-3-3V6.257c0-1.47 1.073-2.756 2.57-2.93.493-.057.989-.107 1.487-.15z" clip-rule="evenodd"></path>
-</svg>
-
-                                            </button>
-                                            <div x-text="$t('copyLink')" id="copyLink" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">کپی کردن</div>
-                                        </div>
-                                        <div class="w-10 h-10 overflow-hidden">
-
-                                            <button onclick="openDynamicModal(extractNameFromConfigURL('vmess://eyJhZGQiOiAiT3RoZXJzaWRlLnNoZHkuYmxvZyIsICJhaWQiOiAiMCIsICJob3N0IjogIk90aGVyc2lkZS5zaGR5LmJsb2ciLCAiaWQiOiAiMGVlY2UzOTAtNDMwMi00NDg3LWJjYzUtZmE5NmFiMzUyZWIzIiwgIm5ldCI6ICJ3cyIsICJwYXRoIjogIi8iLCAicG9ydCI6IDgwODAsICJwcyI6ICIoTUNJICYgV0lGSSlcdWQ4M2VcdWRlODQgeDIiLCAic2N5IjogImF1dG8iLCAidGxzIjogIm5vbmUiLCAidHlwZSI6ICIiLCAidiI6ICIyIn0='), 'vmess://eyJhZGQiOiAiT3RoZXJzaWRlLnNoZHkuYmxvZyIsICJhaWQiOiAiMCIsICJob3N0IjogIk90aGVyc2lkZS5zaGR5LmJsb2ciLCAiaWQiOiAiMGVlY2UzOTAtNDMwMi00NDg3LWJjYzUtZmE5NmFiMzUyZWIzIiwgIm5ldCI6ICJ3cyIsICJwYXRoIjogIi8iLCAicG9ydCI6IDgwODAsICJwcyI6ICIoTUNJICYgV0lGSSlcdWQ4M2VcdWRlODQgeDIiLCAic2N5IjogImF1dG8iLCAidGxzIjogIm5vbmUiLCAidHlwZSI6ICIiLCAidiI6ICIyIn0=')" data-tooltip-target="qrCode" type="button" class="">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" class="w-8 h-8 fill-white">
-  <path fill-rule="evenodd" d="M3 4.875C3 3.839 3.84 3 4.875 3h4.5c1.036 0 1.875.84 1.875 1.875v4.5c0 1.036-.84 1.875-1.875 1.875h-4.5A1.875 1.875 0 013 9.375v-4.5zM4.875 4.5a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zm7.875.375c0-1.036.84-1.875 1.875-1.875h4.5C20.16 3 21 3.84 21 4.875v4.5c0 1.036-.84 1.875-1.875 1.875h-4.5a1.875 1.875 0 01-1.875-1.875v-4.5zm1.875-.375a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zM6 6.75A.75.75 0 016.75 6h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75A.75.75 0 016 7.5v-.75zm9.75 0A.75.75 0 0116.5 6h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zM3 14.625c0-1.036.84-1.875 1.875-1.875h4.5c1.036 0 1.875.84 1.875 1.875v4.5c0 1.035-.84 1.875-1.875 1.875h-4.5A1.875 1.875 0 013 19.125v-4.5zm1.875-.375a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zm7.875-.75a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm6 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zM6 16.5a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm9.75 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm-3 3a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm6 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75z" clip-rule="evenodd"></path>
-</svg>
-
-                                            </button>
-                                            <div x-text="$t('qrCode')" id="qrCode" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">کیوآرکد</div>
-                                        </div>
-
-                                    </div>
-                                </div>
-            
-            <div class="flex items-center bg-slate-900 px-4 py-2 rounded-lg">
-                                    <span class="flex-1">(MCI &amp; IRANCELL) 🇩🇪</span>
-                                    <div class="flex items-center justify-start gap-x-2">
-                                        <div class="w-10 h-10 overflow-hidden">
-                                            <button id="copyCfg-8" onclick="copyToClipboard(event,'vmess://eyJhZGQiOiAiaXJjLmZhaXIxLmNsaWNrIiwgImFpZCI6ICIwIiwgImhvc3QiOiAiYXJlZGFkYXNoLnNoYWFkeS5ibG9nIiwgImlkIjogIjBlZWNlMzkwLTQzMDItNDQ4Ny1iY2M1LWZhOTZhYjM1MmViMyIsICJuZXQiOiAid3MiLCAicGF0aCI6ICIvIiwgInBvcnQiOiA4MDgwLCAicHMiOiAiKE1DSSAmIElSQU5DRUxMKSBcdWQ4M2NcdWRkZTlcdWQ4M2NcdWRkZWEiLCAic2N5IjogImF1dG8iLCAidGxzIjogIm5vbmUiLCAidHlwZSI6ICIiLCAidiI6ICIyIn0=')" data-tooltip-target="copyLink" type="button" class="btnCopy">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" class="w-8 h-8 fill-white">
-  <path fill-rule="evenodd" d="M10.5 3A1.501 1.501 0 009 4.5h6A1.5 1.5 0 0013.5 3h-3zm-2.693.178A3 3 0 0110.5 1.5h3a3 3 0 012.694 1.678c.497.042.992.092 1.486.15 1.497.173 2.57 1.46 2.57 2.929V19.5a3 3 0 01-3 3H6.75a3 3 0 01-3-3V6.257c0-1.47 1.073-2.756 2.57-2.93.493-.057.989-.107 1.487-.15z" clip-rule="evenodd"></path>
-</svg>
-
-                                            </button>
-                                            <div x-text="$t('copyLink')" id="copyLink" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">کپی کردن</div>
-                                        </div>
-                                        <div class="w-10 h-10 overflow-hidden">
-
-                                            <button onclick="openDynamicModal(extractNameFromConfigURL('vmess://eyJhZGQiOiAiaXJjLmZhaXIxLmNsaWNrIiwgImFpZCI6ICIwIiwgImhvc3QiOiAiYXJlZGFkYXNoLnNoYWFkeS5ibG9nIiwgImlkIjogIjBlZWNlMzkwLTQzMDItNDQ4Ny1iY2M1LWZhOTZhYjM1MmViMyIsICJuZXQiOiAid3MiLCAicGF0aCI6ICIvIiwgInBvcnQiOiA4MDgwLCAicHMiOiAiKE1DSSAmIElSQU5DRUxMKSBcdWQ4M2NcdWRkZTlcdWQ4M2NcdWRkZWEiLCAic2N5IjogImF1dG8iLCAidGxzIjogIm5vbmUiLCAidHlwZSI6ICIiLCAidiI6ICIyIn0='), 'vmess://eyJhZGQiOiAiaXJjLmZhaXIxLmNsaWNrIiwgImFpZCI6ICIwIiwgImhvc3QiOiAiYXJlZGFkYXNoLnNoYWFkeS5ibG9nIiwgImlkIjogIjBlZWNlMzkwLTQzMDItNDQ4Ny1iY2M1LWZhOTZhYjM1MmViMyIsICJuZXQiOiAid3MiLCAicGF0aCI6ICIvIiwgInBvcnQiOiA4MDgwLCAicHMiOiAiKE1DSSAmIElSQU5DRUxMKSBcdWQ4M2NcdWRkZTlcdWQ4M2NcdWRkZWEiLCAic2N5IjogImF1dG8iLCAidGxzIjogIm5vbmUiLCAidHlwZSI6ICIiLCAidiI6ICIyIn0=')" data-tooltip-target="qrCode" type="button" class="">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" class="w-8 h-8 fill-white">
-  <path fill-rule="evenodd" d="M3 4.875C3 3.839 3.84 3 4.875 3h4.5c1.036 0 1.875.84 1.875 1.875v4.5c0 1.036-.84 1.875-1.875 1.875h-4.5A1.875 1.875 0 013 9.375v-4.5zM4.875 4.5a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zm7.875.375c0-1.036.84-1.875 1.875-1.875h4.5C20.16 3 21 3.84 21 4.875v4.5c0 1.036-.84 1.875-1.875 1.875h-4.5a1.875 1.875 0 01-1.875-1.875v-4.5zm1.875-.375a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zM6 6.75A.75.75 0 016.75 6h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75A.75.75 0 016 7.5v-.75zm9.75 0A.75.75 0 0116.5 6h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zM3 14.625c0-1.036.84-1.875 1.875-1.875h4.5c1.036 0 1.875.84 1.875 1.875v4.5c0 1.035-.84 1.875-1.875 1.875h-4.5A1.875 1.875 0 013 19.125v-4.5zm1.875-.375a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zm7.875-.75a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm6 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zM6 16.5a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm9.75 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm-3 3a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm6 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75z" clip-rule="evenodd"></path>
-</svg>
-
-                                            </button>
-                                            <div x-text="$t('qrCode')" id="qrCode" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">کیوآرکد</div>
-                                        </div>
-
-                                    </div>
-                                </div>
-            
-            <div class="flex items-center bg-slate-900 px-4 py-2 rounded-lg">
-                                    <span class="flex-1">(MCI &amp; WIFI) 🎀 x2</span>
-                                    <div class="flex items-center justify-start gap-x-2">
-                                        <div class="w-10 h-10 overflow-hidden">
-                                            <button id="copyCfg-9" onclick="copyToClipboard(event,'vmess://eyJhZGQiOiAiZnlvdS5zaGR5LmJsb2ciLCAiYWlkIjogIjAiLCAiaG9zdCI6ICJnb29nbGUuY29tIiwgImlkIjogIjBlZWNlMzkwLTQzMDItNDQ4Ny1iY2M1LWZhOTZhYjM1MmViMyIsICJuZXQiOiAid3MiLCAicGF0aCI6ICIvIiwgInBvcnQiOiA4MDgwLCAicHMiOiAiKE1DSSAmIFdJRkkpIFx1ZDgzY1x1ZGY4MCB4MiIsICJzY3kiOiAiYXV0byIsICJ0bHMiOiAibm9uZSIsICJ0eXBlIjogIiIsICJ2IjogIjIifQ==')" data-tooltip-target="copyLink" type="button" class="btnCopy">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" class="w-8 h-8 fill-white">
-  <path fill-rule="evenodd" d="M10.5 3A1.501 1.501 0 009 4.5h6A1.5 1.5 0 0013.5 3h-3zm-2.693.178A3 3 0 0110.5 1.5h3a3 3 0 012.694 1.678c.497.042.992.092 1.486.15 1.497.173 2.57 1.46 2.57 2.929V19.5a3 3 0 01-3 3H6.75a3 3 0 01-3-3V6.257c0-1.47 1.073-2.756 2.57-2.93.493-.057.989-.107 1.487-.15z" clip-rule="evenodd"></path>
-</svg>
-
-                                            </button>
-                                            <div x-text="$t('copyLink')" id="copyLink" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">کپی کردن</div>
-                                        </div>
-                                        <div class="w-10 h-10 overflow-hidden">
-
-                                            <button onclick="openDynamicModal(extractNameFromConfigURL('vmess://eyJhZGQiOiAiZnlvdS5zaGR5LmJsb2ciLCAiYWlkIjogIjAiLCAiaG9zdCI6ICJnb29nbGUuY29tIiwgImlkIjogIjBlZWNlMzkwLTQzMDItNDQ4Ny1iY2M1LWZhOTZhYjM1MmViMyIsICJuZXQiOiAid3MiLCAicGF0aCI6ICIvIiwgInBvcnQiOiA4MDgwLCAicHMiOiAiKE1DSSAmIFdJRkkpIFx1ZDgzY1x1ZGY4MCB4MiIsICJzY3kiOiAiYXV0byIsICJ0bHMiOiAibm9uZSIsICJ0eXBlIjogIiIsICJ2IjogIjIifQ=='), 'vmess://eyJhZGQiOiAiZnlvdS5zaGR5LmJsb2ciLCAiYWlkIjogIjAiLCAiaG9zdCI6ICJnb29nbGUuY29tIiwgImlkIjogIjBlZWNlMzkwLTQzMDItNDQ4Ny1iY2M1LWZhOTZhYjM1MmViMyIsICJuZXQiOiAid3MiLCAicGF0aCI6ICIvIiwgInBvcnQiOiA4MDgwLCAicHMiOiAiKE1DSSAmIFdJRkkpIFx1ZDgzY1x1ZGY4MCB4MiIsICJzY3kiOiAiYXV0byIsICJ0bHMiOiAibm9uZSIsICJ0eXBlIjogIiIsICJ2IjogIjIifQ==')" data-tooltip-target="qrCode" type="button" class="">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" class="w-8 h-8 fill-white">
-  <path fill-rule="evenodd" d="M3 4.875C3 3.839 3.84 3 4.875 3h4.5c1.036 0 1.875.84 1.875 1.875v4.5c0 1.036-.84 1.875-1.875 1.875h-4.5A1.875 1.875 0 013 9.375v-4.5zM4.875 4.5a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zm7.875.375c0-1.036.84-1.875 1.875-1.875h4.5C20.16 3 21 3.84 21 4.875v4.5c0 1.036-.84 1.875-1.875 1.875h-4.5a1.875 1.875 0 01-1.875-1.875v-4.5zm1.875-.375a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zM6 6.75A.75.75 0 016.75 6h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75A.75.75 0 016 7.5v-.75zm9.75 0A.75.75 0 0116.5 6h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zM3 14.625c0-1.036.84-1.875 1.875-1.875h4.5c1.036 0 1.875.84 1.875 1.875v4.5c0 1.035-.84 1.875-1.875 1.875h-4.5A1.875 1.875 0 013 19.125v-4.5zm1.875-.375a.375.375 0 00-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 00.375-.375v-4.5a.375.375 0 00-.375-.375h-4.5zm7.875-.75a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm6 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zM6 16.5a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm9.75 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm-3 3a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75zm6 0a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75z" clip-rule="evenodd"></path>
-</svg>
-
-                                            </button>
-                                            <div x-text="$t('qrCode')" id="qrCode" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">کیوآرکد</div>
-                                        </div>
-
-                                    </div>
-                                </div>
-            </div>
                                     </div>
                                 </div>
                             </div>
@@ -5372,14 +5260,14 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                         </a>
                     </div>
                     <div class="flex mt-6 items-center justify-center gap-x-4 mb-4">
-                        <button id="qrIconBtn" onclick="openDynamicModal('404 Subscription' ,  window.location.href)" class="bg-gray-100 border-gray-200 dark:bg-gray-700 dark:border-gray-600 rounded-xl pt-1 px-1"><lord-icon src="https://cdn.lordicon.com/fqrjldna.json" trigger="loop" delay="2000" colors="primary:#fff,secondary:#fff" class="w-10 h-10">
+                        <button id="qrIconBtn" onclick="openDynamicModal('4-0-4 Subscription' ,  window.location.href)" class="bg-gray-100 border-gray-200 dark:bg-gray-700 dark:border-gray-600 rounded-xl pt-1 px-1"><lord-icon src="https://cdn.lordicon.com/fqrjldna.json" trigger="loop" delay="2000" colors="primary:#fff,secondary:#fff" class="w-10 h-10">
                            </lord-icon></button>
 
                         <select style="
                text-indent:15px;
                height:50px;" id="countries" class="border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-2.5 py-3.5 bg-gray-100 border-gray-200 placeholder-gray-800 text-black dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
-                            <option value="mm">မြန်မာ</option>
                             <option value="en">English</option>
+                            <option value="mm">မြန်မာ</option>
                             <option value="fa">فارسی</option>
                         </select>
                     </div>
