@@ -22,7 +22,7 @@ if (!function_exists('str_contains'))
     die('Please upgrade your PHP version to 8 or above');
 $isTextHTML = str_contains(($_SERVER['HTTP_ACCEPT'] ?? ''), 'text/html');
 
-const BASE_URL = "https://188.166.223.187:443/kokonyein"; // Replace IP address and port and set https for SSL
+const BASE_URL = "https://yourdomain.com:443"; // Replace IP address and port and set https for SSL
 
 $URL = BASE_URL . $_SERVER['REQUEST_URI'] ?? '';
 $URL .= $isTextHTML ? '/info' : '';
@@ -55,7 +55,7 @@ if ($isTextHTML) {
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title><?= $user['404'] ?> - Sub Info</title>
+        <title><?= $user['username'] ?> - Sub Info</title>
         <style>
             .asli {
                 background: url('https://4kwallpapers.com/images/wallpapers/windows-server-2025-3840x2400-15386.jpg') no-repeat center;
