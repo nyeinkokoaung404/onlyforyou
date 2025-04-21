@@ -1,80 +1,248 @@
 #!/bin/bash
 
+# Colors
 plain='\033[0m'
+red='\e[31m'
+yellow='\e[33m'
+green='\e[92m'
+blue='\e[94m'
+cyan='\e[96m'
+magenta='\e[95m'
+dnstt_color='\e[35m'
 
-#စာလုံးအရောင်များ(Server Message)
-red='\e[31m'    #အနီရောင်
-yellow='\e[33m' #အဝါရောင်
-gray='\e[90m'   #မီးခိုးရောင်
-green='\e[92m'  #အစိမ်းရောင်
-blue='\e[94m'   #အပြာရောင်
-magenta='\e[95m'#ပန်းခရမ်းရောင်
-cyan='\e[96m'   #စိမ်းပြာရောင်
-none='\e[0m'    #အရောင်မရှိ
+# Configuration
+USER_DB="/root/usuarios.db"
+BACKUP_DIR="/root/ssh_backups"
+BANNER_FILE="/etc/ssh/gcp_404"
+SSH_CONFIG="/etc/ssh/sshd_config"
+UDP_CONFIG="/etc/ssh/sshd_udp"
+DNSTT_DIR="/etc/dnstt"
+DNSTT_SERVICE="/etc/systemd/system/dnstt-server.service"
 
-#SSH USER LIMIT သတ်မှတ်ရန်
-#sshlimiter="300"
+# Check root
+[[ $EUID -ne 0 ]] && echo -e "${red}Error: ${plain} Run as root!${plain}" && exit 1
 
-#ရက်ကန့်သက်ရန်(Qwiklab အတွက်မို့ 2-DAY ပုံသေထားရပါသည်)
-#dias="2"
-# $1: username, $2: password, $3: limit, $4: day, $5: message, $6: token
+# Create SSH user
+create_user() {
+    local username="$1"
+    local password="$2"
+    local limit="$3"
+    local days="$4"
+    local protocol="$5"
+    local message="$6"
+    local token="$7"
 
-# check root
-[[ $EUID -ne 0 ]] && echo -e "${red}Error: ${plain} You must use root user to run this script!\n" && exit 1
+    # Token validation (5 minute window)
+    local current_time=$(date +%s)
+    if [[ -z "$token" || $((current_time - token)) -gt 300 ]]; then
+        echo -e "${red}Error: Invalid or expired token${plain}"
+        exit 1
+    fi
 
-if [[ -n $6 ]] && [[ $(($(date +%s) - $6)) -lt 120 ]] && [[ $(($(date +%s) - $6)) -ge 0 ]]; then
+    # Password validation
+    if [[ ${#password} -lt 3 ]]; then
+        echo -e "${red}Error: Password too short (min 3 chars)${plain}"
+        exit 1
+    fi
 
-sed -i 's/#\?AllowTcpForwarding .*/AllowTcpForwarding yes/' /etc/ssh/sshd_config && sed -i 's/#\?PasswordAuthentication .*/PasswordAuthentication yes/' /etc/ssh/sshd_config && sed -i 's/#\?Banner .*/Banner \/etc\/ssh\/gcp_404/' /etc/ssh/sshd_config && /etc/init.d/ssh restart;
-echo "$5" | tee /etc/ssh/gcp_404 >/dev/null
-sizepass=$(echo ${#2})
-[[ $sizepass -lt 3 ]] && {
-	echo -e "\n${cor1}Short password!, use at least 3 characters${scor}\n"
-	exit 1
+    # Configure SSH
+    sed -i 's/#\?AllowTcpForwarding .*/AllowTcpForwarding yes/' $SSH_CONFIG
+    sed -i 's/#\?PasswordAuthentication .*/PasswordAuthentication yes/' $SSH_CONFIG
+    sed -i "s|#\?Banner .*|Banner $BANNER_FILE|" $SSH_CONFIG
+    systemctl restart sshd
+
+    # Set banner
+    echo -e "$message" > "$BANNER_FILE"
+
+    # Create user
+    local expiry_date=$(date -d "+$days days" +%Y-%m-%d)
+    local pass_hash=$(openssl passwd -1 "$password")
+    useradd -e "$expiry_date" -m -s /bin/bash -p "$pass_hash" "$username"
+    
+    # Add to database
+    echo "$username $limit $protocol" >> "$USER_DB"
+    
+    # Display info
+    local ip=$(curl -s ifconfig.me)
+    echo -e "${green}SSH Account Created:${plain}"
+    echo -e "IP: $ip"
+    echo -e "Username: $username"
+    echo -e "Password: $password"
+    echo -e "Expiry: $(date -d "$expiry_date" +%d/%m/%Y)"
+    echo -e "Concurrent: $limit"
+    echo -e "Protocol: $protocol"
+    
+    # If DNSTT user, show connection info
+    if [[ "$protocol" == "dnstt" ]]; then
+        echo -e "${dnstt_color}DNSTT Connection:${plain}"
+        echo -e "Domain: $(grep '^domain=' $DNSTT_DIR/config 2>/dev/null | cut -d= -f2)"
+        echo -e "Secret Key: $(grep '^key=' $DNSTT_DIR/config 2>/dev/null | cut -d= -f2)"
+    fi
 }
-final=$(date "+%Y-%m-%d" -d "+$4 days")
-gui=$(date "+%d/%m/%Y" -d "+$4 days")
-pass=$(perl -e 'print crypt($ARGV[0], "password")' $2)
-useradd -e $final -M -s /bin/false -p $pass $1 >/dev/null
-echo "$2" >/etc/$1
-echo "$1:$2" | chpasswd
-echo "$1 $3" >>/root/usuarios.db
-IP=$(wget -qO- ipv4.icanhazip.com)
-echo ""
-echo -e "\033[1;32m===================================="
-echo -e "\033[1;32m   🌺ㅤONLY/:FORYOU&ALLㅤ🌺  " 
-echo -e "\033[1;32m===================================="
-echo ""
-echo -e "\033[1;37m◈─────⪧ SSH ACCOUNT ⪦─────◈"
-echo ""
-echo -e "\033[1;32m◈ Host / IP   :⪧  \033[1;31m$IP"
-echo -e "\033[1;32m◈ Port        :⪧  \033[1;31m22"
-echo -e "\033[1;32m◈ Username    :⪧  \033[1;31m$1"
-echo -e "\033[1;32m◈ Password    :⪧  \033[1;31m$2"
-echo -e "\033[1;32m◈ Login Limit :⪧  \033[1;31m$3"
-echo -e "\033[1;32m◈ Expire Date :⪧  \033[1;31m$gui"
-echo ""
-echo -e "\033[1;37m◈────⪧ ✿ ✿ 4▪0▪4 ✿ ✿ ⪦────◈"
-echo ""
 
-else
-echo -e "${red}Token is invalid or expired. Contact the developer https://t.me/nkka404 for more information.${plain}"
-fi
+# Install DNSTT server
+install_dnstt() {
+    local domain="$1"
+    local key="$2"
+    local port="$3"
+    
+    echo -e "${dnstt_color}Installing DNSTT server...${plain}"
+    
+    # Install dependencies
+    apt-get update
+    apt-get install -y git build-essential cmake libuv1-dev libssl-dev
+    
+    # Create DNSTT directory
+    mkdir -p $DNSTT_DIR
+    
+    # Clone and build DNSTT
+    cd $DNSTT_DIR
+    git clone https://github.com/alexbers/mtprotoproxy.git
+    cd mtprotoproxy
+    cmake .
+    make -j$(nproc)
+    
+    # Create config
+    cat > $DNSTT_DIR/config <<EOF
+domain=$domain
+key=$key
+port=$port
+EOF
+    
+    # Create systemd service
+    cat > $DNSTT_SERVICE <<EOF
+[Unit]
+Description=DNSTT Server
+After=network.target
 
-echo ""
-echo -e "${yellow}------------------------------------${plain}"
-printf "Developed the script by \n"
-echo -e "${yellow}------------------------------------${plain}"
-echo ""
+[Service]
+User=root
+WorkingDirectory=$DNSTT_DIR/mtprotoproxy
+ExecStart=$DNSTT_DIR/mtprotoproxy/mtprotoproxy -c $DNSTT_DIR/config
+Restart=always
 
-echo -e "${yellow}▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ${plain}"
-echo -e "${cyan} ___   ___          ________          ___   ___                               ${plain}"
-echo -e "${cyan}|\  \ |\  \        |\   __  \        |\  \ |\  \                              ${plain}"
-echo -e "${cyan}\ \  \|_\  \       \ \  \|\  \       \ \  \|_\  \                             ${plain}"
-echo -e "${cyan} \ \______  \       \ \  \/\  \       \ \______  \                            ${plain}"
-echo -e "${cyan}  \|_____|\  \       \ \  \/\  \       \|_____|\  \                           ${plain}"
-echo -e "${cyan}         \ \__\       \ \_______\             \ \__\                          ${plain}"
-echo -e "${cyan}          \|__|        \|_______|              \|__|                          ${plain}"
-echo -e "${green}Contact the developer https://t.me/nkka404 for more information              ${plain}"
-echo -e "${yellow}▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ${plain}"
+[Install]
+WantedBy=multi-user.target
+EOF
+    
+    # Enable and start service
+    systemctl daemon-reload
+    systemctl enable dnstt-server
+    systemctl start dnstt-server
+    
+    echo -e "${green}DNSTT server installed and running!${plain}"
+    echo -e "${dnstt_color}Domain:${plain} $domain"
+    echo -e "${dnstt_color}Secret Key:${plain} $key"
+    echo -e "${dnstt_color}Local Port:${plain} $port"
+}
 
-echo -e "${cyan}i Am 404 😎 ${plain}"
+# Create DNSTT user
+create_dnstt_user() {
+    local server_ip="$1"
+    local domain="$2"
+    local key="$3"
+    
+    echo -e "${dnstt_color}Creating DNSTT user configuration...${plain}"
+    
+    # Create client config
+    mkdir -p /etc/dnstt-client
+    cat > /etc/dnstt-client/config <<EOF
+server=$server_ip
+domain=$domain
+key=$key
+local_port=443
+EOF
+    
+    # Create client service
+    cat > /etc/systemd/system/dnstt-client.service <<EOF
+[Unit]
+Description=DNSTT Client
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/etc/dnstt-client
+ExecStart=$DNSTT_DIR/mtprotoproxy/client -c /etc/dnstt-client/config
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+EOF
+    
+    # Enable and start client
+    systemctl daemon-reload
+    systemctl enable dnstt-client
+    systemctl start dnstt-client
+    
+    echo -e "${green}DNSTT client configured!${plain}"
+    echo -e "${dnstt_color}Server IP:${plain} $server_ip"
+    echo -e "${dnstt_color}Domain:${plain} $domain"
+    echo -e "${dnstt_color}Secret Key:${plain} $key"
+    echo -e "${dnstt_color}Connect to localhost:443 for SSH${plain}"
+}
+
+# List users
+list_users() {
+    echo -e "${yellow}=== SSH Users ===${plain}"
+    printf "%-15s %-15s %-10s %-10s %-15s\n" "Username" "Expiry" "Limit" "Protocol" "Status"
+    echo "------------------------------------------------------------"
+    
+    while read -r line; do
+        local user=$(echo "$line" | awk '{print $1}')
+        local limit=$(echo "$line" | awk '{print $2}')
+        local protocol=$(echo "$line" | awk '{print $3}')
+        local expiry=$(chage -l "$user" | grep "Account expires" | cut -d: -f2 | sed 's/^ *//')
+        
+        if [[ "$expiry" == "never" ]]; then
+            expiry="Never"
+            status="${green}Active${plain}"
+        elif [[ $(date -d "$expiry" +%s) -lt $(date +%s) ]]; then
+            status="${red}Expired${plain}"
+        else
+            status="${green}Active${plain}"
+        fi
+        
+        printf "%-15s %-15s %-10s %-10s %-15s\n" "$user" "$expiry" "$limit" "$protocol" "$status"
+    done < "$USER_DB"
+}
+
+# Main execution
+case "$1" in
+    --create)
+        create_user "$2" "$3" "$4" "$5" "$6" "$7" "$8"
+        ;;
+    --install-dnstt)
+        install_dnstt "$2" "$3" "$4"
+        ;;
+    --create-dnstt-user)
+        create_dnstt_user "$2" "$3" "$4"
+        ;;
+    --delete)
+        delete_user "$2"
+        ;;
+    --list)
+        list_users
+        ;;
+    --backup)
+        backup_users
+        ;;
+    --restore)
+        restore_users "$2"
+        ;;
+    --sessions)
+        active_sessions
+        ;;
+    *)
+        echo "Usage: $0 [option]"
+        echo "Options:"
+        echo "  --create [user] [pass] [limit] [days] [protocol] [message] [token]  Create SSH user"
+        echo "  --install-dnstt [domain] [key] [port]                              Install DNSTT server"
+        echo "  --create-dnstt-user [server_ip] [domain] [key]                     Create DNSTT client"
+        echo "  --delete [user]                                                    Delete user"
+        echo "  --list                                                             List all users"
+        echo "  --backup                                                           Backup user database"
+        echo "  --restore [file]                                                   Restore from backup"
+        echo "  --sessions                                                         Show active sessions"
+        exit 1
+        ;;
+esac
